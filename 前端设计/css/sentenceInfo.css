@@ -1,0 +1,286 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+	
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+content{
+	margin-top: 20px;
+}
+
+.sentence-info-div{
+	margin-top: 20px;
+	background: rgba(255,255,255,1);
+	width: 100%;
+	padding:20px 40px;
+	position: relative;
+}
+
+.sentence-title{
+	font-weight: bold;
+	color:#5dac81;
+	font-size: 1em;
+	display: inline;
+}
+
+.sentence-content-div{
+	padding: 20px 20px;
+	border:1px #e6e6e6 dotted;
+	/*box-shadow: 0 0 1px #d7c4bb;*/
+	box-shadow: 0 0 3px #bbb;
+	border-radius: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.sentence-content{
+	font: 12px/1.5 微软雅黑, tahoma, arial, simsun, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	line-height: 38px;
+	text-align: justify;
+	cursor:text;
+	color:#000;
+}
+
+.sentence-publisher-p{
+	display: inline;
+}
+
+.sentence-from{
+	text-align:right;
+	display: inline-block;
+	float: right;
+}
+
+
+
+
+.index-a{
+	text-decoration: none;
+	color: #b55d4c;
+	transition: color 0.8s;
+}
+.index-a:link{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:visited{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:hover{
+	text-decoration: none;
+	color: #fb966e;
+
+}
+.index-a:active{
+	text-decoration: none;
+	color: #b55d4c;
+}
+
+.sentence-tag-div{
+	margin-top: 20px;
+}
+
+
+.sentence-tag-list a{
+	padding-right: 8px;
+	display: inline-block;
+}
+
+.tag-i{
+	color: #b55d4c;
+	font-weight: bold;
+	padding-right: 5px;
+}
+
+.tag-p{
+	cursor: default;
+}
+
+.sentence-operate{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.sentence-love{
+	cursor: pointer;
+}
+
+.sentence-love{
+	font-size: 1.2em;
+	margin-right: 20px;
+}
+
+#love-img{
+
+	height: 1.2em;
+	margin-bottom: 5px;
+}
+
+.sentence-collect{
+	cursor: pointer;
+	font-size: 1.2em;
+	margin-left: 20px;
+	color: #b55d4c;
+	transition: color 0.5s;
+}
+
+.sentence-collect:link{
+	color: #b55d4c;
+}
+.sentence-collect:visited{
+	color: #b55d4c;
+}
+.sentence-collect:hover{
+	color: #fb966e;
+
+}
+.sentence-collect:active{
+	color: #b55d4c;
+}
+
+
+.sentence-accuse{
+	margin-right: -35px;
+	float: right;
+	color:#999;
+}
+
+.sentence-accuse:link{
+	color: #999;
+}
+.sentence-accuse:visited{
+	color: #999;
+}
+.sentence-accuse:hover{
+	color: #F44E51;
+
+}
+.sentence-accuse:active{
+	color: #999;
+}
+
+
+@media screen and (max-width: 768px){
+	.sentence-left-side{
+		width: 100%;
+	}
+	.sentence-right-side{
+		width: 100%;
+		float: left;
+		margin-top: 30px;
+	}
+}
+
+
+.sentence-comment-div{
+	margin-top: 20px;
+	background: rgba(255,255,255,1);
+	width: 100%;
+	padding:20px 40px;
+	position: relative;
+}
+
+.comment-list{
+	margin-top: 20px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.comment-item{
+	position: relative;
+	border-bottom: 1px solid #efefef;
+	margin-bottom: 15px;
+	padding:15px 15px;
+	display: flex;
+}
+
+.comment-item-img{
+	width: 48px;
+	height: 48px;
+	margin-right: 20px;
+}
+
+.comment-item-right{
+	flex-grow: 1;
+}
+
+.comment-item-name{
+	font-size: 1.2em;
+}
+
+.comment-reply-a{
+	float: right;
+	text-decoration: none;
+	color: #5dac81;
+	transition: color 0.3s;
+}
+
+.comment-reply-a:link{
+	text-decoration: none;
+	color: #5dac81;
+}
+.comment-reply-a:visited{
+	text-decoration: none;
+	color: #5dac81;
+}
+.comment-reply-a:hover{
+	text-decoration: none;
+	color: #1b813e;
+}
+.comment-reply-a:active{
+	text-decoration: none;
+	color: #5dac81;
+}
+
+.comment-user-motto{
+	font-size: 0.9em;
+	color: #888;
+}
+
+.comment-item-time{
+	color: #444;
+	font-size: 0.9em;
+}
+
+.comment-item-content{
+	font-size: 1.2em;
+
+}
+
+.comment-reply-list{
+	margin-top: 8px;
+	border-top: 1px #ddd solid;
+	padding-top: 5px;
+}
+
+.comment-reply-list{
+	font-size: 1.2em;
+}
+
+.comment-reply-operate{
+	margin-top: 7px;
+}
+.comment-reply-time{
+	font-size: 0.8em;
+}
+.comment-reply-response-a{
+	font-size: 0.9em;
+}

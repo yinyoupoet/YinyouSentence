@@ -1,0 +1,146 @@
+.my-navbar{
+	padding: 220px 0;
+	transition: background 0.3s ease-in-out, padding 0.5s ease-in-out, top 0.5s ease-in-out;
+
+	position: fixed;
+	margin-bottom: 0;
+}
+
+.my-navbar a{
+	background: transparent !important;
+	color: #080808 !important;
+	transition: color 0.3s ease-in-out;
+}
+
+.my-navbar a:hover{
+	color: #cb4042 !important;
+	background: transparent;
+	background-color: rgba(255,255,255,0.8);
+	outline: 0;
+}
+
+.my-navbar li{
+	transition: all 0.5s;
+}
+.my-navbar li i{
+	font-size: 1.5em;
+}
+
+.nav>li{
+	position: relative;
+	display: bolck;
+
+}
+
+
+.top-nav{
+	position: relative;
+	padding: 0;
+	background-color: rgba(255,255,255,0.8);
+	box-shadow: 1px 1px 5px rgba(51,153,255,0.6);
+}
+
+.notifaction-icon{
+	position: relative;
+}
+
+.notifaction-num{
+	position: absolute;
+	border: 2px #fff solid;
+	border-radius: 30px;
+	background-color: red;
+	color: #fff;
+	top: -15px;
+	left:0.8em;
+	padding:0px 3px;
+}
+
+.nav-head-img{
+	width: 2em;
+}
+
+button.navbar-toggle {
+	background-color:#b55d4c;
+	}/* 整个背景都是transparent透明的，会看不到，所以再次覆盖一下  */ 
+button.navbar-toggle > span.icon-bar {
+	background-color:#dedede
+}
+
+
+
+.navbar-brand{
+	display: block;
+	color: #7db9de;
+}
+
+.navbar-title{
+	/*color: #24936e;*/
+	color: #855b32;
+	transition:all 0.5s;
+}
+
+.navbar-title:hover{
+	color:#b55d4c;
+}
+
+.nav-hide{
+	top:-600px;
+}
+
+.nav-show{
+	top:0px;
+}
+
+.nav>li>a:before,
+.nav>li>a:after{
+	content:"";
+	width: 0;
+	height: 3px;
+	background: #cb4042;
+	position: absolute;
+	top: 90%;
+	left: 0%;
+	transition: all .5s;
+}
+
+.nav>li>a:hover:after{
+	left: 0;
+	width: 100%;
+}
+
+
+.nav-self-info{
+	position: relative;
+	text-align: left;
+	right: 0;
+	margin-top: 0;
+	width: 200px;
+	background: rgba(252,250,242,0.8);
+	color: #fff;
+	box-shadow: -1px 1px 5px rgba(51,153,255,0.6);
+	z-index: 100;
+	padding:20px 3px;
+	display: none;
+}
+
+.head-info{
+	width: 4em;
+	height: 4em;
+	float: left;
+	margin-left: 8px;
+	margin-top: 10px;
+}
+
+.dropdown-menu{
+	background: rgba(255,255,255,0.5);
+	width: 100%;
+	border:0;
+}
+
+.icon{
+	width: 2em;
+	margin-top: -5px;
+}
+
+
+/* 星期三下午 */
