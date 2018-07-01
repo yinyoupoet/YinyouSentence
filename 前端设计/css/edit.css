@@ -1,0 +1,83 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+	
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+.edit-content{
+	margin-top: 70px;
+	background: #f2f2f2;
+	padding: 20px 40px;
+	border-radius: 10px;
+}
+
+.head-img{
+	position: relative;
+	text-align: center;
+}
+
+#img-upload{
+	display: none;
+}
+
+#my-img{
+	width: 160px;
+	height: 160px;
+	border: 5px solid #fff;
+	border-radius: 5px;
+	margin-top: -65px;
+	margin-right: 35px;
+	cursor: pointer;
+}
+
+.change-img-hover{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	margin-left: -17px;
+
+	width: 160px;
+	height: 160px;
+	background: rgba(153,153,153,0.8);
+	border: 5px solid #fff;
+	border-radius: 5px;
+	margin-top: -65px;
+	margin-right: 35px;
+	cursor: pointer;
+	
+}
+
+.change-img-title{
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	font-size: 20px;
+}
+
+#my-img:hover+.change-img-hover{
+	display: inline-block;
+}
+.change-img-hover:hover{
+	display: inline-block;
+}
+
+.change-img-hover{
+	display: none;
+}

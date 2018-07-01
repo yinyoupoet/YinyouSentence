@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/fontawesome-all.css">
 	<link rel="stylesheet" type="text/css" href="./css/select-color.css">
 	<link rel="stylesheet" type="text/css" href="./css/animate.css">
+	<link rel="stylesheet" type="text/css" href="./css/layx.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/nav.css">
 	<link rel="stylesheet" type="text/css" href="./css/footer.css">
 	<link rel="stylesheet" type="text/css" href="./css/back-to-top.css">
@@ -110,9 +111,10 @@
 
 						<!-- 设置喜欢和收藏 -->
 						<div class="sentence-operate">
-							<span class="sentence-love index-a"><img src="./imgs/love.png" title="喜欢" id="love-img" state="false"> 喜欢</span>
+							<span class="sentence-love index-a"><img src="./imgs/love.png" title="喜欢" id="love-img" state="false"> 喜欢 (1820)</span>
 
-							<span class="sentence-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+							<span class="sentence-collect recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+							<a class="sentence-to-comment index-a cm" href="#comment"><i class="far fa-comment"></i> 评论</a>
 						</div>
 						
 						<!-- 举报这条句子 -->
@@ -125,24 +127,29 @@
 					<!-- 查看句子评论 -->
 					<div class="sentence-comment-div">
 						<p class="sentence-title">~~ 心得交流 ~~</p>
+
+					<!-- 	<div class="no-comment-show">
+							<center><a href="#comment" class="index-a cm">还没有评论哦，赶紧去发布一条吧</a></center>
+						</div> -->
+
 						
 						<!-- 评论列表 -->
 						<div class="comment-list">
 
 							<!-- 评论一条 -->
 							<div class="comment-item">
-								<img src="./imgs/海子.jpg" class="comment-item-img">
+								<a href="#" class="comment-item-img-a"><img src="./imgs/海子.jpg" class="comment-item-img"></a>
 								<div class="comment-item-right">
 									<!-- 评论头部用户信息 -->
 									<div class="comment-item-head">
-										<a class="comment-item-name index-a" href="#">海子</a>	
+										<a class="comment-item-name index-a" href="#" id="comment-author-1">海子</a>	
 										<span class="comment-user-motto">(灯寂人初灭，月影杳萧墙)</span>
-										<a class="comment-reply-a" href="#">回复</a>
+										<a class="comment-reply-a cm" href="#comment" name="1">回复</a>
 										<p class="comment-item-time">2018-6-12 20:15:24</p>
 										
 									</div>
 									<!-- 评论内容 -->
-									<div class="comment-item-content">
+									<div class="comment-item-content" id="comment-content-1">
 										丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人。
 										而那些风里雨里过不去的日子啊，总会消散在赤练彩虹桥之前，美好即将到来。
 									</div>
@@ -153,18 +160,18 @@
 
 							<!-- 评论一条 -->
 							<div class="comment-item">
-								<img src="./imgs/海子.jpg" class="comment-item-img">
+								<a href="#" class="comment-item-img-a"><img src="./imgs/海子.jpg" class="comment-item-img"></a>
 								<div class="comment-item-right">
 									<!-- 评论头部用户信息 -->
 									<div class="comment-item-head">
-										<a class="comment-item-name index-a" href="#">海子</a>	
+										<a class="comment-item-name index-a" href="#" id="comment-author-2">海子</a>	
 										<span class="comment-user-motto">(灯寂人初灭，月影杳萧墙)</span>
-										<a class="comment-reply-a" href="#">回复</a>
+										<a class="comment-reply-a cm" href="#comment" name="2">回复</a>
 										<p class="comment-item-time">2018-6-12 20:15:24</p>
 										
 									</div>
 									<!-- 评论内容 -->
-									<div class="comment-item-content">
+									<div class="comment-item-content" id="comment-content-2">
 										丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人。
 										而那些风里雨里过不去的日子啊，总会消散在赤练彩虹桥之前，美好即将到来。
 									</div>
@@ -175,54 +182,54 @@
 
 							<!-- 评论一条 -->
 							<div class="comment-item">
-								<img src="./imgs/海子.jpg" class="comment-item-img">
+								<a href="#" class="comment-item-img-a"><img src="./imgs/海子.jpg" class="comment-item-img"></a>
 								<div class="comment-item-right">
 									<!-- 评论头部用户信息 -->
 									<div class="comment-item-head">
-										<a class="comment-item-name index-a" href="#">海子</a>	
+										<a class="comment-item-name index-a" href="#" id="comment-author-3">海子</a>	
 										<span class="comment-user-motto">(灯寂人初灭，月影杳萧墙)</span>
-										<a class="comment-reply-a" href="#">回复</a>
+										<a class="comment-reply-a cm" href="#comment" name="3">回复</a>
 										<p class="comment-item-time">2018-6-12 20:15:24</p>
 									</div>
 									<!-- 评论内容 -->
-									<div class="comment-item-content">
+									<div class="comment-item-content" id="comment-content-3">
 										丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人。
 										而那些风里雨里过不去的日子啊，总会消散在赤练彩虹桥之前，美好即将到来。
 									</div>
 
 									<!-- 一条评论的回复 -->
 									<div class="comment-reply-list">
-										<a class="comment-reply-name index-a" href="#">吟游诗人</a>: 	
+										<a class="comment-reply-name index-a" href="#" id="comment-author-4">吟游诗人</a>: 	
 										&nbsp;回复 <a href="#" class="index-a comment-reply-object">海子</a>:
-										&nbsp;<span class="comment-reply-content">大师兄说得对</span>	
+										&nbsp;<span class="comment-reply-content" id="comment-content-4">大师兄说得对</span>	
 										<div class="comment-reply-operate">
 											<span class="comment-reply-time">2018-6-5 12:05:26</span>
-											<a href="#" class="index-a comment-reply-a comment-reply-response-a">回复</a>
+											<a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm" name="4">回复</a>
 										</div>				
 									</div>
-									<!--一条评论的回复结束 -->
+									<!-- 一条评论的回复结束 -->
 									<!-- 一条评论的回复 -->
 									<div class="comment-reply-list">
-										<a class="comment-reply-name index-a" href="#">吟游诗人</a>: 	
+										<a class="comment-reply-name index-a" href="#" id="comment-author-5">吟游诗人</a>: 	
 										&nbsp;回复 <a href="#" class="index-a comment-reply-object">海子</a>:
-										&nbsp;<span class="comment-reply-content">大师兄说得对</span>	
+										&nbsp;<span class="comment-reply-content" id="comment-content-5">大师兄说得对</span>	
 										<div class="comment-reply-operate">
 											<span class="comment-reply-time">2018-6-5 12:05:26</span>
-											<a href="#" class="index-a comment-reply-a comment-reply-response-a">回复</a>
+											<a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm" name="5">回复</a>
 										</div>				
 									</div>
-									<!--一条评论的回复结束 -->
+									<!-- 一条评论的回复结束 -->
 									<!-- 一条评论的回复 -->
 									<div class="comment-reply-list">
-										<a class="comment-reply-name index-a" href="#">吟游诗人</a>: 	
+										<a class="comment-reply-name index-a" href="#" id="comment-author-6">吟游诗人</a>: 	
 										&nbsp;回复 <a href="#" class="index-a comment-reply-object">海子</a>:
-										&nbsp;<span class="comment-reply-content">大师兄说得对</span>	
+										&nbsp;<span class="comment-reply-content" id="comment-content-6">大师兄说得对</span>	
 										<div class="comment-reply-operate">
 											<span class="comment-reply-time">2018-6-5 12:05:26</span>
-											<a href="#" class="index-a comment-reply-a comment-reply-response-a">回复</a>
+											<a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm" name="6">回复</a>
 										</div>				
 									</div>
-									<!--一条评论的回复结束 -->
+									<!-- 一条评论的回复结束 -->
 
 									
 								</div>
@@ -230,13 +237,23 @@
 							<!-- 评论一条结束 -->
 
 						</div>
+						<!-- 评论列表结束 -->
+						
 
 					</div>
 					<!-- 查看句子评论结束 -->
 
 					<!-- 发布评论 -->
-					<div class="publish-comment">
-						
+					<div class="publish-comment" id="comment">
+						<p class="sentence-title">~~ 发布评论 ~~</p>
+						<form class="comment-input-form" action="comment.action" method="post">
+							<p class="comment-reply-head">回复： @海子 "谢谢啦"</p>
+							<div class="form-group">
+								<textarea class="form-control" rows="5" id="comment-content"></textarea>
+							</div>
+							<button class="btn btn-info comment-publish-btn">发布评论</button>
+							<div style="clear: both;"></div>
+						</form>
 					</div>
 					<!-- 发布评论结束 -->
 
@@ -248,8 +265,59 @@
 
 				<!-- 句子右边版块 -->
 				<div class="col-xs-4 sentence-right-side">
-					
+
+					<!-- 作者信息 -->
+					<div class="author-info">
+						<center><a href="#"><img src="./imgs/王小波.jpg" class="author-info-img" title="王小波"></a></center>
+						<center><a class="author-name title-a" href="#">王小波</a></center>
+						<div class="author-introduce">
+							<span class="author-introduce-title">作者简介：</span><a class="author-introduce-content" href="#">王小波 （1952年5月13日－1997年4月11日），北京人，作家。年轻时在云南农场作过知青，插过队，作过工人、老师。1978年至1982年在中国人民大学学习。1984年赴美。1988年获匹兹堡大学硕士学位。后任教于北京大学和中国人民大学。1992年后开始成为自由撰稿人。1997年4月11日因心脏病突发逝世于北京。 </a>
+						</div>
+						<div class="author-other-sentence">
+							<a href="#" class="title-a more-sentence-title">>>更多王小波的句子</a>
+							<!-- 一条更多句子 -->
+							<div class="more-item">
+								<i class="fas fa-chevron-right"></i> <a href="#" class="index-a">人的一切痛苦，本质上都是对自己的无能的愤怒。</a>
+							</div>
+							<!-- 一条更多句子结束 -->
+							<!-- 一条更多句子 -->
+							<div class="more-item">
+								<i class="fas fa-chevron-right"></i> <a href="#" class="index-a">我把我整个灵魂都给你，连同它的怪癖，耍小脾气，忽明忽暗，一千八百种坏毛病。它真讨厌，只有一点好，爱你。</a>
+							</div>
+							<!-- 一条更多句子结束 -->
+							<!-- 一条更多句子 -->
+							<div class="more-item">
+								<i class="fas fa-chevron-right"></i> <a href="#" class="index-a">不愿清醒，宁愿一直沉迷放纵。 不知归路，宁愿一世无悔追逐。</a>
+							</div>
+							<!-- 一条更多句子结束 -->
+							
+						</div>
+					</div>
+					<!-- 作者简介结束 -->
+
+					<!-- 喜欢该句子的人 -->
+					<div class="love-this-sentence-div">
+						<p class="love-this-sentence-title"><a href="#" class="title-a">>> 这些人也喜欢这个句子</a></p>
+						<!-- 喜欢的一个用户 -->
+						<div class="love-client-item">
+							<a href="#"><img src="./imgs/鲁迅.jpg"></a>
+							<div class="love-client-right">
+								<a href="#" class="index-a love-client-name ">李白</a>
+								<span class="love-span-intr">湖南/男</span><br>
+								<button class="btn-follow" UID="1"><i class="fas fa-plus"></i> 关注</button>
+								<!-- <p class="fan-client" UID="1">+ 关注</p> -->
+							</div>
+						</div> 
+						<!-- 喜欢的一个用户结束 -->
+
+						<!-- 没人喜欢这个句子 -->
+						<p class="love-client-nobody">还没有人喜欢这个句子哦...</p>
+
+					</div>
+					<!-- 喜欢该句子的人结束 -->
+
 				</div>
+				<!-- 右边部分结束 -->
 
 
 			</div>
@@ -277,10 +345,14 @@
 
 
 
-
+<script type="text/javascript" src="./js/layx.min.js"></script>
 <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/nav.js"></script>
+<script type="text/javascript" src="./js/toCollect.js"></script>
 <script type="text/javascript" src="./js/sentenceInfo.js"></script>
+
+
+
 </body>
 </html>

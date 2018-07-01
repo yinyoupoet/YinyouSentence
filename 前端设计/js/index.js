@@ -15,18 +15,9 @@ var initRecommendBarAction = function(){
   // 初始化喜欢按钮点击事件
   initRecommendLove();
 
-  // 初始化收藏到句子集的点击事件
-  initRecommendCollect();
-
 }
 
-var initRecommendCollect = function(){
-  $('.recommend-collect').on('click',function(){
-      layx.iframe('localsite','收藏到句子集','./collect.html',{
 
-      });
-  });
-};
 
 
 // 初始化喜欢按钮点击事件

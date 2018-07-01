@@ -110,7 +110,7 @@ button.navbar-toggle > span.icon-bar {
 
 
 .nav-self-info{
-	position: relative;
+	position: absolute;
 	text-align: left;
 	right: 0;
 	margin-top: 0;
@@ -143,4 +143,10 @@ button.navbar-toggle > span.icon-bar {
 }
 
 
-/* 星期三下午 */
+@media screen and (max-width: 768px){
+	.nav-self-info{
+		position: absolute;
+		left: 0;
+	}
+	
+}

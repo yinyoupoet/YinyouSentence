@@ -1,0 +1,231 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+	
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+content{
+	margin-top: 20px;
+}
+
+.authorInfo-div{
+	margin-top: 20px;
+	background: #fff;
+	padding: 20px 40px;
+}
+
+.author-info-left{
+	padding-right: 20px;
+	text-align: center;
+}
+
+.author-info-pic{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.author-info-name{
+	font-weight: bold;
+}
+
+.author-love{
+	margin-bottom: 15px;
+	cursor: pointer;
+	font-size: 1.2em;
+	margin-right: 20px;
+}
+#love-img{
+	height: 1.2em;
+	margin-bottom: 5px;
+}
+
+.index-a{
+	text-decoration: none;
+	color: #b55d4c;
+	transition: color 0.8s;
+}
+.index-a:link{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:visited{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:hover{
+	text-decoration: none;
+	color: #fb966e;
+
+}
+.index-a:active{
+	text-decoration: none;
+	color: #b55d4c;
+}
+
+.author-info-intro{
+	margin-top: 15px;
+}
+
+.author-info-intro{
+	line-height: 26px;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+
+.author-info-intro-title{
+	font-weight: bold;
+}
+.author-info-intro-content{
+	font-family: STSong;
+}
+
+
+
+@media screen and (max-width: 1300px){
+	.author-books-item{
+		width: 33%;
+	}
+	.author-fans-item{
+		width: 16.6%;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	.author-books-item{
+		width: 50%;
+	}
+	.author-fans-item{
+		width: 25%;
+	}
+}
+
+@media screen and (max-width: 560px){
+	.author-info-left{
+		width: 100%;
+	}
+	.author-info-right{
+		width: 100%;
+		padding:0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.author-fans-item{
+		width: 33.3%;
+	}
+
+}
+
+
+@media screen and (max-width: 420px){
+	.author-books-item{
+		width: 100%;
+	}
+}
+
+.author-books-div{
+	margin-top: 20px;
+	padding: 20px 40px;
+	background: #fff;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.author-books-list{
+	margin-top: 20px;
+}
+
+.author-books-item{
+	padding:20px 20px;
+}
+
+.author-books-item-pic{
+	width: 100%;
+}
+
+.author-books-item-content{
+	padding: 15px 30px;
+	/*background: #f5f5f5;*/
+	background: url('../imgs/6286d2220a1987c843163a6f8db614b7.png');
+	border:1px solid #e3e3e3;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	text-align: center;
+}
+
+.author-books-item-title{
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.book-love{
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+.love-img{
+	height: 1.2em;
+	margin-bottom: 5px;
+}
+
+
+.author-info-sentences{
+	padding: 10px 20px;
+	color: #2098D1;
+    text-decoration: none;
+    background: #fffffb;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.author-fans{
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: 20px;
+	padding: 20px 40px;
+	background: #fff;
+}
+
+.author-fans-item{
+	padding: 10px 10px;
+}
+
+.author-fans-content{
+	text-align: center; 
+}
+
+.author-fans-content img{
+	width: 100%;
+	margin-bottom: 15px;
+}
+.author-fan-name{
+	font-size: 1.2em;
+}
+
+.author-fan-info{
+	color: #333;
+}
+.author-fans-title{
+	display: inline-block;
+}
+
+.author-more-fan-a{
+	float: right;
+	margin-top: 4px;
+	font-size: 1.2em;
+}
