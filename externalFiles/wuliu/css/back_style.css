@@ -1,0 +1,30 @@
+#success_message{ display: none;}
+.rv_control-label{
+	float:left;
+}
+
+#show-form label{
+	border: 1px solid red;
+}
+
+.back-order{
+	font-size: 15px;
+}
+
+.back-order td{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.back-right{
+	background-color: #fff;
+}
+
+.back-head{
+	background-color: #d7c4bb;
+	color: #766c67;
+}
+
+#show-form{
+	display: none;
+}

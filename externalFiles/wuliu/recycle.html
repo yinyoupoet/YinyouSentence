@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>回收</title>
+  <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+
+      <link rel="stylesheet" href="css/recycle_style.css">
+
+  
+</head>
+
+<body>
+  <div class="container" id="input-form">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+      <fieldset>
+
+      <!-- Form Name -->
+      <legend>请填写回收信息!</legend>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">寄件人姓名</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input  name="first_name" placeholder="寄件人姓名" class="form-control"  type="text" id="input-name">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" >联系电话</label> 
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+        <input name="telephone" placeholder="联系电话" class="form-control"  type="text" id="input-tel">
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Text input-->
+             <div class="form-group">
+        <label class="col-md-4 control-label">住址</label>  
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        <input name="category" placeholder="住址" class="form-control"  type="text" id="input-address">
+          </div>
+        </div>
+      </div>
+
+        <!-- Text input-->
+             <div class="form-group">
+        <label class="col-md-4 control-label">废弃电子产品类型</label>  
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-indent" aria-hidden="true"></i></span>
+        <input name="category" placeholder="废弃电子产品类型" class="form-control"  type="text" id="input-kind">
+          </div>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+         
+      <div class="form-group"> 
+        <label class="col-md-4 control-label">是否上门取件</label>
+          <div class="col-md-4 selectContainer">
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-hand-lizard-o" aria-hidden="true"></i></span>
+          <select name="state" class="form-control selectpicker" id="input-method">
+            <option value=" " >请选择</option>
+            <option value="上门取件">上门取件</option>
+            <option value="自己送至回收点">自己送至回收点</option>
+          </select>
+        </div>
+      </div>
+      </div>
+
+        <!-- Text input-->
+             <div class="form-group">
+        <label class="col-md-4 control-label">废旧程度</label>  
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-battery-three-quarters" aria-hidden="true"></i></span>
+        <input name="category" placeholder="废旧程度" class="form-control"  type="text" id="input-grade">
+          </div>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-warning" id="submit-info">提交<span class="glyphicon glyphicon-send"></span></button>
+        </div>
+      </div>
+
+      </fieldset>
+    </form>
+  </div>
+
+
+
+
+
+  <div class="container" id="show-form">
+    <div class="well">
+        <table class="back-order" style="width:100%" border="5px">
+          <tr><th colspan="2"><h2><center>回收单</center></h2></th></tr>
+          <tr>
+            <td class="back-left col-xs-6"  colspan="2"><center>寄件人姓名</center></td>  
+          </tr>
+          <tr>
+            <td class="back-right col-xs-6" colspan="2"><b id="show-name">姓名</b></td>
+          </tr>          
+           <tr>
+            <td class="back-left col-xs-6" colspan="2"><center>联系电话</center></td>
+          </tr>
+          <tr>
+            <td class="back-right col-xs-6" colspan="2"><b id="show-telephone">电话</b></td>
+          </tr>
+           <tr>
+            <td class="back-left col-xs-6" colspan="2"><center>住址</center></td>
+          </tr>
+          <tr>
+            <td class="back-right col-xs-6" colspan="2"><b id="show-address">住址</b></td>
+          </tr>
+          <tr>
+            <td class="back-left col-xs-6" colspan="2"><center>废弃电子产品类型</center></td>
+          </tr>
+          <tr>
+            <td class="back-right col-xs-6" colspan="2"><b id="show-kind">类型</b></td>
+          </tr>
+           <tr>
+            <td class="back-left col-xs-6" colspan="2"><center>是否上门取件</center></td>
+          </tr>
+          <tr>
+            <td class="back-right col-xs-6" colspan="2"><b id="show-method">上门取件</b></td>
+          </tr>
+           <tr>
+            <td class="back-left col-xs-6" colspan="2"><center>废旧程度</center></td>
+          </tr>
+          <tr>
+            <td class="back-right col-xs-6" colspan="2"><b id="show-grade">程度</b></td>
+          </tr>
+           <tr>
+            <td class="back-left-btn" colspan="2">
+              <center>
+              <button class="btn btn-warning" id="show-ok">确定</button>
+            </center>
+            </td>
+          </tr>
+        </table>
+    </div>
+  </div>
+    
+
+
+    <script src='./js/jquery-1.8.3.min.js'></script>
+    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+
+    <script  src="js/recycle.js"></script>
+
+</body>
+</html>

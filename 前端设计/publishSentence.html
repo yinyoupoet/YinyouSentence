@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- https://www.cnblogs.com/baiyii/p/6973437.html  ,使用@media -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+	<title>发布句子——吟游佳句</title>
+
+	<link rel="icon" href="./imgs/icon_2.png" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/scroll-style-change.css">
+	<link rel="stylesheet" type="text/css" href="./css/fontawesome-all.css">
+	<link rel="stylesheet" type="text/css" href="./css/select-color.css">
+	<link rel="stylesheet" type="text/css" href="./css/animate.css">
+	<link rel="stylesheet" type="text/css" href="./css/layx.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/nav.css">
+	<link rel="stylesheet" type="text/css" href="./css/footer.css">
+	<link rel="stylesheet" type="text/css" href="./css/back-to-top.css">
+	<link rel="stylesheet" type="text/css" href="./css/publishSentence.css">
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-fixed-top my-navbar top-nav" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#yinyou-navbar-collapse">
+						<span class="sr-only">切换导航</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+					<div>
+						<a href="#" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="./imgs/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
+					</div>
+				</div>
+
+				<div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="#"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+						<li><a href="#">
+							<span class="notifaction-icon">
+								<i class="fas fa-bell"></i>
+								<span class="notifaction-num">1</span>
+							</span>&nbsp;&nbsp;通知</a></li>
+						<li id="nav-head-infoIMG">
+							<a href="#">
+								<img src="./imgs/5c4946fbeaf128b0b2bf7ec6aa177d21.jpg" class="nav-head-img" id="nav-head-img">
+							</a>
+						</li>
+						<!-- <li id="nav-head-infoIMG">
+							<a href="./login.html" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
+						</li> -->
+					</ul>
+				</div>
+
+			</div>
+
+		</nav>
+
+		<!-- 鼠标点击头像，显示信息 -->
+		<div class="nav-self-info">
+			<img src="./imgs/5c4946fbeaf128b0b2bf7ec6aa177d21.jpg" class="head-info">
+			<div style="display: inline;">
+				<ul style="display: inline; float: left;" class="info-ul">
+					<li><a href="#" class="info-link">吟游诗人</a></li>
+					<li><a href="#" class="info-link">编辑资料</a></li>
+					<li><a href="#" class="info-link">登出</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</header>
+
+	<content>
+		<div class="container publish-div">
+			<p class="giant-title">~~ 发布句子 ~~</p>
+
+			<div class="sentence-area">
+				<form class="sentence-input">
+					<label>收录到句子集：</label>
+					<div class="collect-select-div">
+						<select class="collect-select" name="collect-select">
+							<option value="0">--- 请选择句子集 ---</option>
+							<option value="1">测试</option>
+							<option value="2">王小波选集</option>
+						</select>
+					</div>
+					<div class="input-sentence">
+						<textarea name="sentence-content" placeholder="请输入句子，最多输入512个字符" class="textarea-sentence" maxlength="512"></textarea>
+					</div>
+
+					<div class="sentence-from">
+						<div class="sentence-write-type">
+							<label>是否原创： <input type="checkbox" name="original" id="sentence-original"></label>
+							<span class="original-tip">(公子/小姐，请保证是您原创的才能勾选呦，否则我们可能会送您封号套餐哒)</span>
+						</div>
+						<div class="sentence-not-original">
+							<div class="sentence-author">
+								<label>作者：<input type="text" name="authorName" class="input-style"></label>
+							</div>
+							<div class="sentence-original">
+								<label>出处：<input type="text" name="bookName" class="input-style"></label>
+							</div>
+						</div>
+
+						<div class="category">
+							<label>句子类别：</label>
+							<div class="collect-select-div">
+								<select class="collect-select" name="category-select">
+									<option value="0">--- 请选择类别 ---</option>
+									<option value="1">散文/随笔</option>
+									<option value="2">书籍</option>
+									<option value="3">歌词</option>
+									<option value="4">诗歌</option>
+									<option value="5">古诗</option>
+									<option value="6">宋词</option>
+									<option value="7">格言</option>
+									<option value="8">心语</option>
+									<option value="9">古风句子</option>
+									<option value="10">经典语录</option>
+									<option value="11">名人名言</option>
+									<option value="12">英语名言</option>
+									<option value="13">小说摘抄</option>
+									<option value="14">动漫语录</option>
+									<option value="15">网友原创</option>
+									<option value="16">电影台词</option>
+									<option value="17">电视剧台词</option>
+									<option value="18">古文名句</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="tags">
+							<p><span class="tag-title">句子标签：</span><span class="tag-info">(多个标签请用空格隔开，最多5个标签)</span></p>
+							<input type="text" name="tag-input" class="input-style input-tag" id="input-tag">
+							<p class="hot-tags"><span class="hot-tag-title">热门标签：</span>
+								<span class="hot-tag" state="false">诗意</span>
+								<span class="hot-tag" state="false">人生</span>
+								<span class="hot-tag" state="false">梦想</span>
+								<span class="hot-tag" state="false">爱情</span>
+								<span class="hot-tag" state="false">思想</span>
+								<span class="hot-tag" state="false">感悟</span>
+								<span class="hot-tag" state="false">可爱</span>
+								<span class="hot-tag" state="false">小清新</span>
+								<span class="hot-tag" state="false">萌萌哒</span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="submit-btn-div">
+						<input type="submit" name="submit" class="btn btn-primary submit-btn" value="提交">
+					</div>
+					
+				</form>
+			</div>
+		</div>		
+
+	</content>
+
+
+	<!-- 	<footer class="footer">
+		<div class="container">
+			<center>版权所有 © 吟游佳句 | 现代人心灵旅社，吟游诗人出品 </center>
+		</div>
+	</footer> -->
+
+	<!-- 点击返回首部 -->
+	<a class="arrow-up back-to-top">
+		<span class="left-arm"></span>
+  		<span class="right-arm"></span>
+  		<span class="arrow-slide"></span>
+	</a>
+
+
+<script type="text/javascript" src="./js/layx.min.js"></script>
+<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/nav.js"></script>
+<script type="text/javascript" src="./js/toCollect.js"></script>
+<script type="text/javascript" src="./js/publishSentence.js"></script>
+
+
+
+</body>
+</html>

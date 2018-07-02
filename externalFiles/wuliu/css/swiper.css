@@ -1,0 +1,84 @@
+* {
+	margin:0;
+	padding:0
+}
+.swiper-container {
+	height:100%;
+	position:relative;
+  background:skyblue;
+}
+.swiper-slide .swiper_1 {
+	position:absolute;
+	width:50%;
+	height:70%;
+	left:25%;
+	top:15%;
+  text-align:center;
+}
+.swiper-slide .swiper_2 {
+	position:absolute;
+	width:50%;
+	height:70%;
+	left:25%;
+	top:15%;
+	text-align:center
+}
+.swiper-slide .logo {
+	color:#fff;
+	font-size:120px;
+	font-style:italic;
+	text-align:center;
+	font-weight:700
+}
+.swiper-slide .show {
+	color:#fff;
+	font-size:30px;
+	text-align:center;
+	position:relative;
+	top:10%
+}
+.swiper-slide .button-div {
+	text-align:center;
+	position:relative;
+	top:20%
+}
+.swiper-slide .button {
+	border:1px solid #fff;
+	border-radius:25px;
+	display:inline;
+	padding:10px 15px;
+	color:#fff;
+	cursor:pointer;
+	margin-right:5px
+}
+.swiper-slide .button-div2 {
+	text-align:center;
+	position:relative;
+	top:30%
+}
+.swiper-slide .button-start {
+	border-radius:25px;
+	background-color:#fff;
+	color:#3566f2;
+	cursor:pointer;
+	position:relative;
+	display:inline;
+	padding:10px 15px
+}
+.swiper-slide .whychoose {
+	color:#fff;
+	position:relative;
+	top:40px;
+	font-size:50px
+}
+.swiper-slide .feature-wrapper {
+	position:relative;
+	top:80px
+}
+.swiper-slide .feature {
+	color:#fff;
+	position:relative;
+	font-size:25px;
+	margin-top:20px;
+	text-shadow: 1px 1px 1px gray
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>逆向物流</title>
+  <!--
+today: be happy
+tomorrow: be happy
+everyday: be happy
+-->
+
+
+<script>
+// Robots don't want to stop dancing !
+// therefore decided to restore original RAF
+if (window.location.href.indexOf("fullcpgrid") > -1) {
+  document.addEventListener('DOMContentLoaded', function() {
+    const original = document.createElement('iframe');
+    original.style.display = 'none';
+    document.body.appendChild(original);
+    window.requestAnimationFrame = original.contentWindow.requestAnimationFrame;
+  }, false);
+}
+</script>
+  
+  
+      <link rel="stylesheet" href="css/dance_style.css">
+      <link rel="stylesheet" href="css/swiper.min.css">
+      <link rel="stylesheet" href="css/swiper.css">
+
+  
+</head>
+
+<body>
+    <div class=swiper-container>
+    <div class=swiper-wrapper>
+      <div class="swiper-slide">
+        <div class=swiper_1>
+          <div class=logo data-swiper-parallax=0>
+             Welcome
+          </div>
+          <div class=show data-swiper-parallax=-1000>
+             电商逆向物流和电子产品综合信息平台
+          </div>
+          <div class=button-div data-swiper-parallax=-2000>
+            <div class="button" id="back-page">
+               退货——逆向物流
+            </div>
+            <div class="button" id="reget-page">
+               回收——逆向物流
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class=swiper_2>
+          <div class=whychoose>
+             为什么选择我们 ?
+          </div>
+          <div class=feature-wrapper>
+            <div class=feature data-swiper-parallax=-1000>
+               ★ 成本低 ★
+            </div>
+            <div class=feature data-swiper-parallax=-2000>
+               ★ 速度快 ★
+            </div>
+            <div class=feature data-swiper-parallax=-3000>
+               ★ 操作简单 ★
+            </div>
+            <div class=feature data-swiper-parallax=-4000>
+               ★ 优质服务 ★
+            </div>
+            <div class=feature data-swiper-parallax=-5000>
+               ★ 更多精彩功能，等您开启 ★
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination">
+    </div>
+    <div class=swiper-button-prev>
+    </div>
+    <div class=swiper-button-next>
+    </div>
+  </div>
+
+
+
+
+    <canvas style="display: none;"></canvas>
+
+    
+
+     <script src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+    <script  src="js/swiper.js"></script>
+    <script  src="js/dance.js"></script>
+
+</body>
+</html>
