@@ -5,7 +5,26 @@ $(document).ready(function(){
 	// 设置锚点滚动速度
 	initMaoDianScroll();
 
+	// 取消回复按钮
+	// initCancelComment();
+
 });
+
+// 取消回复按钮
+// var initCancelComment = function(){
+// 	$('#comment-cancel').on('click',function(){
+// 		cancelComment();
+// 	});
+// }
+
+var cancelComment = function(){
+	console.log("消失吧");
+	$('.comment-reply-head').html();
+	// $('.comment-reply-head').css('display','none');
+	$('.comment-reply-head').toggle(500);
+	// $('.comment-reply-head').fadeOut(500);
+	$('.comment-input-form').attr('action','comment.action');
+}
 
 
 
@@ -20,10 +39,10 @@ var initMaoDianScroll = function(){
 		}
 		var replyName = $('#comment-author-'+name).html();
 		var replyContent = $('#comment-content-'+name).html();
-		$('.comment-reply-head').html('回复： @'+ replyName + ' "' + replyContent + '"');
+		$('.comment-reply-head').html('回复： @'+ replyName + ' "' + replyContent + '"' + '<span class="comment-cancel index-a" id="comment-cancel" onclick="cancelComment();"><i class="far fa-times-circle"></i>取消回复</span>');
 		$('.comment-reply-head').css('display','block');
 		$('.comment-input-form').attr('action','comment.action?replyId=' + name);
-		return false;
+		return true;
 	});
 };
 

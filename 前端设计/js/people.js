@@ -59,12 +59,13 @@ var initMenuClickAction = function(){
 	var sentencePublish = $('#menu-publish-sentence');
 	var diy = $('#menu-diy');
 	var collect = $('#menu-collect');
+	var loveCollect = $('#love-menu-collect');
 
-	var items = new Array(sentenceLove,sentencePublish,diy,collect);
+	var items = new Array(sentenceLove,sentencePublish,diy,collect,loveCollect);
 	for(var i = 0; i < items.length; i++){
 		var item = items[i];
 		item.on('click',function(){
-			clearActiveStyle(sentenceLove,sentencePublish,diy,collect);
+			clearActiveStyle(sentenceLove,sentencePublish,diy,collect,loveCollect);
 			$(this).addClass("is-active");
 		});
 	}

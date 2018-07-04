@@ -247,7 +247,9 @@
 					<div class="publish-comment" id="comment">
 						<p class="sentence-title">~~ 发布评论 ~~</p>
 						<form class="comment-input-form" action="comment.action" method="post">
-							<p class="comment-reply-head">回复： @海子 "谢谢啦"</p>
+							<p class="comment-reply-head">回复： @海子 "谢谢啦"
+								<span class="comment-cancel index-a" id="comment-cancel" onclick="cancelComment();"><i class="far fa-times-circle"></i>取消回复</span>
+							</p>
 							<div class="form-group">
 								<textarea class="form-control" rows="5" id="comment-content"></textarea>
 							</div>

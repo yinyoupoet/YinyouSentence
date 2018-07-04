@@ -496,3 +496,17 @@ content{
 .love-client-nobody{
 	display: none;
 }
+
+.comment-reply-head{
+	display: block;
+}
+
+.comment-cancel{
+	float: right;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.comment-cancel i{
+	margin-right: 5px;
+}
