@@ -1,0 +1,155 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+	
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+.userLove{
+	margin-top: 20px;
+	background: #fff;
+	padding: 20px 40px;
+}
+
+.index-a{
+	text-decoration: none;
+	color: #b55d4c;
+	transition: color 0.8s;
+}
+.index-a:link{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:visited{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:hover{
+	text-decoration: none;
+	color: #fb966e;
+
+}
+.index-a:active{
+	text-decoration: none;
+	color: #b55d4c;
+}
+
+.userLove-fans{
+	margin-top: 20px;
+	background: #fff;
+	padding: 20px 40px;	
+}
+
+
+
+.search-user-item{
+	padding: 20px 20px;
+	text-align: center;
+
+}
+
+.search-user-item-content{
+	border:1px #e6e6e6 dotted;
+	box-shadow: 0 0 3px #bbb;
+	border-radius: 5px;
+	padding: 20px 20px;
+	background: url('../imgs/6286d2220a1987c843163a6f8db614b7.png');
+}
+
+.search-user-item-img{
+	width: 100%;
+}
+
+.search-user-name{
+	font-size: 1.2em;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.search-user-motto{
+	margin-top: -5px;
+	text-align: center;
+}
+
+.search-user-self-info{
+	margin-top: -5px;
+}
+
+.serach-user-info-num{
+	margin-left: 10px;
+	margin-right: 10px;
+
+}
+
+.search-user-sentence-info{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.btn-follow{
+	font: 15px/1.5 微软雅黑, tahoma, arial, simsun, sans-serif;
+	font-size: 1.2em;
+	padding: 5px 15px;
+	background: #fff;
+	border: 1px solid #d9d9d9;
+	outline: none;
+}
+
+.btn-follow:hover{
+	border-color: #ccc;
+}
+
+.btn-follow:active{
+	background: #f2f2f2;
+}
+
+.btn-follow i{
+	color:rgb(250,125,60);
+	margin-right: 5px;
+}
+
+.userLove-cry{
+	float: right;
+	width: 30%;
+	margin-top: -20px;
+}
+
+
+@media screen and (max-width: 768px){
+	.search-user-item{
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 420px){
+	.search-user-item{
+		width: 100%;
+	}
+}
+
+
+.userLove-list{
+	display: none;
+}
+
+/* .userLove-nobody{
+	display: none;
+} */
+
+.userLove-fans{
+	margin-bottom: 50px;
+}

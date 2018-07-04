@@ -1,0 +1,151 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+.random-sentence{
+	margin-top: 20px;
+	background: rgba(255,255,255,1);
+	width: 100%;
+	padding:20px 40px;
+	position: relative;
+}
+
+.random-sentence a{
+	text-decoration: none;
+	color: #b55d4c;
+	transition: color 0.8s;
+}
+.random-sentence a:link{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.random-sentence a:visited{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.random-sentence a:hover{
+	text-decoration: none;
+	color: #fb966e;
+
+}
+.random-sentence a:active{
+	text-decoration: none;
+	color: #b55d4c;
+}
+
+.random-title{
+	color:#5dac81;
+	font-size: 1em;
+	display: inline;
+}
+
+#random-from{
+	text-align:right;
+	display: inline-block;
+	float: right;
+}
+
+.random-next{
+	display: inline;
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	cursor: pointer;
+	color: #cb4042;
+}
+
+.content{
+	height: 200px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 20px;
+}
+
+@media screen and (max-width: 768px){
+	.content-left-side{
+		width: 100%;
+		padding-right: 0;
+	}
+	.content-right-side{
+		width: 100%;
+		float: left;
+		margin-top: 30px;
+		padding-left: 0;
+	}
+	.nav-self-info{
+		position: relative;
+	}
+}
+
+#random-publisher-p{
+	display: inline;
+}
+
+
+.index-a{
+	text-decoration: none;
+	color: #b55d4c;
+	transition: color 0.8s;
+}
+.index-a:link{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:visited{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:hover{
+	text-decoration: none;
+	color: #fb966e;
+
+}
+.index-a:active{
+	text-decoration: none;
+	color: #b55d4c;
+}
+
+.back-to-top{
+	display: none;
+}
+
+
+
+
+.recommend-a{
+	text-decoration: none;
+	color: #000;
+	transition: color 0.8s;
+}
+.recommend-a:link{
+	text-decoration: none;
+	color: #000;
+}
+.recommend-a:visited{
+	text-decoration: none;
+	color: #000;
+}
+.recommend-a:hover{
+	text-decoration: none;
+	color: #9b6e23;
+
+}
+.recommend-a:active{
+	text-decoration: none;
+	color: #000;
+}

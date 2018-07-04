@@ -1,0 +1,199 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+	
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+.edit-content{
+	margin-top: 70px;
+	background: #fcfaf2;
+	padding: 20px 40px;
+	border-radius: 10px;
+	margin-bottom: 50px;
+}
+
+.head-img{
+	position: relative;
+	text-align: center;
+	min-height: 120px;
+}
+
+#img-upload{
+	display: none;
+}
+
+#my-img{
+	width: 160px;
+	height: 160px;
+	border: 4px solid #fff;
+	border-radius: 5px;
+	margin-top: -65px;
+	margin-right: 35px;
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	top:0;
+	transform: translateX(-50%);
+}
+
+.change-img-hover{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	/*margin-left: -17px;*/
+
+	width: 160px;
+	height: 160px;
+	background: rgba(153,153,153,0.5);
+	border: 5px solid #fff;
+	border-radius: 5px;
+	margin-top: -65px;
+	margin-right: 35px;
+	cursor: pointer;
+	
+}
+
+.change-img-title{
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	font-size: 20px;
+}
+
+#my-img:hover+.change-img-hover{
+	display: inline-block;
+}
+.change-img-hover:hover{
+	display: inline-block;
+}
+
+.change-img-hover{
+	display: none;
+}
+
+.text-field-title{
+	display: inline-block;
+	font-weight: bold;
+	min-width: 100px;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.input-field{
+	width: 300px;
+	text-align: left;
+	height: 30px;
+	font-size: 15px;
+	padding: 20px 10px;
+	background: rgba(255,255,255,0);
+	border: 1px solid #dca9a6;
+	box-shadow: 0px 0px 5px #91989f;
+	border-radius: 5px;
+	letter-spacing: 1px;
+}
+
+.tip{
+	color: #999;
+	margin-top: 10px;
+}
+
+.tip-warn{
+	color: #cb4042 !important;
+}
+
+.text-field{
+	text-align: center;
+}
+
+.input-sex{
+	margin-bottom: 20px;
+	display: inline-block;
+	width: 300px;
+	text-align: left;
+}
+
+
+#sex-male{
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+#sex-female{
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.select-sex{
+	margin-right: 6px !important;
+}
+
+.textarea-motto{
+	width: 300px;
+	line-height: 26px;
+	height: 100px;
+	font-size: 15px;
+	padding: 10px 10px;
+	background: rgba(255,255,255,0);
+	border: 1px solid #dca9a6;
+	box-shadow: 0px 0px 5px #91989f;
+	border-radius: 5px;
+	letter-spacing: 1px;
+	resize: none;
+	margin-top: 20px;
+	margin-bottom: -5px;
+}
+
+.my-btn{
+	margin-left: 15px;
+	margin-right: 15px;
+	padding: 5px 15px;
+	font-family: "微软雅黑";
+}
+
+.operate-btn{
+	margin-top: 20PX;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+@media screen and (max-width: 510px){
+	.input-sex{
+		text-align: center;
+	}
+}
+
+
+
+/*----------用来移除叉叉按钮----------*/
+input[type="date"]::-webkit-clear-button{
+   display:none;
+}
+
+.data-field{
+	width: 300px;
+	text-align: left;
+	font-size: 15px;
+	padding: 10px 10px;
+	background: rgba(255,255,255,0);
+	border: 1px solid #dca9a6;
+	box-shadow: 0px 0px 5px #91989f;
+	border-radius: 5px;
+	letter-spacing: 1px;
+}
