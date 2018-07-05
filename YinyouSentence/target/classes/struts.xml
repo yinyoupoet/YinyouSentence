@@ -12,6 +12,7 @@
     <!-- 所有的action都应该放在对应的package下 -->
     <!--action的class属性不再是具体的类,而是spring配置文件配置的bean id-->
     <package name="yinyousentence" namespace="/" extends="struts-default">
+
         <default-action-ref name="toLoginOrRegister"></default-action-ref>
 
         <!--进入登录注册页面的action-->

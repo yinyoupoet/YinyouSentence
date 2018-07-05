@@ -69,8 +69,10 @@
 
 
 
-
-
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrLogin.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrRegister.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/login.js"></script>

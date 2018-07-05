@@ -36,11 +36,16 @@
         </property>
     </bean>
 
-
-    <bean id="login" class="bean.Login">
-        <property name="name" value="22"></property>
-        <property name="pwd" value="15"></property>
+    <bean id="loginRegisterDao" class="dao.LoginRegisterDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
+    <bean id="dwrLogin" class="service.LoginService">
+        <property name="loginRegisterDao" ref="loginRegisterDao"></property>
+    </bean>
+
+    <bean id="dwrRegister" class="service.RegisterService">
+        <property name="loginRegisterDao" ref="loginRegisterDao"></property>
+    </bean>
 
 </beans>
