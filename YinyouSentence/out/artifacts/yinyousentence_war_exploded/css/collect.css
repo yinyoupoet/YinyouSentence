@@ -1,0 +1,42 @@
+.collect-form{
+	background: #eee;
+	padding:20px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.collect-package{
+	margin:5px;
+}
+
+.collcet-list{
+	margin-bottom: 20px;
+}
+
+.collect-new{
+	cursor: pointer;
+	background:#fff;
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px #ccc;
+}
+
+.collect-new:hover{
+	color: #b47157;
+}
+
+.new-collect-input{
+	border:1px #fff solid;
+	border-radius: 5px;
+	padding: 5px 8px;
+	outline: none;
+	margin-right: 5px;
+}
+
+.collect-btn{
+	margin-left: 20px;
+	margin-top: 20px;
+	outline: none;
+	margin-bottom: 30px;
+}

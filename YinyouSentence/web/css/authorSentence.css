@@ -1,0 +1,123 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+	
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+.index-a{
+	text-decoration: none;
+	color: #b55d4c;
+	transition: color 0.8s;
+}
+.index-a:link{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:visited{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:hover{
+	text-decoration: none;
+	color: #fb966e;
+
+}
+.index-a:active{
+	text-decoration: none;
+	color: #b55d4c;
+}
+
+.authorInfo{
+	margin-top: 20px;
+	background: #fff;
+	display: flex;
+	padding: 20px 40px;
+}
+
+.authorSentence-pic{
+	width: 10em;
+	height: 10em;
+	margin-right: 30px;
+}
+
+.authorSentence-info-right{
+	margin-left: 30px;
+	flex-grow: 1;
+}
+
+.authorSentence-author-name{
+	font-weight: bold;
+	font-size: 1.8em;
+	color: #000;
+}
+
+.author-love{
+	font-size: 0.6em;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+#love-img{
+	height: 1.2em;
+	margin-bottom: 5px;
+}
+
+.authorSentence-pic-a{
+	width: 10em;
+	height: 10em;
+}
+
+.authorSentence-intro{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.authorSentence-books-name{
+	margin-left: 3px;
+	margin-right: 5px;
+}
+
+.authorSentence-sentence-list{
+	margin-top: 20px;
+	background: #fff;
+	padding: 20px 40px;
+}
+
+.recommend-a{
+	text-decoration: none;
+	color: #000;
+	transition: color 0.8s;
+}
+.recommend-a:link{
+	text-decoration: none;
+	color: #000;
+}
+.recommend-a:visited{
+	text-decoration: none;
+	color: #000;
+}
+.recommend-a:hover{
+	text-decoration: none;
+	color: #9b6e23;
+
+}
+.recommend-a:active{
+	text-decoration: none;
+	color: #000;
+}

@@ -1,0 +1,208 @@
+html, body {
+	min-width: 360px;
+	width:100%;
+	height:100%;
+	font-family: "Times New Roman","Microsoft Jhenghei","Microsoft YaHei",serif;
+	
+} /*非常重要的样式让背景图片100%适应整个屏幕*/ 
+
+body:before{
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+content{
+	margin-top: 20px;
+}
+
+.orient-info{
+	margin-top: 20px;
+	padding: 20px 40px;
+	background: #f2f2f2;
+}
+
+.orient-info-left{
+	padding-right: 20px;
+	text-align: center;
+}
+
+
+.orient-info-pic{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.orient-info-right{
+	padding-left: 20px;
+}
+
+.orient-info-title{
+	font-weight: bold;
+}
+
+.orient-info-author{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.orient-info-intro-title{
+	font-weight: bold;
+
+}
+
+.orient-info-intro-content{
+	font-family: STSong;
+	line-height: 26px;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+
+@media screen and (max-width: 560px){
+	.orient-info-left{
+		width: 100%;
+	}
+	.orient-info-right{
+		width: 100%;
+		padding:0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.orient-sentence-list-div{
+	padding: 20px 40px;
+	background: #f2f2f2;
+	margin-top: 20px;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.index-a{
+	text-decoration: none;
+	color: #b55d4c;
+	transition: color 0.8s;
+}
+.index-a:link{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:visited{
+	text-decoration: none;
+	color: #b55d4c;
+}
+.index-a:hover{
+	text-decoration: none;
+	color: #fb966e;
+
+}
+.index-a:active{
+	text-decoration: none;
+	color: #b55d4c;
+}
+
+.recommend-a{
+	text-decoration: none;
+	color: #000;
+	transition: color 0.8s;
+}
+.recommend-a:link{
+	text-decoration: none;
+	color: #000;
+}
+.recommend-a:visited{
+	text-decoration: none;
+	color: #000;
+}
+.recommend-a:hover{
+	text-decoration: none;
+	color: #9b6e23;
+
+}
+.recommend-a:active{
+	text-decoration: none;
+	color: #000;
+}
+
+.orient-love{
+	margin-bottom: 15px;
+	cursor: pointer;
+	font-size: 1.2em;
+	margin-right: 20px;
+}
+#love-img{
+	height: 1.2em;
+	margin-bottom: 5px;
+}
+
+.author-info-sentences{
+	padding: 10px 20px;
+	color: #2098D1;
+    text-decoration: none;
+    background: #fffffb;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.author-fans{
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: 20px;
+	padding: 20px 40px;
+	background: #f2f2f2;
+}
+
+.author-fans-item{
+	padding: 10px 10px;
+}
+
+.author-fans-content{
+	text-align: center; 
+}
+
+.author-fans-content img{
+	width: 100%;
+	margin-bottom: 15px;
+}
+.author-fan-name{
+	font-size: 1.2em;
+}
+
+.author-fan-info{
+	color: #333;
+}
+.author-fans-title{
+	display: inline-block;
+}
+
+.author-more-fan-a{
+	float: right;
+	margin-top: 4px;
+	font-size: 1.2em;
+}
+
+
+@media screen and (max-width: 1300px){
+	.author-fans-item{
+		width: 16.6%;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	.author-fans-item{
+		width: 25%;
+	}
+}
+
+@media screen and (max-width: 560px){
+	.author-fans-item{
+		width: 33.3%;
+	}
+
+}
