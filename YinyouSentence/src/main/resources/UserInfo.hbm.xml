@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.UserInfo" table="user_info" schema="yinyousentence">
+        <id name="id">
+            <column name="id" sql-type="bigint(20) unsigned"/>
+        </id>
+        <property name="headPath">
+            <column name="head_path" sql-type="varchar(255)"/>
+        </property>
+        <property name="gender">
+            <column name="gender" sql-type="char(1)" length="1"/>
+        </property>
+        <property name="birth">
+            <column name="birth" sql-type="date"/>
+        </property>
+        <property name="motto">
+            <column name="motto" sql-type="varchar(64)" length="64" not-null="true"/>
+        </property>
+        <property name="userName">
+            <column name="user_name" sql-type="varchar(20)" length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

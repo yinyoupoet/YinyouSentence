@@ -16,9 +16,27 @@
         <default-action-ref name="toLoginOrRegister"></default-action-ref>
 
         <!--进入登录注册页面的action-->
-        <action name="toLoginOrRegister" class="action.ShowPageAction" method="toLoginOrRegister">
+        <action name="toLoginOrRegister" class="action.ToLoginOrRegisterAction" method="toLoginOrRegister">
             <result name="success">/WEB-INF/View/login.jsp</result>
         </action>
+
+        <action name="login" class="action.LoginAction" method="doLogin">
+            <result name="success">/WEB-INF/View/index.jsp</result>
+            <result name="input" type="redirectAction">toLoginOrRegister</result>
+        </action>
+
+        <action name="register" class="action.RegisterAction" method="doRegister">
+            <result name="success" type="redirectAction">toEditInfo</result>
+            <result name="input">toLoginOrRegister.action</result>
+            <result name="error">toLoginOrRegister.action</result>
+        </action>
+
+        <action name="toEditInfo" class="action.ToEditInfoAction" method="toEditInfoAction">
+            <result name="success">/WEB-INF/View/edit.jsp</result>
+            <result name="input" type="redirectAction">toLoginOrRegister</result>
+        </action>
+
+
     </package>
 
 </struts>

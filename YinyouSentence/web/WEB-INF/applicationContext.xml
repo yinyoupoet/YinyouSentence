@@ -20,18 +20,20 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/yinyousentence?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false &amp;serverTimezone=UTC&amp;characterEncoding=utf-8</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/yinyousentence</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
         <property name="mappingLocations">
             <list>
                 <value>classpath:Login.hbm.xml</value>
+                <value>classpath:UserInfo.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
                 <value>bean.Login</value>
+                <value>bean.UserInfo</value>
             </list>
         </property>
     </bean>
@@ -47,5 +49,8 @@
     <bean id="dwrRegister" class="service.RegisterService">
         <property name="loginRegisterDao" ref="loginRegisterDao"></property>
     </bean>
+
+    <bean id="dateUtil" class="util.DateUtil"/>
+
 
 </beans>
