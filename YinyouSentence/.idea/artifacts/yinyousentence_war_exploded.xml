@@ -30,9 +30,14 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:2.5.6" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:2.5.6" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:2.5.6" />
-          <element id="library" level="project" name="Maven: org.directwebremoting:dwr:2.0.3" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="net.jawr.extensions:jawr-dwr3.x-extension:3.7" />
+          <element id="library" level="project" name="com.hynnet:commons-lang3:3.4" />
+          <element id="library" level="project" name="com.hynnet:json-lib:2.4" />
+          <element id="library" level="project" name="commons-beanutils:commons-beanutils:1.9.3" />
+          <element id="library" level="project" name="commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="commons-httpclient:commons-httpclient:3.1" />
         </element>
       </element>
     </root>

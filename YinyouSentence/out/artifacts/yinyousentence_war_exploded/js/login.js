@@ -228,7 +228,9 @@ var checkRegister = function(){
 
         return false;
     });
-}
+};
+
+
 
 var callback_register = function(data){
     console.log("data: " + data);

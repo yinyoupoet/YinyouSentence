@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="net.jawr.extensions:jawr-dwr3.x-extension:3.7" type="repository">
+    <properties maven-id="net.jawr.extensions:jawr-dwr3.x-extension:3.7" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jawr-dwr3.x-extension-3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jawr-core-3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/dwr-3.0.0-rc3-RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

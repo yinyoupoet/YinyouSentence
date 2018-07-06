@@ -7,7 +7,7 @@
     <!-- 在struts2之前加一个dwr -->
     <servlet>
         <servlet-name>dwr-invoker</servlet-name>
-        <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
         <!-- 是否允许调试，如果要在浏览器中调试则必须设置为true -->
         <init-param>
             <param-name>debug</param-name>
@@ -16,10 +16,14 @@
         <!-- 如果允许跨域请求，则必须将此值设置为false，默认值为true -->
         <init-param>
             <param-name>crossDomainSessionSecurity</param-name>
-            <param-value>false</param-value>
+            <param-value>true</param-value>
         </init-param>
         <init-param>
             <param-name>allowScriptTagRemoting</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jsonpEnabled</param-name>
             <param-value>true</param-value>
         </init-param>
     </servlet>

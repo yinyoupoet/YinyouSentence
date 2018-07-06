@@ -57,8 +57,6 @@
             <artifactId>struts2-spring-plugin</artifactId>
             <version>2.1.8</version>
         </dependency>
-
-
         <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
         <dependency>
             <groupId>org.apache.struts</groupId>
@@ -66,12 +64,6 @@
             <version>2.5.10.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.directwebremoting/dwr -->
-        <dependency>
-            <groupId>org.directwebremoting</groupId>
-            <artifactId>dwr</artifactId>
-            <version>2.0.3</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/taglibs/standard -->
         <dependency>
             <groupId>taglibs</groupId>
@@ -85,6 +77,7 @@
             <version>1.2</version>
         </dependency>
 
+
         <dependency>
            <groupId>commons-fileupload</groupId>
            <artifactId>commons-fileupload</artifactId>
@@ -96,6 +89,12 @@
           <version>2.4</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.sf.ezmorph/ezmorph -->
+        <dependency>
+            <groupId>net.sf.ezmorph</groupId>
+            <artifactId>ezmorph</artifactId>
+            <version>1.0.6</version>
+        </dependency>
 
     </dependencies>
 

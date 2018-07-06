@@ -36,6 +36,16 @@
             <result name="input" type="redirectAction">toLoginOrRegister</result>
         </action>
 
+        <action name="edit" class="action.EditAction" method="doEdit">
+            <result name="success">/WEB-INF/View/index.jsp</result>
+            <result name="input">/WEB-INF/View/index.jsp</result>
+            <interceptor-ref name="fileUpload">
+                <param name="maximumSize">5242880</param>
+                <param name="allowedTypes">image/jpeg,image/gif,image/jpg,image/png</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
 
     </package>
 

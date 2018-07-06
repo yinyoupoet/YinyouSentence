@@ -51,16 +51,8 @@ var changeHeadImg = function(){
 				$('#my-img').get(0).src = e.target.result;
             }
 
-            // 3、图片已经显示成功，开始异步上传图片并返回图片相对路径
-			var img = DWRUtil.getValue("img-upload");
-            alert(img);
-            //var img = $('#img-upload').get(0).files[0];
-            var imgName = $('#img-upload').get(0).value;
-            console.log("img: " + img + "  imgName: " + imgName);
-
-			/*dwrEditInfo.uploadHeadImg(img,imgName,function(data){
-            	  console.log("data: " + data);
-			});*/
+            // 3、图片已经显示成功，那么可以设置需要新保存图片
+			$('#head-change').val("true");
 
 		}else{
 			return false;
@@ -68,6 +60,8 @@ var changeHeadImg = function(){
 
 	});
 };
+
+
 
 // 修改密码blur事件
 var initChangePwdBlur = function () {

@@ -85,13 +85,14 @@
 <content>
     <%--<img src="/file/4181f32517ab310698072f9155a401f1.jpg" alt="">--%>
     <div class="container edit-content">
-        <form action="/login" method="post">
+        <form action="/edit" method="post" enctype="multipart/form-data">
+            <input type="text" id="head-change" value="false" style="display: none;" name="headChange">
             <div class="head-img">
                 <img src="${sessionScope.userInfo.headPath}" id="my-img" title="点击更换头像">
                 <div class="change-img-hover" id="change-img-hover">
                     <div class="change-img-title"><p style="text-align: center;">点击修改头像</p></div>
                 </div>
-                <input type="file" id="img-upload" name="img-upload" accept="image/gif,image/jpeg,image/jpg,image/png"/>
+                <input type="file" id="img-upload" name="imgUpload" accept="image/gif,image/jpeg,image/jpg,image/png"/>
             </div>
 
             <!-- 一个输入框 -->
@@ -171,8 +172,9 @@
 </a>
 
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
+
 <script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrRegister.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrEditInfo.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/layx.min.js"></script>
