@@ -52,5 +52,8 @@
 
     <bean id="dateUtil" class="util.DateUtil"/>
 
+    <bean id="dwrEditInfo" class="service.EditUserInfoService">
+    </bean>
+
 
 </beans>

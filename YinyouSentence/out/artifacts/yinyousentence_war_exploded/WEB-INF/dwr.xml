@@ -8,5 +8,9 @@
         <create creator="spring" javascript="dwrRegister">
             <param name="beanName" value="dwrRegister" />
         </create>
+        <create creator="spring" javascript="dwrEditInfo">
+            <param name="beanName" value="dwrEditInfo"/>
+        </create>
+        <convert converter="bean" match="ro.tremend.upload.UploadStatus"/>
     </allow>
 </dwr>
