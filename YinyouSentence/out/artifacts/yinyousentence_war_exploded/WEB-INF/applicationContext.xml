@@ -107,6 +107,14 @@
         <property name="peopleDao" ref="peopleDao"></property>
     </bean>
 
+    <bean id="sentenceDao" class="dao.SentenceDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="sentenceEntity" class="pageEntity.SentenceEntity">
+        <property name="sentenceDao" ref="sentenceDao"></property>
+    </bean>
+
 
 
 </beans>

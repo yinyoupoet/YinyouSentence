@@ -1,8 +1,11 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import dao.SentenceDao;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
+import pageEntity.SentenceEntity;
 
 import javax.servlet.Servlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,13 +19,23 @@ import java.util.Map;
  * Version 1.0
  */
 public class ToSentenceInfoAction extends ActionSupport implements SessionAware, ServletRequestAware {
+
+    @Autowired
+    private SentenceDao sentenceDao;
     private Map session;
     private HttpServletRequest request;
     private long sentenceId;
 
+    @Autowired
+    private SentenceEntity sentenceEntity;
+
     @Override
     public String execute() throws Exception {
-
+        if(! sentenceDao.isSentenceExist(sentenceId)){
+            return ERROR;
+        }
+        sentenceEntity.init(sentenceId);
+        session.put("sentenceEntity",sentenceEntity);
         return SUCCESS;
     }
 
@@ -42,5 +55,21 @@ public class ToSentenceInfoAction extends ActionSupport implements SessionAware,
 
     public void setSentenceId(long sentenceId) {
         this.sentenceId = sentenceId;
+    }
+
+    public SentenceDao getSentenceDao() {
+        return sentenceDao;
+    }
+
+    public void setSentenceDao(SentenceDao sentenceDao) {
+        this.sentenceDao = sentenceDao;
+    }
+
+    public SentenceEntity getSentenceEntity() {
+        return sentenceEntity;
+    }
+
+    public void setSentenceEntity(SentenceEntity sentenceEntity) {
+        this.sentenceEntity = sentenceEntity;
     }
 }

@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -111,37 +112,66 @@
 
                     <p class="sentence-title">~~ 佳句赏析 ~~</p>
                     <div class="sentence-content-div">
-                        <h4 class="sentence-content">丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人</h4>
-                        <p class="sentence-from">——&nbsp;<a href="#" class="index-a">叶三</a>&nbsp;&nbsp;<a href="#" class="index-a">《九万字》</a></p>
+                        <h4 class="sentence-content">${sessionScope.sentenceEntity.sentence.content}</h4>
+                        <c:choose>
+                            <c:when test="${sessionScope.sentenceEntity.original}">
+                                <p class="sentence-from">——原创</p>
+                            </c:when>
+                            <c:when test="${sessionScope.sentenceEntity.giantInfo == null && sessionScope.sentenceEntity.originInfo == null}">
+
+                            </c:when>
+                            <c:otherwise>
+                                <p class="sentence-from">——
+                                    <c:if test="${sessionScope.sentenceEntity.giantInfo != null}">
+                                        <c:url value="/giant.action" var="giantUrl">
+                                            <c:param name="giantId" value="${sessionScope.sentenceEntity.giantInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${giantUrl}" class="index-a">${sessionScope.sentenceEntity.giantInfo.name}</a>&nbsp;
+                                    </c:if>
+                                    <c:if test="${sessionScope.sentenceEntity.originInfo != null}">
+                                        <c:url value="/origin.action" var="originUrl">
+                                            <c:param name="originId" value="${sessionScope.sentenceEntity.originInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${originUrl}" class="index-a">${sessionScope.sentenceEntity.originInfo.name}</a></p>
+                                    </c:if>
+
+                            </c:otherwise>
+                        </c:choose>
+
                     </div>
 
                     <div>
-                        <p class="sentence-publisher-p"><a href="#" class="index-a">吟游诗人</a>发布于<span id="random-publish-time">2018年12月12日</span></p>
+                        <c:url value="toPeople.action" var="publisherUrl">
+                            <c:param name="id" value="${sessionScope.sentenceEntity.userInfo.id}"/>
+                        </c:url>
+                        <p class="sentence-publisher-p"><a href="${publisherUrl}" class="index-a">${sessionScope.sentenceEntity.userInfo.userName}</a>发布于<span id="random-publish-time">${sessionScope.sentenceEntity.sentence.publishTime}</span></p>
                     </div>
 
 
                     <!-- 句子标签 -->
                     <div class="sentence-tag-div">
                         <p class="tag-p"><i class="fas fa-tags tag-i"></i>标签：<span class="sentence-tag-list">
-								<a href="#" class="index-a">#姑娘</a>
-								<a href="#" class="index-a">#时光</a>
-								<a href="#" class="index-a">#日子</a>
-								<a href="#" class="index-a">#诗意</a>
-								<a href="#" class="index-a">#人生</a>
-								<a href="#" class="index-a">#梦想</a>
-								</span></p>
+                            <c:if test="${sessionScope.sentenceEntity.tags != null}">
+                                <c:forEach items="${sessionScope.sentenceEntity.tags}" var="tag">
+                                    <c:url value="/userLove.action" var="tagLoveUrl">
+                                        <c:param name="tagId" value="${tag.id}"/>
+                                    </c:url>
+                                    <a href="tagLoveUrl" class="index-a">#${tag.name}</a>
+                                </c:forEach>
+                            </c:if>
+                        </span></p>
                     </div>
 
                     <!-- 设置喜欢和收藏 -->
                     <div class="sentence-operate">
-                        <span class="sentence-love index-a"><img src="./imgs/love.png" title="喜欢" id="love-img" state="false"> 喜欢 (1820)</span>
+                        <span class="sentence-love index-a"><img src="/imgs/sys/love.png" title="喜欢" id="love-img" state="false"> 喜欢 (${sessionScope.sentenceEntity.sentence.loveNum})</span>
 
                         <span class="sentence-collect recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
                         <a class="sentence-to-comment index-a cm" href="#comment"><i class="far fa-comment"></i> 评论</a>
                     </div>
 
                     <!-- 举报这条句子 -->
-                    <a href="#" class="sentence-accuse">有辱斯文？举报！</a>
+                    <a href="#" class="sentence-accuse" style="margin-top:10px;">冒充原创？信息有误？有辱斯文？举报！</a>
 
 
                 </div>
@@ -283,13 +313,29 @@
                 <!-- 发布评论结束 -->
 
 
-
-
             </div>
             <!-- 左边版块结束 -->
 
             <!-- 句子右边版块 -->
             <div class="col-xs-4 sentence-right-side">
+                <c:choose>
+                    <c:when test="${sessionScope.sentenceEntity.original}">
+                        <%--原创--%>
+                        <!-- 作者信息 -->
+                        <div class="author-info">
+                            <c:url value="toPeople.action" var="rightPublisherUrl">
+                                <c:param name="id" value="${sessionScope.sentenceEntity.userInfo.id}"/>
+                            </c:url>
+                            <center><a href="${rightPublisherUrl}"><img src="${sessionScope.sentenceEntity.userInfo.headPath}" class="author-info-img" title="${sessionScope.sentenceEntity.userInfo.userName}"></a></center>
+                            <center><a class="author-name title-a" href="${rightPublisherUrl}">${sessionScope.sentenceEntity.userInfo.userName}</a></center>
+                            <div class="author-introduce">
+                                <a class="author-introduce-content">${sessionScope.sentenceEntity.userInfo.motto}</a>
+                            </div>
+
+                        </div>
+                        <!-- 作者简介结束 -->
+                    </c:when>
+                </c:choose>
 
                 <!-- 作者信息 -->
                 <div class="author-info">

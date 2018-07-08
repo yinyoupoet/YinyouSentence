@@ -54,10 +54,10 @@ var initLove = function(){
 		var state = img.attr('state');
 		if(state == "false"){
 			img.attr('state',"true");
-			img.attr('src','./imgs/love-2.png');
+			img.attr('src','/imgs/sys/love-2.png');
 		}else if(state == 'true'){
 			img.attr('state','false');
-			img.attr('src','./imgs/love.png');
+			img.attr('src','/imgs/sys/love.png');
 		}
 	});
 };

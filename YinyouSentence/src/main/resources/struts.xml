@@ -88,6 +88,9 @@
         <action name="sentence" class="action.ToSentenceInfoAction" method="execute">
             <result name="success">/WEB-INF/View/sentenceInfo.jsp</result>
         </action>
+        <action name="userLove" class="action.ToUserLoveAction" method="execute">
+            <result name="success">/WEB-INF/View/sentenceInfo.jsp</result>
+        </action>
 
     </package>
 

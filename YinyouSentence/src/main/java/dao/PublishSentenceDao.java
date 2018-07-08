@@ -164,6 +164,8 @@ public class PublishSentenceDao {
     }
 
 
+
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
