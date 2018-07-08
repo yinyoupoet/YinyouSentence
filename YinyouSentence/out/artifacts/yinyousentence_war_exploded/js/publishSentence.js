@@ -7,7 +7,22 @@ $(document).ready(function(){
 
 	// 初始化热门标签选择事件
 	initHotTagSelect();
+
+	// 初始化点击按钮，必须填写内容
+	initSubmit();
 });
+
+var initSubmit = function(){
+	$('#submit-btn').on('click',function(){
+        var content = $('#sentenceContent').val();
+		// console.log(content);
+		if(content.trim() == ""){
+			alert("请输入句子");
+			return false;
+		}
+		return true;
+	});
+};
 
 // 初始化热门标签选择事件
 var initHotTagSelect = function(){

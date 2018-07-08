@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.Sentence" table="sentence" schema="yinyousentence">
+        <id name="id">
+            <column name="id" sql-type="bigint(20) unsigned"/>
+            <generator class="increment"></generator>
+        </id>
+        <property name="content">
+            <column name="content" sql-type="varchar(255)"/>
+        </property>
+        <property name="publisherId">
+            <column name="publisher_id" sql-type="bigint(20) unsigned"/>
+        </property>
+        <property name="isOriginal">
+            <column name="is_original" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="authorId">
+            <column name="author_id" sql-type="bigint(20) unsigned" not-null="true"/>
+        </property>
+        <property name="originId">
+            <column name="origin_id" sql-type="bigint(20) unsigned" not-null="true"/>
+        </property>
+        <property name="publishTime">
+            <column name="publish_time" sql-type="datetime"/>
+        </property>
+        <property name="loveNum">
+            <column name="love_num" sql-type="bigint(20) unsigned"/>
+        </property>
+        <property name="tag">
+            <column name="tag" sql-type="varchar(255)"/>
+        </property>
+    </class>
+</hibernate-mapping>

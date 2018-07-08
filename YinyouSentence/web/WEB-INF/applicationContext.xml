@@ -7,7 +7,7 @@
     <!-- data connection -->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/yinyousentence?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/yinyousentence?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong"></property>
         <property name="username" value="root"/>
         <property name="password" value=""/>
     </bean>
@@ -28,12 +28,44 @@
             <list>
                 <value>classpath:Login.hbm.xml</value>
                 <value>classpath:UserInfo.hbm.xml</value>
+                <value>classpath:CommentReply.hbm.xml</value>
+                <value>classpath:GiantInfo.hbm.xml</value>
+                <value>classpath:GiantLove.hbm.xml</value>
+                <value>classpath:OriginInfo.hbm.xml</value>
+                <value>classpath:OriginLove.hbm.xml</value>
+                <value>classpath:Sentence.hbm.xml</value>
+                <value>classpath:SentenceCollection.hbm.xml</value>
+                <value>classpath:SentenceComment.hbm.xml</value>
+                <value>classpath:SentenceLove.hbm.xml</value>
+                <value>classpath:Tag.hbm.xml</value>
+                <value>classpath:TagQuote.hbm.xml</value>
+                <value>classpath:UserMessage.hbm.xml</value>
+                <value>classpath:Category.hbm.xml</value>
+                <value>classpath:SentenceCategory.hbm.xml</value>
+                <value>classpath:CollectionSentence.hbm.xml</value>
+                <value>classpath:UserFollow.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
                 <value>bean.Login</value>
                 <value>bean.UserInfo</value>
+                <value>bean.CommentReply</value>
+                <value>bean.GiantInfo</value>
+                <value>bean.GiantLove</value>
+                <value>bean.OriginInfo</value>
+                <value>bean.OriginLove</value>
+                <value>bean.Sentence</value>
+                <value>bean.SentenceCollection</value>
+                <value>bean.SentenceComment</value>
+                <value>bean.SentenceLove</value>
+                <value>bean.Tag</value>
+                <value>bean.TagQuote</value>
+                <value>bean.UserMessage</value>
+                <value>bean.Category</value>
+                <value>bean.SentenceCategory</value>
+                <value>bean.CollectionSentence</value>
+                <value>bean.UserFollow</value>
             </list>
         </property>
     </bean>
@@ -54,6 +86,27 @@
 
     <bean id="dwrEditInfo" class="service.EditUserInfoService">
     </bean>
+
+    <bean id="informationDao" class="dao.InformationDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="publishSentenceEntity" class="pageEntity.PublishSentenceEntity">
+        <property name="informationDao" ref="informationDao"></property>
+    </bean>
+
+    <bean id="publishSentenceDao" class="dao.PublishSentenceDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="peopleDao" class="dao.PeopleDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="peopleEntity" class="pageEntity.PeopleEntity">
+        <property name="peopleDao" ref="peopleDao"></property>
+    </bean>
+
 
 
 </beans>

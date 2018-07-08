@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.SentenceComment" table="sentence_comment" schema="yinyousentence">
+        <id name="id">
+            <column name="id" sql-type="bigint(20) unsigned"/>
+        </id>
+        <property name="content">
+            <column name="content" sql-type="varchar(500)" length="500"/>
+        </property>
+        <property name="sentenceId">
+            <column name="sentence_id" sql-type="bigint(20) unsigned"/>
+        </property>
+        <property name="userId">
+            <column name="user_id" sql-type="bigint(20) unsigned"/>
+        </property>
+        <property name="commentTime">
+            <column name="comment_time" sql-type="datetime"/>
+        </property>
+    </class>
+</hibernate-mapping>

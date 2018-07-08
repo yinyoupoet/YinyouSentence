@@ -83,6 +83,55 @@ public class LoginRegisterDao {
     }
 
 
+    /**
+    * @author hasee
+    * @Description 修改密码
+    * @Date 9:01 2018-07-07
+    * @Param [id, pwd]
+    * @return void
+    **/
+    public void changePwd(long id,String pwd){
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        String hql = "update Login login set login.pwd = ? where login.id = ?";
+        session.createQuery(hql).setParameter(0,pwd).setParameter(1,id).executeUpdate();
+        tx.commit();
+    }
+
+
+    /**
+    * @author hasee
+    * @Description 通过用户名获得UserInfo
+    * @Date 21:15 2018-07-07
+    * @Param [userName]
+    * @return bean.UserInfo
+    **/
+    public UserInfo getUserInfoByUserName(String userName){
+        Session session = sessionFactory.openSession();
+        String hql = "FROM UserInfo userInfo WHERE userName = ?";
+        UserInfo userInfo = null;
+        Transaction tx = session.beginTransaction();
+        userInfo = (UserInfo) session.createQuery(hql).setParameter(0,userName).uniqueResult();
+        tx.commit();
+        return userInfo;
+    }
+
+
+    /**
+    * @author hasee
+    * @Description 修改个人信息
+    * @Date 9:11 2018-07-07
+    * @Param [userInfo]
+    * @return void
+    **/
+    public void editUserInfo(UserInfo userInfo){
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.update(userInfo);
+        tx.commit();
+    }
+
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

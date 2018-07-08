@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.SentenceCollection" table="sentence_collection" schema="yinyousentence">
+        <id name="id">
+            <column name="id" sql-type="bigint(20) unsigned"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(25)" length="25"/>
+        </property>
+        <property name="publisherId">
+            <column name="publisher_id" sql-type="bigint(20) unsigned"/>
+        </property>
+        <property name="publishDate">
+            <column name="publish_date" sql-type="datetime"/>
+        </property>
+        <property name="imgPath">
+            <column name="img_path" sql-type="varchar(255)"/>
+        </property>
+        <property name="introduction">
+            <column name="introduction" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="sentenceNum">
+            <column name="sentence_num" sql-type="bigint(20) unsigned"/>
+        </property>
+        <property name="loveNum">
+            <column name="love_num" sql-type="bigint(20) unsigned"/>
+        </property>
+    </class>
+</hibernate-mapping>

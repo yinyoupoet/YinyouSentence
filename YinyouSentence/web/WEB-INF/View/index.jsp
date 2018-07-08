@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -14,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
     <title>吟游佳句</title>
 
-    <link rel="icon" href="<%=request.getContextPath()%>/imgs/icon_2.png" type="image/x-icon"/>
+    <link rel="icon" href="/imgs/sys/icon_2.png" type="image/x-icon"/>
 
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/scroll-style-change.css">
@@ -43,7 +44,8 @@
                 </button>
 
                 <div>
-                    <a href="#" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="./imgs/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
+                    <c:url value="/index.jsp" var="indexUrl"/>
+                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>
 
@@ -55,14 +57,23 @@
 								<i class="fas fa-bell"></i>
 								<span class="notifaction-num">1</span>
 							</span>&nbsp;&nbsp;通知</a></li>
-                    <li id="nav-head-infoIMG">
-                        <a href="#">
-                            <img src="./imgs/5c4946fbeaf128b0b2bf7ec6aa177d21.jpg" class="nav-head-img" id="nav-head-img">
-                        </a>
-                    </li>
-                    <!-- <li id="nav-head-infoIMG">
-                        <a href="./login.html" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
-                    </li> -->
+
+                    <c:choose>
+                        <c:when test="${!empty sessionScope.userInfo}">
+                            <%--已登录--%>
+                            <li id="nav-head-infoIMG">
+                                <a href="#">
+                                    <img src="${sessionScope.userInfo.headPath}" class="nav-head-img" id="nav-head-img">
+                                </a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <%--未登录--%>
+                            <li id="nav-head-infoIMG">
+                                <a href="/toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
                 </ul>
             </div>
 
@@ -72,12 +83,17 @@
 
     <!-- 鼠标点击头像，显示信息 -->
     <div class="nav-self-info">
-        <img src="./imgs/5c4946fbeaf128b0b2bf7ec6aa177d21.jpg" class="head-info">
+        <img src="${sessionScope.userInfo.headPath}" class="head-info">
         <div style="display: inline;">
             <ul style="display: inline; float: left;" class="info-ul">
-                <li><a href="#" class="info-link">吟游诗人</a></li>
-                <li><a href="#" class="info-link">编辑资料</a></li>
-                <li><a href="#" class="info-link">登出</a></li>
+                <c:url value="toPeople.action" var="selfUrl">
+                    <c:param name="id" value="${userInfo.id}"/>
+                </c:url>
+                <c:url value="/toEditInfo.action" var="editUrl"/>
+                <c:url value="/logout.action" var="logoutUrl"/>
+                <li><a href="${selfUrl}" class="info-link">吟游诗人</a></li>
+                <li><a href="${editUrl}" class="info-link">编辑资料</a></li>
+                <li><a href="${logoutUrl}" class="info-link">登出</a></li>
             </ul>
         </div>
     </div>
@@ -413,7 +429,7 @@
 
                 <!-- 发布句子 -->
                 <div class="content-right-publish ">
-                    <form action="#" method="post">
+                    <form action="/publishSentence.action" method="post">
                         <center><button class="btn publish-btn">~~ 发布句子 ~~</button></center>
                     </form>
                 </div>

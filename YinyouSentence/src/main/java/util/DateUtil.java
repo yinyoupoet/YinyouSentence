@@ -4,6 +4,7 @@ package util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 /**
  * @ClassName DateUtil
@@ -70,5 +71,10 @@ public class DateUtil {
         return s;
     }
 
+
+    public java.sql.Date getSqlDate(String s_date){
+        java.sql.Date date = java.sql.Date.valueOf(s_date);
+        return date;
+    }
 
 }

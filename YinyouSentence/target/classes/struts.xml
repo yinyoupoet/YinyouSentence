@@ -21,7 +21,7 @@
         </action>
 
         <action name="login" class="action.LoginAction" method="doLogin">
-            <result name="success">/WEB-INF/View/index.jsp</result>
+            <result name="success" type="redirectAction">index</result>
             <result name="input" type="redirectAction">toLoginOrRegister</result>
         </action>
 
@@ -37,8 +37,9 @@
         </action>
 
         <action name="edit" class="action.EditAction" method="doEdit">
-            <result name="success">/WEB-INF/View/index.jsp</result>
+            <result name="success" type="redirectAction">index</result>
             <result name="input">/WEB-INF/View/index.jsp</result>
+            <result name="error">/WEB-INF/View/index.jsp</result>
             <interceptor-ref name="fileUpload">
                 <param name="maximumSize">5242880</param>
                 <param name="allowedTypes">image/jpeg,image/gif,image/jpg,image/png</param>
@@ -46,6 +47,47 @@
             <interceptor-ref name="defaultStack"></interceptor-ref>
         </action>
 
+
+        <action name="index" class="action.ToIndexAction" method="execute">
+            <result name="success">/WEB-INF/View/index.jsp</result>
+            <result name="input">/WEB-INF/View/index.jsp</result>
+        </action>
+
+        <action name="publishSentence" class="action.ToPublishSentenceAction" method="execute">
+            <result name="success">/WEB-INF/View/publishSentence.jsp</result>
+            <result name="input">/WEB-INF/View/publishSentence.jsp</result>
+        </action>
+
+        <action name="doPublishSentence" class="action.PublishSentenceAction" method="execute">
+            <result name="success" type="redirectAction">
+                <param name="actionName">sentence</param>
+                <param name="sentenceId">${sentenceId}</param>
+            </result>
+            <result name="input">/WEB-INF/View/sentenceInfo.jsp</result>
+            <result name="error">/WEB-INF/View/sentenceInfo.jsp</result>
+        </action>
+
+        <action name="toPeople" class="action.ToPeopleAction" method="execute">
+            <result name="success">/WEB-INF/View/people.jsp</result>
+            <result name="input">/WEB-INF/View/people.jsp</result>
+            <result name="error">/WEB-INF/View/people.jsp</result>
+        </action>
+
+        <action name="logout" class="action.LogoutAction" method="execute">
+            <result name="success" type="redirectAction">toLoginOrRegister</result>
+        </action>
+
+        <action name="giant" class="action.ToGiantAction" method="execute">
+            <result name="success">/WEB-INF/View/people.jsp</result>
+        </action>
+
+        <action name="origin" class="action.ToOriginAction" method="execute">
+            <result name="success">/WEB-INF/View/people.jsp</result>
+        </action>
+
+        <action name="sentence" class="action.ToSentenceInfoAction" method="execute">
+            <result name="success">/WEB-INF/View/sentenceInfo.jsp</result>
+        </action>
 
     </package>
 

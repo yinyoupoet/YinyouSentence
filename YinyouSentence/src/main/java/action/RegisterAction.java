@@ -56,8 +56,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
         UserInfo userInfo = new UserInfo();
         userInfo.setId(id);
         userInfo.setUserName(login.getName());
-        //Date date = (Date) dateUtil.getDate("2000-01-01");
-        Date date = new Date(dateUtil.getDate("2000-01-01").getTime() + 1);
+        Date date = dateUtil.getSqlDate("2000-01-01");
         userInfo.setBirth(date);
         userInfo.setGender("女");
         userInfo.setHeadPath("http://47.94.212.1:8080/imgs/1.png");

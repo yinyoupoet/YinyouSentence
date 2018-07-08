@@ -72,6 +72,30 @@ body:before{
 	margin-right: 5px;
 }
 
+
+.btn-edit{
+	font: 15px/1.5 微软雅黑, tahoma, arial, simsun, sans-serif;
+	font-size: 1.2em;
+	padding: 5px 15px;
+	background: #f2f2f2;
+	border: 1px solid #d9d9d9;
+	color: #000;
+	text-decoration: none;
+}
+
+.btn-edit:hover{
+	background: #fcfaf2;
+	border-color: #ccc;
+	color: #000;
+	text-decoration: none;
+}
+
+.btn-edit i{
+	color:rgb(250,125,60);
+	margin-right: 5px;
+}
+
+
 .people-file{
 	margin-top: 20px;
 }
@@ -381,6 +405,8 @@ body:before{
 .people-follow-giant-list{
 	margin-left: 20px;
 	margin-right: 20px;
+	padding-bottom: 30px;
+	position: relative;
 }
 
 .people-follow-giant-item{
@@ -399,6 +425,9 @@ body:before{
 	text-align: right;
 	cursor: pointer;
 	color: #cb4042;
+	position: absolute;
+	right:20px;
+	bottom:20px;
 }
 
 .my-hide{
@@ -410,6 +439,8 @@ body:before{
 	background: #fff;
 	border-radius: 5px;
 	padding: 20px 0 0 0;
+	padding-bottom:30px;
+	position: relative;
 }
 
 .people-love-book-list{
