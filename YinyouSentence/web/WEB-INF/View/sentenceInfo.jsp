@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,16 +19,16 @@
 
     <link rel="icon" href="/imgs/sys/icon_2.png" type="image/x-icon"/>
 
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/scroll-style-change.css">
-    <link rel="stylesheet" type="text/css" href="./css/fontawesome-all.css">
-    <link rel="stylesheet" type="text/css" href="./css/select-color.css">
-    <link rel="stylesheet" type="text/css" href="./css/animate.css">
-    <link rel="stylesheet" type="text/css" href="./css/layx.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/nav.css">
-    <link rel="stylesheet" type="text/css" href="./css/footer.css">
-    <link rel="stylesheet" type="text/css" href="./css/back-to-top.css">
-    <link rel="stylesheet" type="text/css" href="./css/sentenceInfo.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/scroll-style-change.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/fontawesome-all.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/select-color.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layx.min.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/back-to-top.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/sentenceInfo.css">
 
 </head>
 <body>
@@ -90,7 +91,7 @@
                 </c:url>
                 <c:url value="/toEditInfo.action" var="editUrl"/>
                 <c:url value="/logout.action" var="logoutUrl"/>
-                <li><a href="${selfUrl}" class="info-link">吟游诗人</a></li>
+                <li><a href="${selfUrl}" class="info-link">${userInfo.userName}</a></li>
                 <li><a href="${editUrl}" class="info-link">编辑资料</a></li>
                 <li><a href="${logoutUrl}" class="info-link">登出</a></li>
             </ul>
@@ -132,8 +133,9 @@
                                         <c:url value="/origin.action" var="originUrl">
                                             <c:param name="originId" value="${sessionScope.sentenceEntity.originInfo.id}"/>
                                         </c:url>
-                                        &nbsp;<a href="${originUrl}" class="index-a">${sessionScope.sentenceEntity.originInfo.name}</a></p>
+                                        &nbsp;<a href="${originUrl}" class="index-a">${sessionScope.sentenceEntity.originInfo.name}</a>
                                     </c:if>
+                                </p>
 
                             </c:otherwise>
                         </c:choose>
@@ -144,7 +146,7 @@
                         <c:url value="toPeople.action" var="publisherUrl">
                             <c:param name="id" value="${sessionScope.sentenceEntity.userInfo.id}"/>
                         </c:url>
-                        <p class="sentence-publisher-p"><a href="${publisherUrl}" class="index-a">${sessionScope.sentenceEntity.userInfo.userName}</a>发布于<span id="random-publish-time">${sessionScope.sentenceEntity.sentence.publishTime}</span></p>
+                        <p class="sentence-publisher-p"><a href="${publisherUrl}" class="index-a">${sessionScope.sentenceEntity.userInfo.userName}</a>发布于<span id="random-publish-time"><fmt:formatDate value="${sessionScope.sentenceEntity.sentence.publishTime}" pattern="yyyy-MM-dd HH:mm:ss"/></span></p>
                     </div>
 
 
@@ -164,134 +166,94 @@
 
                     <!-- 设置喜欢和收藏 -->
                     <div class="sentence-operate">
-                        <span class="sentence-love index-a"><img src="/imgs/sys/love.png" title="喜欢" id="love-img" state="false"> 喜欢 (${sessionScope.sentenceEntity.sentence.loveNum})</span>
 
-                        <span class="sentence-collect recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-                        <a class="sentence-to-comment index-a cm" href="#comment"><i class="far fa-comment"></i> 评论</a>
+                        <span class="sentence-love index-a" SID="${sessionScope.sentenceEntity.sentence.id}">
+                            <c:choose>
+                                <c:when test="${sessionScope.sentenceEntity.userLove}">
+                                    <img src="/imgs/sys/love-2.png" title="喜欢" id="love-img" state="false" >
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="/imgs/sys/love.png" title="喜欢" id="love-img" state="false" >
+                                </c:otherwise>
+                            </c:choose>
+                            &nbsp;喜欢 (<span id="sentence-love-num">${sessionScope.sentenceEntity.sentence.loveNum}</span>)</span>
+
+                        <span class="sentence-collect recommend-collect" SID="${sessionScope.sentenceEntity.sentence.id}"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+                        <a class="sentence-to-comment index-a cm" href="#comment" SID="${sessionScope.sentenceEntity.sentence.id}"><i class="far fa-comment"></i> 评论</a>
                     </div>
 
                     <!-- 举报这条句子 -->
                     <a href="#" class="sentence-accuse" style="margin-top:10px;">冒充原创？信息有误？有辱斯文？举报！</a>
-
-
                 </div>
                 <!-- 句子核心块结束 -->
 
                 <!-- 查看句子评论 -->
                 <div class="sentence-comment-div">
                     <p class="sentence-title">~~ 心得交流 ~~</p>
-
-                    <!-- 	<div class="no-comment-show">
-                            <center><a href="#comment" class="index-a cm">还没有评论哦，赶紧去发布一条吧</a></center>
-                        </div> -->
-
-
-                    <!-- 评论列表 -->
-                    <div class="comment-list">
-
-                        <!-- 评论一条 -->
-                        <div class="comment-item">
-                            <a href="#" class="comment-item-img-a"><img src="./imgs/海子.jpg" class="comment-item-img"></a>
-                            <div class="comment-item-right">
-                                <!-- 评论头部用户信息 -->
-                                <div class="comment-item-head">
-                                    <a class="comment-item-name index-a" href="#" id="comment-author-1">海子</a>
-                                    <span class="comment-user-motto">(灯寂人初灭，月影杳萧墙)</span>
-                                    <a class="comment-reply-a cm" href="#comment" name="1">回复</a>
-                                    <p class="comment-item-time">2018-6-12 20:15:24</p>
-
-                                </div>
-                                <!-- 评论内容 -->
-                                <div class="comment-item-content" id="comment-content-1">
-                                    丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人。
-                                    而那些风里雨里过不去的日子啊，总会消散在赤练彩虹桥之前，美好即将到来。
-                                </div>
-
+                    <c:choose>
+                        <c:when test="${empty sessionScope.commentEntity.commentAuxiliaries}">
+                            <%--如果没有评论--%>
+                            <div class="no-comment-show">
+                                <center><a href="#comment" class="index-a cm">还没有评论哦，赶紧去发布一条吧</a></center>
                             </div>
-                        </div>
-                        <!-- 评论一条结束 -->
+                        </c:when>
+                        <c:otherwise>
+                            <%--有评论--%>
+                            <!-- 评论列表 -->
+                            <div class="comment-list">
+                                <c:forEach items="${sessionScope.commentEntity.commentAuxiliaries}" var="commentAuxiliary">
+                                    <!-- 评论一条 -->
+                                    <div class="comment-item" id="comment${commentAuxiliary.sentenceComment.id}">
+                                        <c:url value="/toPeople.action" var="peopleUrl">
+                                            <c:param name="id" value="${commentAuxiliary.userInfo.id}"/>
+                                        </c:url>
+                                        <a href="${peopleUrl}" class="comment-item-img-a"><img src="${commentAuxiliary.userInfo.headPath}" class="comment-item-img"></a>
+                                        <div class="comment-item-right">
+                                            <!-- 评论头部用户信息 -->
+                                            <div class="comment-item-head">
+                                                <a class="comment-item-name index-a" href="${peopleUrl}" id="comment-author-${commentAuxiliary.sentenceComment.id}">${commentAuxiliary.userInfo.userName}</a>
+                                                <c:if test="${! empty commentAuxiliary.userInfo.motto}">
+                                                    <span class="comment-user-motto">(${commentAuxiliary.userInfo.motto})</span>
+                                                </c:if>
+                                                <%--说明：rpType:回复类型，0为回复评论，1为回复回复--%>
+                                                <a class="comment-reply-a cm cr" href="#comment" name="${commentAuxiliary.sentenceComment.id}" rpType="0">回复</a>
+                                                <p class="comment-item-time"><fmt:formatDate value="${commentAuxiliary.sentenceComment.commentTime}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                                            </div>
+                                            <!-- 评论内容 -->
+                                            <div class="comment-item-content" id="comment-content-${commentAuxiliary.sentenceComment.id}">
+                                                    ${commentAuxiliary.sentenceComment.content}
+                                            </div>
 
-                        <!-- 评论一条 -->
-                        <div class="comment-item">
-                            <a href="#" class="comment-item-img-a"><img src="./imgs/海子.jpg" class="comment-item-img"></a>
-                            <div class="comment-item-right">
-                                <!-- 评论头部用户信息 -->
-                                <div class="comment-item-head">
-                                    <a class="comment-item-name index-a" href="#" id="comment-author-2">海子</a>
-                                    <span class="comment-user-motto">(灯寂人初灭，月影杳萧墙)</span>
-                                    <a class="comment-reply-a cm" href="#comment" name="2">回复</a>
-                                    <p class="comment-item-time">2018-6-12 20:15:24</p>
+                                            <c:if test="${! empty commentAuxiliary.replyAuxiliaries}">
+                                                <%--如果这条评论有回复啊--%>
+                                                <c:forEach items="${commentAuxiliary.replyAuxiliaries}" var="replyAuxiliary">
+                                                    <!-- 一条评论的回复 -->
+                                                    <div class="comment-reply-list">
+                                                        <c:url value="/toPeople.action" var="peopleReplyUrl">
+                                                            <c:param name="id" value="${replyAuxiliary.publisherInfo.id}"/>
+                                                        </c:url>
+                                                        <c:url value="/toPeople.action" var="peopleBeRepliedUrl">
+                                                            <c:param name="id" value="${replyAuxiliary.commentReply.replyObjectUserId}"/>
+                                                        </c:url>
+                                                        <a class="comment-reply-name index-a" href="${peopleReplyUrl}" id="comment-reply-writer-${replyAuxiliary.commentReply.id}">${replyAuxiliary.publisherInfo.userName}</a>:
+                                                        &nbsp;回复 <a href="${peopleBeRepliedUrl}" class="index-a comment-reply-object">${replyAuxiliary.userBeRepliedInfo.userName}</a>:
+                                                        &nbsp;<span class="comment-reply-content" id="comment-reply-content-${replyAuxiliary.commentReply.id}">${replyAuxiliary.commentReply.content}</span>
+                                                        <div class="comment-reply-operate">
+                                                            <span class="comment-reply-time"><fmt:formatDate value="${replyAuxiliary.commentReply.replyTime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+                                                            <a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm rr" name="${replyAuxiliary.commentReply.id} rpType="1">回复</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 一条评论的回复结束 -->
+                                                </c:forEach>
+                                            </c:if>
+                                        </div>
+                                    </div>
 
-                                </div>
-                                <!-- 评论内容 -->
-                                <div class="comment-item-content" id="comment-content-2">
-                                    丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人。
-                                    而那些风里雨里过不去的日子啊，总会消散在赤练彩虹桥之前，美好即将到来。
-                                </div>
-
+                                </c:forEach>
                             </div>
-                        </div>
-                        <!-- 评论一条结束 -->
-
-                        <!-- 评论一条 -->
-                        <div class="comment-item">
-                            <a href="#" class="comment-item-img-a"><img src="./imgs/海子.jpg" class="comment-item-img"></a>
-                            <div class="comment-item-right">
-                                <!-- 评论头部用户信息 -->
-                                <div class="comment-item-head">
-                                    <a class="comment-item-name index-a" href="#" id="comment-author-3">海子</a>
-                                    <span class="comment-user-motto">(灯寂人初灭，月影杳萧墙)</span>
-                                    <a class="comment-reply-a cm" href="#comment" name="3">回复</a>
-                                    <p class="comment-item-time">2018-6-12 20:15:24</p>
-                                </div>
-                                <!-- 评论内容 -->
-                                <div class="comment-item-content" id="comment-content-3">
-                                    丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人。
-                                    而那些风里雨里过不去的日子啊，总会消散在赤练彩虹桥之前，美好即将到来。
-                                </div>
-
-                                <!-- 一条评论的回复 -->
-                                <div class="comment-reply-list">
-                                    <a class="comment-reply-name index-a" href="#" id="comment-author-4">吟游诗人</a>:
-                                    &nbsp;回复 <a href="#" class="index-a comment-reply-object">海子</a>:
-                                    &nbsp;<span class="comment-reply-content" id="comment-content-4">大师兄说得对</span>
-                                    <div class="comment-reply-operate">
-                                        <span class="comment-reply-time">2018-6-5 12:05:26</span>
-                                        <a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm" name="4">回复</a>
-                                    </div>
-                                </div>
-                                <!-- 一条评论的回复结束 -->
-                                <!-- 一条评论的回复 -->
-                                <div class="comment-reply-list">
-                                    <a class="comment-reply-name index-a" href="#" id="comment-author-5">吟游诗人</a>:
-                                    &nbsp;回复 <a href="#" class="index-a comment-reply-object">海子</a>:
-                                    &nbsp;<span class="comment-reply-content" id="comment-content-5">大师兄说得对</span>
-                                    <div class="comment-reply-operate">
-                                        <span class="comment-reply-time">2018-6-5 12:05:26</span>
-                                        <a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm" name="5">回复</a>
-                                    </div>
-                                </div>
-                                <!-- 一条评论的回复结束 -->
-                                <!-- 一条评论的回复 -->
-                                <div class="comment-reply-list">
-                                    <a class="comment-reply-name index-a" href="#" id="comment-author-6">吟游诗人</a>:
-                                    &nbsp;回复 <a href="#" class="index-a comment-reply-object">海子</a>:
-                                    &nbsp;<span class="comment-reply-content" id="comment-content-6">大师兄说得对</span>
-                                    <div class="comment-reply-operate">
-                                        <span class="comment-reply-time">2018-6-5 12:05:26</span>
-                                        <a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm" name="6">回复</a>
-                                    </div>
-                                </div>
-                                <!-- 一条评论的回复结束 -->
-
-
-                            </div>
-                        </div>
-                        <!-- 评论一条结束 -->
-
-                    </div>
-                    <!-- 评论列表结束 -->
-
+                            <!-- 评论列表结束 -->
+                        </c:otherwise>
+                    </c:choose>
 
                 </div>
                 <!-- 查看句子评论结束 -->
@@ -299,14 +261,14 @@
                 <!-- 发布评论 -->
                 <div class="publish-comment" id="comment">
                     <p class="sentence-title">~~ 发布评论 ~~</p>
-                    <form class="comment-input-form" action="comment.action" method="post">
-                        <p class="comment-reply-head">回复： @海子 "谢谢啦"
+                    <form class="comment-input-form" action="/comment.action?sentenceId=${sessionScope.sentenceEntity.sentence.id}" method="post" SID="${sessionScope.sentenceEntity.sentence.id}">
+                        <p class="comment-reply-head">
                             <span class="comment-cancel index-a" id="comment-cancel" onclick="cancelComment();"><i class="far fa-times-circle"></i>取消回复</span>
                         </p>
                         <div class="form-group">
-                            <textarea class="form-control" rows="5" id="comment-content"></textarea>
+                            <textarea class="form-control" rows="5" id="comment-content" name="content" maxlength="498" placeholder="最多输入498个字符呦"></textarea>
                         </div>
-                        <button class="btn btn-info comment-publish-btn">发布评论</button>
+                        <button class="btn btn-info comment-publish-btn" id="comment-publish-btn">发布评论</button>
                         <div style="clear: both;"></div>
                     </form>
                 </div>
@@ -321,7 +283,7 @@
                 <c:choose>
                     <c:when test="${sessionScope.sentenceEntity.original}">
                         <%--原创--%>
-                        <!-- 作者信息 -->
+                        <!-- 发布者信息 -->
                         <div class="author-info">
                             <c:url value="toPeople.action" var="rightPublisherUrl">
                                 <c:param name="id" value="${sessionScope.sentenceEntity.userInfo.id}"/>
@@ -329,60 +291,133 @@
                             <center><a href="${rightPublisherUrl}"><img src="${sessionScope.sentenceEntity.userInfo.headPath}" class="author-info-img" title="${sessionScope.sentenceEntity.userInfo.userName}"></a></center>
                             <center><a class="author-name title-a" href="${rightPublisherUrl}">${sessionScope.sentenceEntity.userInfo.userName}</a></center>
                             <div class="author-introduce">
-                                <a class="author-introduce-content">${sessionScope.sentenceEntity.userInfo.motto}</a>
+                                <center><a class="author-introduce-content">${sessionScope.sentenceEntity.userInfo.motto}</a></center>
                             </div>
 
                         </div>
+                        <!-- 发布者简介结束 -->
+                    </c:when>
+                    <c:when test="${sessionScope.sentenceEntity.giantInfo == null && sessionScope.sentenceEntity.originInfo == null}">
+                        <%--如果没有出处和作者，那么仍然显示发布者信息--%>
+                        <!-- 发布者信息 -->
+                        <div class="author-info">
+                            <c:url value="toPeople.action" var="rightPublisherUrl">
+                                <c:param name="id" value="${sessionScope.sentenceEntity.userInfo.id}"/>
+                            </c:url>
+                            <center><a href="${rightPublisherUrl}"><img src="${sessionScope.sentenceEntity.userInfo.headPath}" class="author-info-img" title="${sessionScope.sentenceEntity.userInfo.userName}"></a></center>
+                            <center><a class="author-name title-a" href="${rightPublisherUrl}">${sessionScope.sentenceEntity.userInfo.userName}</a></center>
+                            <div class="author-introduce">
+                                <center><a class="author-introduce-content">${sessionScope.sentenceEntity.userInfo.motto}</a></center>
+                            </div>
+
+                        </div>
+                        <!-- 发布者简介结束 -->
+                    </c:when>
+                    <c:when test="${sessionScope.sentenceEntity.giantInfo != null}">
+                        <%--作者信息不为空--%>
+                        <!-- 作者信息 -->
+                        <div class="author-info">
+                            <c:url value="/giant.action" var="giantUrl">
+                                <c:param name="giantId" value="${sessionScope.sentenceEntity.giantInfo.id}"/>
+                            </c:url>
+                            <center><a href="${giantUrl}"><img src="${sessionScope.sentenceEntity.giantInfo.imgPath}" class="author-info-img" title="${sessionScope.sentenceEntity.giantInfo.name}"></a></center>
+                            <center><a class="author-name title-a" href="${giantUrl}">${sessionScope.sentenceEntity.giantInfo.name}</a></center>
+                            <div class="author-introduce">
+                                <span class="author-introduce-title">作者简介：</span><a class="author-introduce-content" href="${giantUrl}">${sessionScope.sentenceEntity.giantInfo.introduction}</a>
+                            </div>
+                            <div class="author-other-sentence">
+                                <c:url value="/giantSentence.action" var="giantSentenceUrl">
+                                    <c:param name="giantId" value="${sessionScope.sentenceEntity.giantInfo.id}"/>
+                                </c:url>
+
+                                <c:if test="${! empty sessionScope.sentenceEntity.giantSentences}">
+                                    <%--如果有句子--%>
+                                    <a href="${giantSentenceUrl}" class="title-a more-sentence-title">>>更多${sessionScope.sentenceEntity.giantInfo.name}的句子</a>
+                                    <c:forEach items="${sessionScope.sentenceEntity.giantSentences}" var="stc">
+                                        <!-- 一条更多句子 -->
+                                        <div class="more-item">
+                                            <c:url value="sentence.action" var="sentenceUrl">
+                                                <c:param name="sentenceId" value="${stc.id}"/>
+                                            </c:url>
+                                            <i class="fas fa-chevron-right"></i> <a href="${sentenceUrl}" class="index-a">${stc.content}</a>
+                                        </div>
+                                        <!-- 一条更多句子结束 -->
+                                    </c:forEach>
+                                </c:if>
+
+                            </div>
+                        </div>
                         <!-- 作者简介结束 -->
+                    </c:when>
+                    <c:when test="${sessionScope.sentenceEntity.originInfo != null}">
+                        <%-- 出处信息不为空 --%>
+                        <!-- 出处信息 -->
+                        <div class="author-info">
+                            <c:url value="origin.action" var="originUrl">
+                                <c:param name="originId" value="${sessionScope.sentenceEntity.originInfo.id}"/>
+                            </c:url>
+                            <center><a href="${originUrl}"><img src="${sessionScope.sentenceEntity.originInfo.imgPath}" class="author-info-img" title="${sessionScope.sentenceEntity.originInfo.name}"></a></center>
+                            <center><a class="author-name title-a" href="${originUrl}">${sessionScope.sentenceEntity.originInfo.name}</a></center>
+                            <div class="author-introduce">
+                                <span class="author-introduce-title">出处简介：</span><a class="author-introduce-content" href="${originUrl}">${sessionScope.sentenceEntity.originInfo.introduction}</a>
+                            </div>
+                            <div class="author-other-sentence">
+                                <c:if test="${! empty sessionScope.sentenceEntity.originSentences}">
+                                    <%--如果出处有句子--%>
+                                    <a href="${originUrl}" class="title-a more-sentence-title">>>更多${sessionScope.sentenceEntity.originInfo.name}的句子</a>
+                                <c:forEach items="${sessionScope.sentenceEntity.originSentences}" var="sentence">
+                                    <!-- 一条更多句子 -->
+                                    <div class="more-item">
+                                        <c:url value="sentence.action" var="sentenceUrl">
+                                            <c:param name="sentenceId" value="${sentence.id}"/>
+                                        </c:url>
+                                        <i class="fas fa-chevron-right"></i> <a href="${sentenceUrl}" class="index-a">${sentence.content}</a>
+                                    </div>
+                                    <!-- 一条更多句子结束 -->
+                                </c:forEach>
+                                </c:if>
+
+                            </div>
+                        </div>
+                        <!-- 出处简介结束 -->
                     </c:when>
                 </c:choose>
 
-                <!-- 作者信息 -->
-                <div class="author-info">
-                    <center><a href="#"><img src="./imgs/王小波.jpg" class="author-info-img" title="王小波"></a></center>
-                    <center><a class="author-name title-a" href="#">王小波</a></center>
-                    <div class="author-introduce">
-                        <span class="author-introduce-title">作者简介：</span><a class="author-introduce-content" href="#">王小波 （1952年5月13日－1997年4月11日），北京人，作家。年轻时在云南农场作过知青，插过队，作过工人、老师。1978年至1982年在中国人民大学学习。1984年赴美。1988年获匹兹堡大学硕士学位。后任教于北京大学和中国人民大学。1992年后开始成为自由撰稿人。1997年4月11日因心脏病突发逝世于北京。 </a>
-                    </div>
-                    <div class="author-other-sentence">
-                        <a href="#" class="title-a more-sentence-title">>>更多王小波的句子</a>
-                        <!-- 一条更多句子 -->
-                        <div class="more-item">
-                            <i class="fas fa-chevron-right"></i> <a href="#" class="index-a">人的一切痛苦，本质上都是对自己的无能的愤怒。</a>
-                        </div>
-                        <!-- 一条更多句子结束 -->
-                        <!-- 一条更多句子 -->
-                        <div class="more-item">
-                            <i class="fas fa-chevron-right"></i> <a href="#" class="index-a">我把我整个灵魂都给你，连同它的怪癖，耍小脾气，忽明忽暗，一千八百种坏毛病。它真讨厌，只有一点好，爱你。</a>
-                        </div>
-                        <!-- 一条更多句子结束 -->
-                        <!-- 一条更多句子 -->
-                        <div class="more-item">
-                            <i class="fas fa-chevron-right"></i> <a href="#" class="index-a">不愿清醒，宁愿一直沉迷放纵。 不知归路，宁愿一世无悔追逐。</a>
-                        </div>
-                        <!-- 一条更多句子结束 -->
-
-                    </div>
-                </div>
-                <!-- 作者简介结束 -->
 
                 <!-- 喜欢该句子的人 -->
                 <div class="love-this-sentence-div">
-                    <p class="love-this-sentence-title"><a href="#" class="title-a">>> 这些人也喜欢这个句子</a></p>
-                    <!-- 喜欢的一个用户 -->
-                    <div class="love-client-item">
-                        <a href="#"><img src="./imgs/鲁迅.jpg"></a>
-                        <div class="love-client-right">
-                            <a href="#" class="index-a love-client-name ">李白</a>
-                            <span class="love-span-intr">湖南/男</span><br>
-                            <button class="btn-follow" UID="1"><i class="fas fa-plus"></i> 关注</button>
-                            <!-- <p class="fan-client" UID="1">+ 关注</p> -->
-                        </div>
-                    </div>
-                    <!-- 喜欢的一个用户结束 -->
+                    <c:url value="userLove.action" var="sentenceLoveUrl">
+                        <c:param name="sentenceId" value="${sessionScope.sentenceEntity.sentence.id}"/>
+                    </c:url>
+                    <p class="love-this-sentence-title"><a href="${sentenceLoveUrl}" class="title-a">>> 这些人也喜欢这个句子</a></p>
+                    <c:choose>
+                        <c:when test="${empty sessionScope.sentenceEntity.loveUsers}">
+                            <%--没有喜欢的用户--%>
+                            <!-- 没人喜欢这个句子 -->
+                            <p class="love-client-nobody">还没有人喜欢这个句子哦...</p>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach items="${sessionScope.sentenceEntity.loveUsers}" var="user">
+                                <!-- 喜欢的一个用户 -->
+                                <div class="love-client-item">
+                                    <c:url value="/toPeople.action" var="peopleUrl">
+                                        <c:param name="id" value="${user.id}"/>
+                                    </c:url>
+                                    <a href="${peopleUrl}"><img src="${user.headPath}"></a>
+                                    <div class="love-client-right">
+                                        <a href="${peopleUrl}" class="index-a love-client-name ">${user.userName}</a>
+                                        <span class="love-span-intr"><fmt:formatDate value="${user.birth}" pattern="YYYY"/>年 / ${user.gender}</span><br>
+                                        <button class="btn-follow" UID="${user.id}"><i class="fas fa-plus"></i> 关注</button>
+                                        <!-- <p class="fan-client" UID="1">+ 关注</p> -->
+                                    </div>
+                                </div>
+                                <!-- 喜欢的一个用户结束 -->
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
 
-                    <!-- 没人喜欢这个句子 -->
-                    <p class="love-client-nobody">还没有人喜欢这个句子哦...</p>
+
+
 
                 </div>
                 <!-- 喜欢该句子的人结束 -->
@@ -393,7 +428,8 @@
 
         </div>
 
-
+            </div>
+        </div>
     </div>
 </content>
 
@@ -416,14 +452,18 @@
 
 
 
-<script type="text/javascript" src="./js/layx.min.js"></script>
-<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="./js/bootstrap.min.js"></script>
-<script type="text/javascript" src="./js/nav.js"></script>
-<script type="text/javascript" src="./js/toCollect.js"></script>
-<script type="text/javascript" src="./js/sentenceInfo.js"></script>
 
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrSentenceInfo.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrLoginCheck.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/layx.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/nav.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/toCollect.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/sentenceInfo.js"></script>
 
 </body>
 </html>

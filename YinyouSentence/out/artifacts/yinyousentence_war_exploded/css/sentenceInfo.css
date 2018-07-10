@@ -494,12 +494,8 @@ content{
 	display: inline;
 }
 
-.love-client-nobody{
-	display: none;
-}
-
 .comment-reply-head{
-	display: block;
+	display: none;
 }
 
 .comment-cancel{

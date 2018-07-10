@@ -2,8 +2,10 @@ package pageEntity;
 
 import bean.*;
 import dao.SentenceDao;
+import org.directwebremoting.WebContextFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,14 +28,16 @@ public class SentenceEntity {
     private UserInfo userInfo;
     private List<Sentence> giantSentences = new ArrayList<Sentence>();
     private List<UserInfo> loveUsers = new ArrayList<UserInfo>();
+    private List<Sentence> originSentences = new ArrayList<Sentence>();
     private List<Tag> tags = new ArrayList<Tag>();
 
     private OriginInfo originInfo;
+    private Boolean userLove = false;
 
 
 
     // 初始化数据，这个id必须判断一定存在才会到这
-    public void init(long sentenceId){
+    public void init(long sentenceId,long myId){
         if(giantSentences != null){
             giantSentences.clear();
         }
@@ -55,13 +59,18 @@ public class SentenceEntity {
         if(sentence.getAuthorId() != 0){
             giantInfo = sentenceDao.getGiantInfoById(sentence.getAuthorId());
             giantSentences = sentenceDao.getSentencesByAuthorId(sentence.getAuthorId());
-            if(giantSentences.size() > 3){
+            originSentences = sentenceDao.getSentencesByOriginId(sentence.getOriginId());
+            if(giantSentences != null && giantSentences.size() > 3){
                 giantSentences.subList(0,3);
+            }
+            if(originSentences != null && originSentences.size() > 3){
+                originSentences.subList(0,3);
             }
 
         }else{
             giantInfo = null;
             giantSentences = null;
+            originSentences = null;
         }
 
         if(sentence.getOriginId() != 0){
@@ -72,13 +81,40 @@ public class SentenceEntity {
 
         userInfo = sentenceDao.getUserInfoById(sentence.getPublisherId());
         List<Long> userIds = sentenceDao.getLoveSentenceUserIdBySentenceId(sentence.getId());
-        for(long id : userIds){
-            UserInfo userInfo1 = new UserInfo();
-            userInfo1 = sentenceDao.getUserInfoById(id);
-            loveUsers.add(userInfo1);
+
+        for(Long id : userIds){
+            if(id.equals(myId)){
+                System.out.println("屏蔽了一个:" + myId);
+                continue;
+            }
+            System.out.println("里面至少有一个: " + id);
+            UserInfo userInfo2 = new UserInfo();
+            userInfo2 = sentenceDao.getUserInfoById(id);
+            loveUsers.add(userInfo2);
+        }
+        if(loveUsers != null && loveUsers.size() > 3){
+            loveUsers = loveUsers.subList(0,3);
         }
 
+
+
         initTags();
+
+        // 判断用户是否喜欢该句子
+        initLoveCheck(sentenceId, myId);
+    }
+
+    // 判断用户是否喜欢该句子
+    public void initLoveCheck(long sentenceId,long userId){
+        if(userId == 0){
+            return;
+        }
+        long love = sentenceDao.checkUserLoveSentence(userId,sentenceId);
+        if(love != 0){
+            userLove = true;
+        }else{
+            userLove = false;
+        }
     }
 
     // 初始化标签列表
@@ -167,5 +203,22 @@ public class SentenceEntity {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public List<Sentence> getOriginSentences() {
+        return originSentences;
+    }
+
+    public void setOriginSentences(List<Sentence> originSentences) {
+        this.originSentences = originSentences;
+    }
+
+
+    public Boolean getUserLove() {
+        return userLove;
+    }
+
+    public void setUserLove(Boolean userLove) {
+        this.userLove = userLove;
     }
 }

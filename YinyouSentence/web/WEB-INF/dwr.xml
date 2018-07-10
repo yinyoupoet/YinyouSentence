@@ -11,6 +11,15 @@
         <create creator="spring" javascript="dwrEditInfo">
             <param name="beanName" value="dwrEditInfo"/>
         </create>
-        <convert converter="bean" match="ro.tremend.upload.UploadStatus"/>
+
+        <create creator="spring" javascript="dwrSentenceInfo">
+            <param name="beanName" value="dwrSentenceInfo"/>
+        </create>
+
+        <create creator="spring" javascript="dwrLoginCheck">
+            <param name="beanName" value="dwrLoginCheck"/>
+        </create>
+
+        <convert converter="bean" match="dwrPOJO.*"/>
     </allow>
 </dwr>

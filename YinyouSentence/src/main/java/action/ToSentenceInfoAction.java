@@ -1,10 +1,13 @@
 package action;
 
+import auxiliary.CommentAuxiliary;
+import bean.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.SentenceDao;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import pageEntity.CommentEntity;
 import pageEntity.SentenceEntity;
 
 import javax.servlet.Servlet;
@@ -29,13 +32,30 @@ public class ToSentenceInfoAction extends ActionSupport implements SessionAware,
     @Autowired
     private SentenceEntity sentenceEntity;
 
+    @Autowired
+    private CommentEntity commentEntity;
+
     @Override
     public String execute() throws Exception {
+
+        // 常规数据
         if(! sentenceDao.isSentenceExist(sentenceId)){
             return ERROR;
         }
-        sentenceEntity.init(sentenceId);
+        long myId = 0;
+        if(session != null){
+            UserInfo userInfo = (UserInfo) session.get("userInfo");
+            if(userInfo != null){
+                myId = userInfo.getId();
+            }
+        }
+        sentenceEntity.init(sentenceId,myId);
         session.put("sentenceEntity",sentenceEntity);
+
+        // 评论相关
+        commentEntity.init(sentenceId);
+        session.put("commentEntity",commentEntity);
+
         return SUCCESS;
     }
 
@@ -71,5 +91,13 @@ public class ToSentenceInfoAction extends ActionSupport implements SessionAware,
 
     public void setSentenceEntity(SentenceEntity sentenceEntity) {
         this.sentenceEntity = sentenceEntity;
+    }
+
+    public CommentEntity getCommentEntity() {
+        return commentEntity;
+    }
+
+    public void setCommentEntity(CommentEntity commentEntity) {
+        this.commentEntity = commentEntity;
     }
 }

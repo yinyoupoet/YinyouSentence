@@ -21,6 +21,7 @@ public class CommentReply {
     private long replyObjectId;
     private long replyWriterId;
     private Timestamp replyTime;
+    private String content;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -132,5 +133,15 @@ public class CommentReply {
         result = 31 * result + (int) (replyWriterId ^ (replyWriterId >>> 32));
         result = 31 * result + (replyTime != null ? replyTime.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "content", nullable = false, length = 500)
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

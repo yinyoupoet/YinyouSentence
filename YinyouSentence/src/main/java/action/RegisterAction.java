@@ -50,7 +50,7 @@ public class RegisterAction extends ActionSupport implements SessionAware {
         Login login = new Login();
         login.setName(rUserName);
         login.setPwd(rUserPwd);
-        int id = loginRegisterDao.register(login);
+        long id = loginRegisterDao.register(login);
 
         // 3、初始化用户详细信息，并保存到数据库
         UserInfo userInfo = new UserInfo();

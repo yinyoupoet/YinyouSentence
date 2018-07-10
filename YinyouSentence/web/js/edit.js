@@ -17,7 +17,16 @@ $(document).ready(function(){
 
 	// 修改头像点击事件
 	changeHeadImg();
+	
+	// 返回首页按钮事件
+	backToIndex();
 });
+
+var backToIndex = function () {
+	$('#cancel-btn').on('click',function () {
+        $(location).attr('href', '/index.action');
+    });	
+};
 
 // 修改头像点击事件
 var changeHeadImg = function(){

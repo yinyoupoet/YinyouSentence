@@ -44,6 +44,7 @@
                 <value>classpath:SentenceCategory.hbm.xml</value>
                 <value>classpath:CollectionSentence.hbm.xml</value>
                 <value>classpath:UserFollow.hbm.xml</value>
+                <value>classpath:CommentReply.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
@@ -115,6 +116,19 @@
         <property name="sentenceDao" ref="sentenceDao"></property>
     </bean>
 
+    <bean id="dwrSentenceInfo" class="service.SentenceInfoService">
+        <property name="sentenceDao" ref="sentenceDao"/>
+    </bean>
+
+    <bean id="commentDao" class="dao.CommentDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="commentEntity" class="pageEntity.CommentEntity">
+        <property name="commentDao" ref="commentDao"/>
+    </bean>
+
+    <bean id="dwrLoginCheck" class="service.LoginCheckService"></bean>
 
 
 </beans>

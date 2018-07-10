@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "sentence_comment", schema = "yinyousentence", catalog = "")
 public class SentenceComment {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String content;
     private long sentenceId;

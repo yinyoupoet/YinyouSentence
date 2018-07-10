@@ -91,6 +91,33 @@
         <action name="userLove" class="action.ToUserLoveAction" method="execute">
             <result name="success">/WEB-INF/View/sentenceInfo.jsp</result>
         </action>
+        <action name="giantSentence" class="action.ToGiantSentenceAction" method="execute">
+            <result name="success">/WEB-INF/View/sentenceInfo.jsp</result>
+        </action>
+
+        <action name="comment" class="action.CommentAction" method="execute">
+            <result name="success" type="redirectAction">
+                <param name="actionName">sentence</param>
+                <param name="sentenceId">${sentenceId}</param>
+            </result>
+            <result name="input" type="redirectAction">
+                <param name="actionName">sentence</param>
+                <param name="sentenceId">${sentenceId}</param>
+            </result>
+            <result name="error">/WEB-INF/View/sentenceInfo.jsp</result>
+        </action>
+
+        <action name="reply" class="action.ReplyAction" method="execute">
+            <result name="success" type="redirectAction">
+                <param name="actionName">sentence</param>
+                <param name="sentenceId">${sentenceId}</param>
+            </result>
+            <result name="input" type="redirectAction">
+                <param name="actionName">sentence</param>
+                <param name="sentenceId">${sentenceId}</param>
+            </result>
+            <result name="error">/WEB-INF/View/sentenceInfo.jsp</result>
+        </action>
 
     </package>
 

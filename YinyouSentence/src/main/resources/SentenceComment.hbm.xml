@@ -7,6 +7,7 @@
     <class name="bean.SentenceComment" table="sentence_comment" schema="yinyousentence">
         <id name="id">
             <column name="id" sql-type="bigint(20) unsigned"/>
+            <generator class="increment"></generator>
         </id>
         <property name="content">
             <column name="content" sql-type="varchar(500)" length="500"/>

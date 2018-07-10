@@ -11,6 +11,9 @@
         <property name="commentId">
             <column name="comment_id" sql-type="bigint(20) unsigned"/>
         </property>
+        <property name="content">
+            <column name="content" sql-type="varchar(500)" length="500"/>
+        </property>
         <property name="replyType">
             <column name="reply_type" sql-type="tinyint(3) unsigned"/>
         </property>

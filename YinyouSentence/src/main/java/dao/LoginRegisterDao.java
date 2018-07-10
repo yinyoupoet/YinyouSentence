@@ -55,7 +55,7 @@ public class LoginRegisterDao {
     * @Param [login]
     * @return void
     **/
-    public int register(Login login){
+    public Long register(Login login){
         Session session = sessionFactory.openSession();
         Transaction tx = session.getTransaction();
         tx.begin();
@@ -64,7 +64,7 @@ public class LoginRegisterDao {
 
         String hql = "select id FROM Login login where name = ?";
         long id =  (Long) session.createQuery(hql).setParameter(0,login.getName()).uniqueResult();
-        return  (int) id;
+        return id;
     }
 
     /**

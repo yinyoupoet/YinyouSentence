@@ -7,6 +7,7 @@ import dao.PeopleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.awt.print.Book;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,7 +75,12 @@ public class PeopleEntity {
     // 初始化关注的名家
     public void initFollowingGiants(long showId){
         List<Long> giantIds = peopleDao.getFollowingGiantIds(showId);
-        followingGiants.clear();
+        if(followingGiants != null){
+            followingGiants.clear();
+        }else {
+            followingGiants = new LinkedList<GiantInfo>();
+        }
+
         for (Long giantId : giantIds){
             GiantInfo giantInfo = peopleDao.getGiantInfoById(giantId);
             followingGiants.add(giantInfo);
@@ -84,7 +90,12 @@ public class PeopleEntity {
     // 初始化关注的出处
     public void initFollowingOrigins(long showId){
         List<Long> originIds = peopleDao.getFollowingOriginIds(showId);
-        loveOrigins.clear();
+        if(loveOrigins != null){
+            loveOrigins.clear();
+        }else {
+            loveOrigins = new LinkedList<OriginInfo>();
+        }
+
         for (Long originId : originIds){
             OriginInfo originInfo = peopleDao.getOriginInfoById(originId);
             loveOrigins.add(originInfo);

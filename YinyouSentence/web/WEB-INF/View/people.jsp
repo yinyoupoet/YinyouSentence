@@ -91,7 +91,7 @@
                 </c:url>
                 <c:url value="/toEditInfo.action" var="editUrl"/>
                 <c:url value="/logout.action" var="logoutUrl"/>
-                <li><a href="${selfUrl}" class="info-link">吟游诗人</a></li>
+                <li><a href="${selfUrl}" class="info-link">${userInfo.userName}</a></li>
                 <li><a href="${editUrl}" class="info-link">编辑资料</a></li>
                 <li><a href="${logoutUrl}" class="info-link">登出</a></li>
             </ul>
