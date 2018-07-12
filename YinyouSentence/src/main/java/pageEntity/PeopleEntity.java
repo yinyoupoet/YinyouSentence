@@ -34,12 +34,22 @@ public class PeopleEntity {
     private long userId;
     private List<GiantInfo> followingGiants = new LinkedList<GiantInfo>();
     private List<OriginInfo> loveOrigins = new LinkedList<OriginInfo>();
+    // 对当前用户是否已关注，true为已关注，false为未关注
+    private Boolean follow;
+
+    private long loveSentenceNum;
+    private long publishNum;
+    private long originalNum;
+    private long collectionNum;
+    private long loveCollectionNum;
+
 
     public void init(long myId, long showId){
         initBasicInfo(myId, showId);
         initFollowingAndFollower(showId);
         initFollowingGiants(showId);
         initFollowingOrigins(showId);
+        initOtherInfo(showId);
     }
 
     // 初始化个人基本信息
@@ -50,6 +60,7 @@ public class PeopleEntity {
         }else{
             isSelf = false;
             this.userId = showId;
+            follow = peopleDao.isFollowPeopleOrNot(myId,showId);
         }
         UserInfo userInfo = peopleDao.getUserInfoById(showId);
         this.userName = userInfo.getUserName();
@@ -100,6 +111,17 @@ public class PeopleEntity {
             OriginInfo originInfo = peopleDao.getOriginInfoById(originId);
             loveOrigins.add(originInfo);
         }
+    }
+
+    // 初始化其他信息，包括那五个数量
+    public void initOtherInfo(long showId){
+        // System.out.println("showId: " + showId);
+        loveSentenceNum = peopleDao.getLoveSentenceNum(showId);
+        publishNum = peopleDao.getPublishSentenceNum(showId);
+        originalNum = peopleDao.getPublishOriginalSentenceNum(showId);
+        collectionNum = peopleDao.getPublishCollectionNum(showId);
+        loveCollectionNum = peopleDao.getLoveCollectionNum(showId);
+        // System.out.println("initOtherInfo: " + loveSentenceNum + " " + publishNum + " " + originalNum + " " + collectionNum + " " + loveCollectionNum);
     }
 
     public void setPeopleDao(PeopleDao peopleDao) {
@@ -196,5 +218,55 @@ public class PeopleEntity {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public Boolean getFollow() {
+        return follow;
+    }
+
+    public void setFollow(Boolean follow) {
+        this.follow = follow;
+    }
+
+
+
+    public long getPublishNum() {
+        return publishNum;
+    }
+
+    public void setPublishNum(long publishNum) {
+        this.publishNum = publishNum;
+    }
+
+    public long getOriginalNum() {
+        return originalNum;
+    }
+
+    public void setOriginalNum(long originalNum) {
+        this.originalNum = originalNum;
+    }
+
+    public long getCollectionNum() {
+        return collectionNum;
+    }
+
+    public void setCollectionNum(long collectionNum) {
+        this.collectionNum = collectionNum;
+    }
+
+    public long getLoveCollectionNum() {
+        return loveCollectionNum;
+    }
+
+    public void setLoveCollectionNum(long loveCollectionNum) {
+        this.loveCollectionNum = loveCollectionNum;
+    }
+
+    public long getLoveSentenceNum() {
+        return loveSentenceNum;
+    }
+
+    public void setLoveSentenceNum(long loveSentenceNum) {
+        this.loveSentenceNum = loveSentenceNum;
     }
 }

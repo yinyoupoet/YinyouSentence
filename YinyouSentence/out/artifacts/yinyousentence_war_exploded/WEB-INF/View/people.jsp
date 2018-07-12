@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/fontawesome-all.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/select-color.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layx.min.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/collect.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/nav.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/footer.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/back-to-top.css">
@@ -51,7 +51,7 @@
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -106,7 +106,7 @@
         <div class="people-info-div">
             <img src="${sessionScope.peopleEntity.headPath}" class="people-info-img">
             <div class="people-info-detail">
-                <p><span class="people-name">${sessionScope.peopleEntity.userName}</span><span class="people-private-info">${sessionScope.peopleEntity.birthYear} /&nbsp; ${sessionScope.peopleEntity.gender}</span></p>
+                <p><span class="people-name" id="people-name" UID="${sessionScope.peopleEntity.userId}">${sessionScope.peopleEntity.userName}</span><span class="people-private-info">${sessionScope.peopleEntity.birthYear} /&nbsp; ${sessionScope.peopleEntity.gender}</span></p>
                 <p class="people-motto">${sessionScope.peopleEntity.motto}</p>
 
                 <c:choose>
@@ -117,7 +117,15 @@
                     </c:when>
                     <c:otherwise>
                         <!-- 别人看 -->
-                        <button class="btn-follow" UID="${sessionScope.peopleEntity.userId}"><i class="fas fa-plus"></i> 关注</button>
+                        <c:choose>
+                            <c:when test="${sessionScope.peopleEntity.follow}">
+                                <button class="btn-follow" UID="${sessionScope.peopleEntity.userId}">已关注</button>
+                            </c:when>
+                            <c:otherwise>
+                                <button class="btn-follow" UID="${sessionScope.peopleEntity.userId}"><i class="fas fa-plus"></i> 关注</button>
+                            </c:otherwise>
+                        </c:choose>
+
                     </c:otherwise>
                 </c:choose>
 
@@ -133,110 +141,22 @@
                 <div class="col-xs-8 left">
                     <div class="people-left-side">
                         <div class="people-left-menu">
-                            <span class="people-left-menu-item is-active" id="menu-love-sentence">喜欢的句子 <span class="people-left-menu-item-num">45</span></span>
-                            <span class="people-left-menu-item" id="menu-publish-sentence">发布的句子 <span class="people-left-menu-item-num">4</span></span>
-                            <span class="people-left-menu-item" id="menu-diy">原创 <span class="people-left-menu-item-num">23</span></span>
-                            <span class="people-left-menu-item" id="menu-collect">句子集 <span class="people-left-menu-item-num">2</span></span>
-                            <span class="people-left-menu-item" id="love-menu-collect">喜欢的句子集 <span class="people-left-menu-item-num">5</span></span>
+                            <span class="people-left-menu-item is-active" id="menu-love-sentence">喜欢的句子 <span class="people-left-menu-item-num">${sessionScope.peopleEntity.loveSentenceNum}</span></span>
+                            <span class="people-left-menu-item" id="menu-publish-sentence">发布的句子 <span class="people-left-menu-item-num">${sessionScope.peopleEntity.publishNum}</span></span>
+                            <span class="people-left-menu-item" id="menu-diy">原创 <span class="people-left-menu-item-num">${sessionScope.peopleEntity.originalNum}</span></span>
+                            <span class="people-left-menu-item" id="menu-collect">句子集 <span class="people-left-menu-item-num">${sessionScope.peopleEntity.collectionNum}</span></span>
+                            <span class="people-left-menu-item" id="love-menu-collect">喜欢的句子集 <span class="people-left-menu-item-num">${sessionScope.peopleEntity.loveCollectionNum}</span></span>
                         </div>
                         <!-- 左边菜单下的实质显示 -->
                         <div class="people-left-content">
                             <!-- 句子列表 -->
                             <div class="sentence-list">
 
-                                <!-- 一条句子结果 -->
-                                <div class="recommend-item">
-
-                                    <p><a href="#" class="recommend-a">如果有来生， <br>
-                                        要做一棵树， <br>
-                                        站成永恒， <br>
-                                        没有悲欢的姿势。<br>
-                                        一半在土里安详， <br>
-                                        一半在风里飞扬， <br>
-                                        一半洒落阴凉， <br>
-                                        一半沐浴阳光， <br>
-                                        非常沉默非常骄傲， <br>
-                                        从不依靠，从不寻找。</a></p>
-
-                                    <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;三毛</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《说给自己听》</a></p>
-
-                                    <div class="recommend-bar">
-											<span class="recommend-love-span">
-												<span class="recommend-love"><i class="far fa-heart"></i></span>
-												<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-											</span>
-
-                                        <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                                        <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                                        <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
-                                    </div>
-                                </div>
-                                <!-- 一条句子结果结束 -->
-
-                                <!-- 一条句子结果 -->
-                                <div class="recommend-item">
-
-                                    <p><a href="#" class="recommend-a">因为有了因为，所以有了所以。既然已成既然，何必再说何必。</a></p>
-
-                                    <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;周立波</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《因为》</a></p>
-
-                                    <div class="recommend-bar">
-											<span class="recommend-love-span">
-												<span class="recommend-love"><i class="far fa-heart"></i></span>
-												<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-											</span>
-
-                                        <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                                        <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                                        <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
-                                    </div>
-                                </div>
-                                <!-- 一条句子结果结束 -->
-
                             </div>
                             <!-- 句子列表结束 -->
 
                             <!-- 句子集列表 -->
                             <div class="collect-list">
-
-                                <!-- 一条句子集 -->
-                                <div class="sentence-collect-item">
-                                    <a href="#"><img src="./imgs/海子.jpg" class="sentence-collect-pic"></a>
-                                    <div class="sentence-collect-right">
-                                        <a href="#" class="index-a sentence-collect-title"><i class="far fa-bookmark"></i>海子故事集</a><span class="sentence-collect-num">(包含78条句子)</span>
-
-                                        <span class="sentence-collect-love index-a"><img src="./imgs/love.png" title="喜欢" class="love-img" state="false" cId="456"> 喜欢 (58)</span>
-
-                                        <p class="sentence-collect-publish-info"><a class="index-a sentence-collect-publisher" href="#">吟游诗人</a> 发布于 <span class="sentence-collect-publish-time">2017-08-12 22:14:05</span></p>
-
-                                        <p class="sentence-collect-putlish-intro">鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼</p>
-
-                                    </div>
-                                </div>
-                                <!-- 一条句子集结束 -->
-
-                                <!-- 一条句子集 -->
-                                <div class="sentence-collect-item">
-                                    <a href="#"><img src="./imgs/海子.jpg" class="sentence-collect-pic"></a>
-                                    <div class="sentence-collect-right">
-                                        <a href="#" class="index-a sentence-collect-title"><i class="far fa-bookmark"></i>海子故事集</a><span class="sentence-collect-num">(包含78条句子)</span>
-
-                                        <span class="sentence-collect-love index-a"><img src="./imgs/love.png" title="喜欢" class="love-img" state="false" cId="456"> 喜欢 (58)</span>
-
-                                        <p class="sentence-collect-publish-info"><a class="index-a sentence-collect-publisher" href="#">吟游诗人</a> 发布于 <span class="sentence-collect-publish-time">2017-08-12 22:14:05</span></p>
-
-                                        <p class="sentence-collect-putlish-intro">鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼</p>
-
-                                    </div>
-                                </div>
-                                <!-- 一条句子集结束 -->
-
 
                             </div>
                             <!-- 句子集列表结束 -->
@@ -255,14 +175,14 @@
                         <a href="#" class="people-follow-fan-div ">
                             <div href="#" class="people-follow-fan-div-left">
                                 <p class="people-follow-fan-title">关注了</p>
-                                <p class="people-follow-fan-num">${sessionScope.peopleEntity.followingNum}</p>
+                                <p class="people-follow-fan-num" id="hasFollowedNum">${sessionScope.peopleEntity.followingNum}</p>
                             </div>
                         </a>
                         <div class="people-follow-fan-hr"></div>
                         <a href="#" class="people-follow-fan-div ">
                             <div href="#" class="people-follow-fan-div-right">
                                 <p class="people-follow-fan-title">关注者</p>
-                                <p class="people-follow-fan-num">${sessionScope.peopleEntity.followerNum}</p>
+                                <p class="people-follow-fan-num" id="hasFanNum">${sessionScope.peopleEntity.followerNum}</p>
                             </div>
                         </a>
                     </div>
@@ -350,11 +270,39 @@
 </a>
 
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/layx.min.js"></script>
+
+<%--收藏到句子集--%>
+<div class="collect-collection-div">
+    <div class="collect-collection-list-div">
+        <img src="/imgs/sys/search close.png" class="collect-collection-div-close">
+        <h2 style="text-align: center;" id="collect-collection-title" SID="">收藏句子到句子集</h2>
+        <%--句子集列表--%>
+        <div class="collect-collection-list">
+
+        </div>
+        <%--句子集列表结束--%>
+        <div class="collect-new-collection-div">
+            <input type="text" class="collect-new-collection-input" maxlength="25" placeholder="请输入新建句子集名"> <button class="btn btn-info collect-new-collection-btn" onclick="addCollection()">新增</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrSentenceInfo.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrLoginCheck.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrCollect.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrPeople.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrSentenceInfo.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/nav.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/toCollect.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/collect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/people.js"></script>
 
 </body>

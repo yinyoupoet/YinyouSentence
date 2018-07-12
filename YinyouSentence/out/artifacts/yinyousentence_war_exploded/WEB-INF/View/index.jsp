@@ -24,10 +24,11 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/animate.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/index-left.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/index-right.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layx.min.css">
+
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/nav.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/footer.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/back-to-top.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/collect.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/index.css">
 
 </head>
@@ -51,7 +52,7 @@
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -104,11 +105,42 @@
     <div class="container">
         <div class="random-sentence">
             <p class="random-title">~~ 缘来佳句 ~~</p>
-            <p class="random-next"><i class="fas fa-sync"></i> 换一句</p>
-            <h3 id="random-content">丢失的日子如融化在人群里的好姑娘，我看着她沿途美丽下去，嫁给别人</h3>
+            <%--<p class="random-next"><i class="fas fa-sync"></i> 换一句</p>--%>
+            <h3 id="random-content">${sessionScope.indexEntity.randomSentenceEntity.sentence.content}</h3>
             <div>
-                <p id="random-publisher-p"><span id="random-publisher"><a href="#">吟游诗人</a></span>发布于<span id="random-publish-time">2018年12月12日</span></p>
-                <p id="random-from">——&nbsp;<span id="random-author"><a href="#">叶三</a></span>&nbsp;&nbsp;<span id="random-orient"><a href="#">《九万字》</a></span></p>
+                <c:url value="/toPeople.action" var="rdPeopleUrl">
+                    <c:param name="id" value="${sessionScope.indexEntity.randomSentenceEntity.sentence.publisherId}"/>
+                </c:url>
+                <p id="random-publisher-p"><span id="random-publisher"><a href="${rdPeopleUrl}">${sessionScope.indexEntity.randomSentenceEntity.userInfo.userName}</a></span>发布于<span id="random-publish-time">${sessionScope.indexEntity.randomSentenceEntity.sentence.publishTime}</span></p>
+                <p id="random-from">
+                    <c:choose>
+                        <c:when test="${sessionScope.indexEntity.randomSentenceEntity.original}">
+                    <p class="sentence-from" style="text-align:right;">——原创</p>
+                    </c:when>
+                    <c:when test="${sessionScope.indexEntity.randomSentenceEntity.giantInfo == null && sessionScope.indexEntity.randomSentenceEntity.originInfo == null}">
+
+                    </c:when>
+                    <c:otherwise>
+                        <p class="sentence-from" style="text-align:right;">——
+                            <c:if test="${sessionScope.indexEntity.randomSentenceEntity.giantInfo != null}">
+                                <c:url value="/giant.action" var="giantUrl">
+                                    <c:param name="giantId" value="${sessionScope.indexEntity.randomSentenceEntity.giantInfo.id}"/>
+                                </c:url>
+                                &nbsp;<a href="${giantUrl}" class="index-a">${sessionScope.indexEntity.randomSentenceEntity.giantInfo.name}</a>&nbsp;
+                            </c:if>
+                            <c:if test="${sessionScope.indexEntity.randomSentenceEntity.originInfo != null}">
+                                <c:url value="/origin.action" var="originUrl">
+                                    <c:param name="originId" value="${sessionScope.indexEntity.randomSentenceEntity.originInfo.id}"/>
+                                </c:url>
+                                &nbsp;<a href="${originUrl}" class="index-a">${sessionScope.indexEntity.randomSentenceEntity.originInfo.name}</a>
+                            </c:if>
+                        </p>
+
+                    </c:otherwise>
+                </c:choose>
+
+
+                <%--——&nbsp;<span id="random-author"><a href="#">叶三</a></span>&nbsp;&nbsp;<span id="random-orient"><a href="#">《九万字》</a></span></p>--%>
             </div>
         </div>
 
@@ -121,32 +153,20 @@
                     <p class="giant-title">~~ 热门名人 ~~</p>
                     <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
                     <div class="row giant-info">
-                        <a href="#" class="index-a">
-                            <div class="col-xs-3">
-                                <img src="./imgs/鲁迅.jpg" class="giant-img">
-                                <p class="giant-name">鲁迅</p>
-                            </div>
-                        </a>
-                        <a href="#" class="index-a">
-                            <div class="col-xs-3">
-                                <img src="./imgs/王小波.jpg" class="giant-img">
-                                <p class="giant-name">王小波</p>
-                            </div>
-                        </a>
-                        <a href="#" class="index-a">
-                            <div class="col-xs-3">
-                                <img src="./imgs/三毛.jpg" class="giant-img">
-                                <p class="giant-name">三毛</p>
-                            </div>
-                        </a>
-                        <a href="#" class="index-a">
-                            <div class="col-xs-3">
-                                <img src="./imgs/海子.jpg" class="giant-img">
-                                <p class="giant-name">海子</p>
-                            </div>
-                        </a>
+                        <c:forEach items="${sessionScope.indexEntity.hotGiants}" var="hotGiants">
+                            <c:url value="giant.action" var="giantUrl">
+                                <c:param name="giantId" value="${hotGiants.id}"/>
+                            </c:url>
+                            <a href="${giantUrl}" class="index-a">
+                                <div class="col-xs-3">
+                                    <img src="${hotGiants.imgPath}" class="giant-img">
+                                    <p class="giant-name">${hotGiants.name}</p>
+                                </div>
+                            </a>
+                        </c:forEach>
                     </div>
                 </div>
+
                 <!-- 热门名人结束 -->
 
                 <!-- 推荐句子 -->
@@ -154,65 +174,78 @@
                     <p class="giant-title">~~ 推荐句子 ~~</p>
                     <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
 
-                    <!-- 一条推荐句子 -->
-                    <div class="recommend-item">
+                    <c:forEach items="${sessionScope.indexEntity.recommendSentenceEntities}" var="recommendSentence">
+                        <!-- 一条推荐句子 -->
+                        <div class="recommend-item">
+                            <c:url value="sentence.action" var="sentenceUrl">
+                                <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                            </c:url>
+                            <p><a href="${sentenceUrl}" class="recommend-a">${recommendSentence.sentence.content}</a></p>
 
-                        <p><a href="#" class="recommend-a">如果有来生， <br>
-                            要做一棵树， <br>
-                            站成永恒， <br>
-                            没有悲欢的姿势。<br>
-                            一半在土里安详， <br>
-                            一半在风里飞扬， <br>
-                            一半洒落阴凉， <br>
-                            一半沐浴阳光， <br>
-                            非常沉默非常骄傲， <br>
-                            从不依靠，从不寻找。</a></p>
+                            <p class="recommend-from">
+                                <c:choose>
+                                    <c:when test="${recommendSentence.original}">
+                                <p class="sentence-from" style="text-align:right;">——原创</p>
+                                </c:when>
+                                <c:when test="${recommendSentence.giantInfo == null && recommendSentence.originInfo == null}">
 
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;三毛</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《说给自己听》</a></p>
+                                </c:when>
+                                <c:otherwise>
+                                    <p class="sentence-from" style="text-align:right;">——
+                                        <c:if test="${recommendSentence.giantInfo != null}">
+                                            <c:url value="/giant.action" var="giantUrl">
+                                                <c:param name="giantId" value="${recommendSentence.giantInfo.id}"/>
+                                            </c:url>
+                                            &nbsp;<a href="${giantUrl}" class="index-a">${recommendSentence.giantInfo.name}</a>&nbsp;
+                                        </c:if>
+                                        <c:if test="${recommendSentence.originInfo != null}">
+                                            <c:url value="/origin.action" var="originUrl">
+                                                <c:param name="originId" value="${recommendSentence.originInfo.id}"/>
+                                            </c:url>
+                                            &nbsp;<a href="${originUrl}" class="index-a">${recommendSentence.originInfo.name}</a>
+                                        </c:if>
+                                    </p>
 
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
+                                </c:otherwise>
+                                </c:choose>
+                            </p>
+
+
+
+                            <div class="recommend-bar">
+								<span class="recommend-love-span" SID="${recommendSentence.sentence.id}">
+                                    <c:choose>
+                                        <c:when test="${recommendSentence.userLove}">
+                                            <%--喜欢--%>
+                                            <span class="recommend-love"><i class="fas fa-heart"></i></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="recommend-love"><i class="far fa-heart"></i></span>
+                                        </c:otherwise>
+                                    </c:choose>
+									<span class="recommend-love-num-span">(<span class="recommend-love-num">${recommendSentence.sentence.loveNum}</span>人喜欢)</span>
 								</span>
 
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+                                <span class="recommend-collect" SID="${recommendSentence.sentence.id}"><i class="far fa-bookmark"></i> 收藏到句子集</span>
 
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
+                                <c:url value="sentence.action" var="commentUrl">
+                                    <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                                </c:url>
+                                <span class="recommend-comment"><a href="${commentUrl}#comment" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">${recommendSentence.commentNum}</span>)</a></span>
 
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
+                                <c:url value="toPeople.action" var="peopleUrl">
+                                    <c:param name="id" value="${recommendSentence.userInfo.id}"/>
+                                </c:url>
+                                <span class="recommend-publisher-span"><a href="${peopleUrl}" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">${recommendSentence.userInfo.userName}</span></a></span>
 
+                            </div>
                         </div>
-                    </div>
-                    <!-- 一条推荐句子结束 -->
-
-                    <!-- 一条推荐句子 -->
-                    <div class="recommend-item">
-
-                        <p><a href="#" class="recommend-a">因为有了因为，所以有了所以。既然已成既然，何必再说何必。</a></p>
-
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;周立波</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《因为》</a></p>
-
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-								</span>
-
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
-                        </div>
-                    </div>
-                    <!-- 一条推荐句子结束 -->
+                        <!-- 一条推荐句子结束 -->
+                    </c:forEach>
 
 
                 </div>
                 <!-- 推荐句子结束 -->
-
 
 
                 <!-- 热门句子 -->
@@ -220,61 +253,76 @@
                     <p class="giant-title">~~ 热门句子排行榜 ~~</p>
                     <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 全部</a></p>
 
-                    <!-- 一条热门句子 -->
-                    <div class="recommend-item">
 
-                        <p><a href="#" class="recommend-a">如果有来生， <br>
-                            要做一棵树， <br>
-                            站成永恒， <br>
-                            没有悲欢的姿势。<br>
-                            一半在土里安详， <br>
-                            一半在风里飞扬， <br>
-                            一半洒落阴凉， <br>
-                            一半沐浴阳光， <br>
-                            非常沉默非常骄傲， <br>
-                            从不依靠，从不寻找。</a></p>
 
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;三毛</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《说给自己听》</a></p>
+                    <c:forEach items="${sessionScope.indexEntity.hotSentenceEntities}" var="recommendSentence">
+                        <!-- 一条热门句子 -->
+                        <div class="recommend-item">
+                            <c:url value="sentence.action" var="sentenceUrl">
+                                <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                            </c:url>
+                            <p><a href="${sentenceUrl}" class="recommend-a">${recommendSentence.sentence.content}</a></p>
 
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
+                            <p class="recommend-from">
+                                <c:choose>
+                                <c:when test="${recommendSentence.original}">
+                            <p class="sentence-from" style="text-align:right;">——原创</p>
+                            </c:when>
+                            <c:when test="${recommendSentence.giantInfo == null && recommendSentence.originInfo == null}">
+
+                            </c:when>
+                            <c:otherwise>
+                                <p class="sentence-from" style="text-align:right;">——
+                                    <c:if test="${recommendSentence.giantInfo != null}">
+                                        <c:url value="/giant.action" var="giantUrl">
+                                            <c:param name="giantId" value="${recommendSentence.giantInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${giantUrl}" class="index-a">${recommendSentence.giantInfo.name}</a>&nbsp;
+                                    </c:if>
+                                    <c:if test="${recommendSentence.originInfo != null}">
+                                        <c:url value="/origin.action" var="originUrl">
+                                            <c:param name="originId" value="${recommendSentence.originInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${originUrl}" class="index-a">${recommendSentence.originInfo.name}</a>
+                                    </c:if>
+                                </p>
+
+                            </c:otherwise>
+                            </c:choose>
+                            </p>
+
+
+
+                            <div class="recommend-bar">
+								<span class="recommend-love-span" SID="${recommendSentence.sentence.id}">
+                                    <c:choose>
+                                        <c:when test="${recommendSentence.userLove}">
+                                            <%--喜欢--%>
+                                            <span class="recommend-love"><i class="fas fa-heart"></i></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="recommend-love"><i class="far fa-heart"></i></span>
+                                        </c:otherwise>
+                                    </c:choose>
+									<span class="recommend-love-num-span">(<span class="recommend-love-num">${recommendSentence.sentence.loveNum}</span>人喜欢)</span>
 								</span>
 
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+                                <span class="recommend-collect" SID="${recommendSentence.sentence.id}"><i class="far fa-bookmark"></i> 收藏到句子集</span>
 
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
+                                <c:url value="sentence.action" var="commentUrl">
+                                    <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                                </c:url>
+                                <span class="recommend-comment"><a href="${commentUrl}#comment" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">${recommendSentence.commentNum}</span>)</a></span>
 
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
+                                <c:url value="toPeople.action" var="peopleUrl">
+                                    <c:param name="id" value="${recommendSentence.userInfo.id}"/>
+                                </c:url>
+                                <span class="recommend-publisher-span"><a href="${peopleUrl}" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">${recommendSentence.userInfo.userName}</span></a></span>
 
+                            </div>
                         </div>
-                    </div>
-                    <!-- 一条热门句子结束 -->
-
-                    <!-- 一条热门句子 -->
-                    <div class="recommend-item">
-
-                        <p><a href="#" class="recommend-a">因为有了因为，所以有了所以。既然已成既然，何必再说何必。</a></p>
-
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;周立波</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《因为》</a></p>
-
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-								</span>
-
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
-                        </div>
-                    </div>
-                    <!-- 一条热门句子结束 -->
-
+                        <!-- 一条热门句子结束 -->
+                    </c:forEach>
 
                 </div>
                 <!-- 热门句子结束 -->
@@ -286,60 +334,77 @@
                     <p class="giant-title">~~ 热门原创 ~~</p>
                     <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
 
-                    <!-- 一条热门原创 -->
-                    <div class="recommend-item">
 
-                        <p><a href="#" class="recommend-a">如果有来生， <br>
-                            要做一棵树， <br>
-                            站成永恒， <br>
-                            没有悲欢的姿势。<br>
-                            一半在土里安详， <br>
-                            一半在风里飞扬， <br>
-                            一半洒落阴凉， <br>
-                            一半沐浴阳光， <br>
-                            非常沉默非常骄傲， <br>
-                            从不依靠，从不寻找。</a></p>
 
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;三毛</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《说给自己听》</a></p>
 
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
+                    <c:forEach items="${sessionScope.indexEntity.hotOriginSentenceEntities}" var="recommendSentence">
+                        <!-- 一条热门原创 -->
+                        <div class="recommend-item">
+                            <c:url value="/sentence.action" var="sentenceUrl">
+                                <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                            </c:url>
+                            <p><a href="${sentenceUrl}" class="recommend-a">${recommendSentence.sentence.content}</a></p>
+
+                            <p class="recommend-from">
+                                <c:choose>
+                                <c:when test="${recommendSentence.original}">
+                            <p class="sentence-from" style="text-align:right;">——原创</p>
+                            </c:when>
+                            <c:when test="${recommendSentence.giantInfo == null && recommendSentence.originInfo == null}">
+
+                            </c:when>
+                            <c:otherwise>
+                                <p class="sentence-from" style="text-align:right;">——
+                                    <c:if test="${recommendSentence.giantInfo != null}">
+                                        <c:url value="/giant.action" var="giantUrl">
+                                            <c:param name="giantId" value="${recommendSentence.giantInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${giantUrl}" class="index-a">${recommendSentence.giantInfo.name}</a>&nbsp;
+                                    </c:if>
+                                    <c:if test="${recommendSentence.originInfo != null}">
+                                        <c:url value="/origin.action" var="originUrl">
+                                            <c:param name="originId" value="${recommendSentence.originInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${originUrl}" class="index-a">${recommendSentence.originInfo.name}</a>
+                                    </c:if>
+                                </p>
+
+                            </c:otherwise>
+                            </c:choose>
+                            </p>
+
+
+
+                            <div class="recommend-bar">
+								<span class="recommend-love-span" SID="${recommendSentence.sentence.id}">
+                                    <c:choose>
+                                        <c:when test="${recommendSentence.userLove}">
+                                            <%--喜欢--%>
+                                            <span class="recommend-love"><i class="fas fa-heart"></i></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="recommend-love"><i class="far fa-heart"></i></span>
+                                        </c:otherwise>
+                                    </c:choose>
+									<span class="recommend-love-num-span">(<span class="recommend-love-num">${recommendSentence.sentence.loveNum}</span>人喜欢)</span>
 								</span>
 
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+                                <span class="recommend-collect" SID="${recommendSentence.sentence.id}"><i class="far fa-bookmark"></i> 收藏到句子集</span>
 
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
+                                <c:url value="sentence.action" var="commentUrl">
+                                    <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                                </c:url>
+                                <span class="recommend-comment"><a href="${commentUrl}#comment" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">${recommendSentence.commentNum}</span>)</a></span>
 
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
+                                <c:url value="toPeople.action" var="peopleUrl">
+                                    <c:param name="id" value="${recommendSentence.userInfo.id}"/>
+                                </c:url>
+                                <span class="recommend-publisher-span"><a href="${peopleUrl}" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">${recommendSentence.userInfo.userName}</span></a></span>
 
+                            </div>
                         </div>
-                    </div>
-                    <!-- 一条热门原创结束 -->
-
-                    <!-- 一条热门原创 -->
-                    <div class="recommend-item">
-
-                        <p><a href="#" class="recommend-a">因为有了因为，所以有了所以。既然已成既然，何必再说何必。</a></p>
-
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;周立波</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《因为》</a></p>
-
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-								</span>
-
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
-                        </div>
-                    </div>
-                    <!-- 一条热门原创结束 -->
+                        <!-- 一条热门原创结束 -->
+                    </c:forEach>
 
 
                 </div>
@@ -351,60 +416,75 @@
                     <p class="giant-title">~~ 最新发布 ~~</p>
                     <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
 
-                    <!-- 一条最新发布 -->
-                    <div class="recommend-item">
 
-                        <p><a href="#" class="recommend-a">如果有来生， <br>
-                            要做一棵树， <br>
-                            站成永恒， <br>
-                            没有悲欢的姿势。<br>
-                            一半在土里安详， <br>
-                            一半在风里飞扬， <br>
-                            一半洒落阴凉， <br>
-                            一半沐浴阳光， <br>
-                            非常沉默非常骄傲， <br>
-                            从不依靠，从不寻找。</a></p>
+                    <c:forEach items="${sessionScope.indexEntity.newPublishSentenceEntities}" var="recommendSentence">
+                        <!-- 一条最新发布 -->
+                        <div class="recommend-item">
+                            <c:url value="sentence.action" var="sentenceUrl">
+                                <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                            </c:url>
+                            <p><a href="${sentenceUrl}" class="recommend-a">${recommendSentence.sentence.content}</a></p>
 
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;三毛</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《说给自己听》</a></p>
+                            <p class="recommend-from">
+                                <c:choose>
+                                <c:when test="${recommendSentence.original}">
+                            <p class="sentence-from" style="text-align:right;">——原创</p>
+                            </c:when>
+                            <c:when test="${recommendSentence.giantInfo == null && recommendSentence.originInfo == null}">
 
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
+                            </c:when>
+                            <c:otherwise>
+                                <p class="sentence-from" style="text-align:right;">——
+                                    <c:if test="${recommendSentence.giantInfo != null}">
+                                        <c:url value="/giant.action" var="giantUrl">
+                                            <c:param name="giantId" value="${recommendSentence.giantInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${giantUrl}" class="index-a">${recommendSentence.giantInfo.name}</a>&nbsp;
+                                    </c:if>
+                                    <c:if test="${recommendSentence.originInfo != null}">
+                                        <c:url value="/origin.action" var="originUrl">
+                                            <c:param name="originId" value="${recommendSentence.originInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${originUrl}" class="index-a">${recommendSentence.originInfo.name}</a>
+                                    </c:if>
+                                </p>
+
+                            </c:otherwise>
+                            </c:choose>
+                            </p>
+
+
+
+                            <div class="recommend-bar">
+								<span class="recommend-love-span" SID="${recommendSentence.sentence.id}">
+                                    <c:choose>
+                                        <c:when test="${recommendSentence.userLove}">
+                                            <%--喜欢--%>
+                                            <span class="recommend-love"><i class="fas fa-heart"></i></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="recommend-love"><i class="far fa-heart"></i></span>
+                                        </c:otherwise>
+                                    </c:choose>
+									<span class="recommend-love-num-span">(<span class="recommend-love-num">${recommendSentence.sentence.loveNum}</span>人喜欢)</span>
 								</span>
 
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+                                <span class="recommend-collect" SID="${recommendSentence.sentence.id}"><i class="far fa-bookmark"></i> 收藏到句子集</span>
 
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
+                                <c:url value="sentence.action" var="commentUrl">
+                                    <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                                </c:url>
+                                <span class="recommend-comment"><a href="${commentUrl}#comment" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">${recommendSentence.commentNum}</span>)</a></span>
 
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
+                                <c:url value="toPeople.action" var="peopleUrl">
+                                    <c:param name="id" value="${recommendSentence.userInfo.id}"/>
+                                </c:url>
+                                <span class="recommend-publisher-span"><a href="${peopleUrl}" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">${recommendSentence.userInfo.userName}</span></a></span>
 
+                            </div>
                         </div>
-                    </div>
-                    <!-- 一条最新发布结束 -->
-
-                    <!-- 一条最新发布 -->
-                    <div class="recommend-item">
-
-                        <p><a href="#" class="recommend-a">因为有了因为，所以有了所以。既然已成既然，何必再说何必。</a></p>
-
-                        <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;周立波</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《因为》</a></p>
-
-                        <div class="recommend-bar">
-								<span class="recommend-love-span">
-									<span class="recommend-love"><i class="far fa-heart"></i></span>
-									<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-								</span>
-
-                            <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                            <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                            <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
-                        </div>
-                    </div>
-                    <!-- 一条最新发布结束 -->
+                        <!-- 一条最新发布结束 -->
+                    </c:forEach>
 
 
                 </div>
@@ -440,43 +520,22 @@
                 <div class="content-right-box content-right-tag">
                     <p class="category-title"><a href="#" class="title-a">>> 句子出自</a></p>
                     <div class="category-list">
-                        <a href="#" class="index-a category-item">散文/随笔</a>
-                        <a href="#" class="index-a category-item">书籍</a>
-                        <a href="#" class="index-a category-item">歌词</a>
-                        <a href="#" class="index-a category-item">诗歌</a>
-                        <a href="#" class="index-a category-item">古诗</a>
-                        <a href="#" class="index-a category-item">宋词</a>
-                        <a href="#" class="index-a category-item">格言</a>
-                        <a href="#" class="index-a category-item">心语</a>
-                        <a href="#" class="index-a category-item">古风句子</a>
-                        <a href="#" class="index-a category-item">经典语录</a>
-                        <a href="#" class="index-a category-item">名人名言</a>
-                        <a href="#" class="index-a category-item">英语名言</a>
-                        <a href="#" class="index-a category-item">小说摘抄</a>
-                        <a href="#" class="index-a category-item">动漫语录</a>
-                        <a href="#" class="index-a category-item">网友原创</a>
-                        <a href="#" class="index-a category-item">电影台词</a>
-                        <a href="#" class="index-a category-item">电视剧台词</a>
-                        <a href="#" class="index-a category-item">古文名句</a>
+                        <c:forEach items="${sessionScope.indexEntity.categories}" var="category">
+                            <c:url value="userLove.action" var="categoryUrl">
+                                <c:param name="categoryId" value="${category.id}"/>
+                            </c:url>
+                            <a href="${categoryUrl}" class="index-a category-item">${category.categoryName}</a>
+                        </c:forEach>
                     </div>
                     <br>
                     <p class="category-title"><a href="#" class="title-a">>> 热门标签</a></p>
                     <div class="category-list">
-                        <a href="#" class="index-a category-item">唯美</a>
-                        <a href="#" class="index-a category-item">清新</a>
-                        <a href="#" class="index-a category-item">优美</a>
-                        <a href="#" class="index-a category-item">伤感</a>
-                        <a href="#" class="index-a category-item">心痛</a>
-                        <a href="#" class="index-a category-item">治愈</a>
-                        <a href="#" class="index-a category-item">爱情</a>
-                        <a href="#" class="index-a category-item">励志</a>
-                        <a href="#" class="index-a category-item">骄傲</a>
-                        <a href="#" class="index-a category-item">文艺</a>
-                        <a href="#" class="index-a category-item">正能量</a>
-                        <a href="#" class="index-a category-item">忧伤</a>
-                        <a href="#" class="index-a category-item">思念</a>
-                        <a href="#" class="index-a category-item">友情</a>
-                        <a href="#" class="index-a category-item">成功</a>
+                        <c:forEach items="${sessionScope.indexEntity.hotTags}" var="tag">
+                            <c:url value="userLove.action" var="tagUrl">
+                                <c:param name="tagId" value="${tag.id}"/>
+                            </c:url>
+                            <a href="${tagUrl}" class="index-a category-item">${tag.name}</a>
+                        </c:forEach>
                     </div>
                 </div>
                 <!-- 句子热门标签+分类块结束 -->
@@ -486,42 +545,16 @@
                 <div class="hot-list-div content-right-box">
                     <p class="category-title"><a href="#" class="title-a">>> 热门句子集</a></p>
 
-                    <!-- 一条热门句子集 -->
-                    <div class="hot-list-item">
-                        <i class="far fa-bookmark"></i> <a href="#" class="index-a hot-item-title">黑色幽默</a>(收录了<span class="hot-item-num">35</span>条句子)
-                    </div>
-                    <!-- 一条热门句子集结束 -->
-
-                    <!-- 一条热门句子集 -->
-                    <div class="hot-list-item">
-                        <i class="far fa-bookmark"></i> <a href="#" class="index-a hot-item-title">经典书摘</a>(收录了<span class="hot-item-num">20</span>条句子)
-                    </div>
-                    <!-- 一条热门句子集结束 -->
-
-                    <!-- 一条热门句子集 -->
-                    <div class="hot-list-item">
-                        <i class="far fa-bookmark"></i> <a href="#" class="index-a hot-item-title">人生若只如初见</a>(收录了<span class="hot-item-num">41</span>条句子)
-                    </div>
-                    <!-- 一条热门句子集结束 -->
-
-                    <!-- 一条热门句子集 -->
-                    <div class="hot-list-item">
-                        <i class="far fa-bookmark"></i> <a href="#" class="index-a hot-item-title">作文素材</a>(收录了<span class="hot-item-num">58</span>条句子)
-                    </div>
-                    <!-- 一条热门句子集结束 -->
-
-                    <!-- 一条热门句子集 -->
-                    <div class="hot-list-item">
-                        <i class="far fa-bookmark"></i> <a href="#" class="index-a hot-item-title">美好的天气</a>(收录了<span class="hot-item-num">66</span>条句子)
-                    </div>
-                    <!-- 一条热门句子集结束 -->
-
-                    <!-- 一条热门句子集 -->
-                    <div class="hot-list-item">
-                        <i class="far fa-bookmark"></i> <a href="#" class="index-a hot-item-title">吟唱天地的不朽</a>(收录了<span class="hot-item-num">99</span>条句子)
-                    </div>
-                    <!-- 一条热门句子集结束 -->
-
+                    <c:forEach items="${sessionScope.indexEntity.hotCollections}" var="hotCollection">
+                        <!-- 一条热门句子集 -->
+                        <div class="hot-list-item">
+                            <c:url value="/collectList.action" var="collectListUrl">
+                                <c:param name="collectionId" value="${hotCollection.id}"/>
+                            </c:url>
+                            <i class="far fa-bookmark"></i> <a href="${collectListUrl}" class="index-a hot-item-title">${hotCollection.name}</a>(收录了<span class="hot-item-num">${hotCollection.sentenceNum}</span>条句子)
+                        </div>
+                        <!-- 一条热门句子集结束 -->
+                    </c:forEach>
 
                 </div>
                 <!-- 热门句子集结束 -->
@@ -551,11 +584,39 @@
     <span class="arrow-slide"></span>
 </a>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/layx.min.js"></script>
+
+
+<%--收藏到句子集--%>
+<div class="collect-collection-div">
+    <div class="collect-collection-list-div">
+        <img src="/imgs/sys/search close.png" class="collect-collection-div-close">
+        <h2 style="text-align: center;" id="collect-collection-title" SID="">收藏句子到句子集</h2>
+        <%--句子集列表--%>
+        <div class="collect-collection-list">
+
+        </div>
+        <%--句子集列表结束--%>
+        <div class="collect-new-collection-div">
+            <input type="text" class="collect-new-collection-input" maxlength="25" placeholder="请输入新建句子集名"> <button class="btn btn-info collect-new-collection-btn" onclick="addCollection()">新增</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrSentenceInfo.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrLoginCheck.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrCollect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/nav.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/toCollect.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/collect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@ import dao.SentenceDao;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import pageEntity.CollectionEntity;
 import pageEntity.CommentEntity;
 import pageEntity.SentenceEntity;
 
@@ -35,6 +36,9 @@ public class ToSentenceInfoAction extends ActionSupport implements SessionAware,
     @Autowired
     private CommentEntity commentEntity;
 
+    @Autowired
+    private CollectionEntity collectionEntity;
+
     @Override
     public String execute() throws Exception {
 
@@ -55,6 +59,10 @@ public class ToSentenceInfoAction extends ActionSupport implements SessionAware,
         // 评论相关
         commentEntity.init(sentenceId);
         session.put("commentEntity",commentEntity);
+
+        // 收藏夹相关
+        collectionEntity.init(myId,sentenceId);
+        session.put("collectionEntity",collectionEntity);
 
         return SUCCESS;
     }
@@ -99,5 +107,13 @@ public class ToSentenceInfoAction extends ActionSupport implements SessionAware,
 
     public void setCommentEntity(CommentEntity commentEntity) {
         this.commentEntity = commentEntity;
+    }
+
+    public CollectionEntity getCollectionEntity() {
+        return collectionEntity;
+    }
+
+    public void setCollectionEntity(CollectionEntity collectionEntity) {
+        this.collectionEntity = collectionEntity;
     }
 }

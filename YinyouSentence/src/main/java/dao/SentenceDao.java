@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @ClassName SentenceDao
@@ -22,6 +23,7 @@ public class SentenceDao {
 
     // 根据句子Id返回句子信息
     public Sentence getSentenceById(long id){
+
         Session session = sessionFactory.openSession();
         String hql = "From Sentence where id = ?";
         Sentence sentence = null;
@@ -174,6 +176,108 @@ public class SentenceDao {
         return  loveNum;
     }
 
+    // 随机返回一条句子,句子id不能为指定id
+    public Sentence getRandomSentence(long notThisId){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence where id<> ?";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setParameter(0,notThisId).list();
+        tx.commit();
+        // 取出全部合法句子后，随机取一条返回
+        Random random= new Random();
+        int index = random.nextInt(sentences.size());
+        return sentences.get(index);
+    }
+
+    // 获取推荐句子，参数为条数
+    public List<Sentence> getRecommendSentences(int num){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setMaxResults(num).list();
+        tx.commit();
+        return sentences;
+    }
+
+    // 获取热门句子，参数为条数
+    public List<Sentence> getHotSentences(int num){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence order by loveNum desc";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setMaxResults(num).list();
+        tx.commit();
+        return sentences;
+    }
+
+    // 获取热门原创句子，参数为条数
+    public List<Sentence> getHotOriginSentences(int num){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence where isOriginal = ? order by loveNum desc";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setParameter(0,(byte) 1).setMaxResults(num).list();
+        tx.commit();
+        return sentences;
+    }
+
+    // 获取新发布的句子，参数为条数
+    public List<Sentence> getNewPublishSentence(int num){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence order by publishTime desc";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setMaxResults(num).list();
+        tx.commit();
+        return sentences;
+    }
+
+    // 获得句子的评论条数
+    public long getCommentNumBySentenceId(long sentenceId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) From SentenceComment where sentenceId = ?";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0,sentenceId).uniqueResult();
+        tx.commit();
+        return num;
+    }
+
+    // 根据用户Id获取用户喜欢的所有句子
+    public List getLoveSentencesByUserId(long userId){
+        Session session = sessionFactory.openSession();
+        String hql = "From SentenceLove where userId = ?";
+        List<SentenceLove> sentenceLoves = new ArrayList<SentenceLove>();
+        Transaction tx = session.beginTransaction();
+        sentenceLoves =  session.createQuery(hql).setParameter(0,userId).list();
+        tx.commit();
+        return sentenceLoves;
+    }
+
+    // 根据用户Id获取其发布的句子
+    public List<Sentence> getPublishSentencesByUserId(long id){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence where publisherId = ?";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setParameter(0,id).list();
+        tx.commit();
+        return sentences;
+    }
+
+
+    // 根据用户id获取其原创句子
+    public List<Sentence> getOriginalSentencesByUserId(long id){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence where publisherId = ? AND isOriginal = 1";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setParameter(0,id).list();
+        tx.commit();
+        return sentences;
+    }
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;

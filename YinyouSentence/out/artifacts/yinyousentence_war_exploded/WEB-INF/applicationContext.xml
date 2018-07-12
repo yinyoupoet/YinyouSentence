@@ -45,6 +45,7 @@
                 <value>classpath:CollectionSentence.hbm.xml</value>
                 <value>classpath:UserFollow.hbm.xml</value>
                 <value>classpath:CommentReply.hbm.xml</value>
+                <value>classpath:CollectionLove.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
@@ -67,6 +68,7 @@
                 <value>bean.SentenceCategory</value>
                 <value>bean.CollectionSentence</value>
                 <value>bean.UserFollow</value>
+                <value>bean.CollectionLove</value>
             </list>
         </property>
     </bean>
@@ -118,6 +120,8 @@
 
     <bean id="dwrSentenceInfo" class="service.SentenceInfoService">
         <property name="sentenceDao" ref="sentenceDao"/>
+        <property name="peopleDao" ref="peopleDao"/>
+        <property name="collectionDao" ref="collectionDao"/>
     </bean>
 
     <bean id="commentDao" class="dao.CommentDao">
@@ -128,7 +132,34 @@
         <property name="commentDao" ref="commentDao"/>
     </bean>
 
-    <bean id="dwrLoginCheck" class="service.LoginCheckService"></bean>
+    <bean id="dwrLoginCheck" class="service.LoginCheckService"/>
+
+    <bean id="dwrCollect" class="service.CollectService">
+        <property name="collectionDao" ref="collectionDao"/>
+    </bean>
+
+    <bean id="collectionDao" class="dao.CollectionDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="collectionEntity" class="pageEntity.CollectionEntity">
+        <property name="collectionDao" ref="collectionDao"/>
+    </bean>
+
+    <bean id="giantDao" class="dao.GiantDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="indexEntity" class="pageEntity.IndexEntity">
+        <property name="collectionDao" ref="collectionDao"/>
+        <property name="informationDao" ref="informationDao"/>
+        <property name="giantDao" ref="giantDao"/>
+        <property name="sentenceDao" ref="sentenceDao"/>
+    </bean>
+
+    <bean id="dwrPeople" class="service.PeopleService">
+        <property name="peopleDao" ref="peopleDao"/>
+    </bean>
 
 
 </beans>

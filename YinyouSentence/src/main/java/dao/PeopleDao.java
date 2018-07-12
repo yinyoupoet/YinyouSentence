@@ -2,6 +2,7 @@ package dao;
 
 import bean.GiantInfo;
 import bean.OriginInfo;
+import bean.UserFollow;
 import bean.UserInfo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -107,6 +108,95 @@ public class PeopleDao {
         originInfo = (OriginInfo) session.createQuery(hql).setParameter(0,originId).uniqueResult();
         tx.commit();
         return originInfo;
+    }
+
+
+    // 判断是否已关注了该用户
+    public Boolean isFollowPeopleOrNot(long myId, long toFollowId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) FROM UserFollow WHERE userId = ? AND followerId = ?";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0,toFollowId).setParameter(1,myId).uniqueResult();
+        tx.commit();
+        if(num > 0){
+            return true;
+        }
+        return false;
+    }
+
+    // 取消关注
+    public void cancelFollow(long myId, long toFollowId){
+        Session session = sessionFactory.openSession();
+        String hql = "delete FROM UserFollow WHERE userId = ? AND followerId = ?";
+        Transaction tx = session.beginTransaction();
+        session.createQuery(hql).setParameter(0,toFollowId).setParameter(1,myId).executeUpdate();
+        tx.commit();
+    }
+
+    // 进行关注
+    public void toFollow(UserFollow userFollow){
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.save(userFollow);
+        tx.commit();
+    }
+
+
+    // 获得用户喜欢了几个句子
+    public long getLoveSentenceNum(long userId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) from SentenceLove where userId = ?";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0,userId).uniqueResult();
+        tx.commit();
+        return num;
+    }
+
+    // 获得用户发布了几个句子
+    public long getPublishSentenceNum(long userId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) from Sentence where publisherId = ?";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0,userId).uniqueResult();
+        tx.commit();
+        return num;
+    }
+
+    // 获得用户发布了几个原创句子
+    public long getPublishOriginalSentenceNum(long userId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) from Sentence where publisherId = ? AND isOriginal = 1";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0,userId).uniqueResult();
+        tx.commit();
+        return num;
+    }
+
+
+    // 获得用户发布了几个句子集
+    public long getPublishCollectionNum(long userId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) from SentenceCollection where publisherId = ?";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0,userId).uniqueResult();
+        tx.commit();
+        return num;
+    }
+
+    // 获得用户喜欢了几个句子集
+    public long getLoveCollectionNum(long userId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) from CollectionLove where userId = ?";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0,userId).uniqueResult();
+        tx.commit();
+        return num;
     }
 
 

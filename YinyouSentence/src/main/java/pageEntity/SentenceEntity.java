@@ -33,7 +33,22 @@ public class SentenceEntity {
 
     private OriginInfo originInfo;
     private Boolean userLove = false;
+    private long commentNum = 0;
 
+
+    // 专门给people页面使用的一个属性
+    private Boolean peopleLove;
+
+    // 专门给people页面使用的初始化方式
+    public void init(long sentenceId, long myId, long uId){
+        init(sentenceId,myId);
+        long loveReord = sentenceDao.checkUserLoveSentence(uId,sentenceId);
+        if(loveReord == 0){
+            peopleLove = false;
+        }else{
+            peopleLove = true;
+        }
+    }
 
 
     // 初始化数据，这个id必须判断一定存在才会到这
@@ -102,6 +117,8 @@ public class SentenceEntity {
 
         // 判断用户是否喜欢该句子
         initLoveCheck(sentenceId, myId);
+
+        commentNum = sentenceDao.getCommentNumBySentenceId(sentenceId);
     }
 
     // 判断用户是否喜欢该句子
@@ -220,5 +237,21 @@ public class SentenceEntity {
 
     public void setUserLove(Boolean userLove) {
         this.userLove = userLove;
+    }
+
+    public long getCommentNum() {
+        return commentNum;
+    }
+
+    public void setCommentNum(long commentNum) {
+        this.commentNum = commentNum;
+    }
+
+    public Boolean getPeopleLove() {
+        return peopleLove;
+    }
+
+    public void setPeopleLove(Boolean peopleLove) {
+        this.peopleLove = peopleLove;
     }
 }

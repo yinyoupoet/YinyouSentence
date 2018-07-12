@@ -168,6 +168,7 @@ public class PublishSentenceAction extends ActionSupport implements SessionAware
                 TagQuote tagQuote = new TagQuote();
                 tagQuote.setSentenceId(sentenceId);
                 tagQuote.setTagId(tagId);
+                publishSentenceDao.setTagQuote(tagQuote);
             }
         }
     }

@@ -7,6 +7,7 @@ $(document).ready(function(){
 
   // 初始化 推荐句子 的菜单栏点击事件
   initRecommendBarAction();
+
 });
 
 
@@ -15,7 +16,36 @@ var initRecommendBarAction = function(){
   // 初始化喜欢按钮点击事件
   initRecommendLove();
 
-}
+  // 初始化收藏
+    initCollect();
+};
+
+
+
+
+// 初始化收藏
+var initCollect = function(){
+    $('.recommend-collect').on('click',function(){
+        // 先判断登录
+        var isLogin = false;
+        dwr.engine.setAsync(false);
+        dwrLoginCheck.isLoginYet(function(data){
+            isLogin = data;
+        });
+        dwr.engine.setAsync(true);
+        if(isLogin == false){
+            alert("请先登录呦");
+            return false;
+        }
+        $('#collect-collection-title').attr('SID',$(this).attr('SID'));
+        initCollectCollectionList($(this).attr('SID'));
+        $('.collect-collection-div').show();
+    });
+};
+
+
+
+
 
 
 
@@ -23,14 +53,25 @@ var initRecommendBarAction = function(){
 // 初始化喜欢按钮点击事件
 var initRecommendLove = function(){
   $('.recommend-love-span').on('click',function(){
-      if($(this).children('span.recommend-love').html() == '<i class="fas fa-heart"></i>'){
-        $(this).children('span.recommend-love').html('<i class="far fa-heart"></i>');
-      }else{
-        $(this).children('span.recommend-love').html('<i class="fas fa-heart"></i>');
-      }
-      
+      var SID = $(this).attr('SID');
+      var span = $(this);
+      dwrSentenceInfo.loveSentence(SID,function(data){
+          if(! data.success){
+              // 如果失败，那么弹出错误信息
+              alert(data.reason);
+              return;
+          }
+          // 如果成功喜欢或取消
+          if(data.follow){
+              // 喜欢
+              span.children('span.recommend-love').html('<i class="fas fa-heart"></i>');
+          }else{
+              span.children('span.recommend-love').html('<i class="far fa-heart"></i>');
+          }
+          span.children('span.recommend-love-num-span').children('span.recommend-love-num').html(data.loveNum);
+      });
   });
-}
+};
 
 
 // 初始化热门名人的图片高度

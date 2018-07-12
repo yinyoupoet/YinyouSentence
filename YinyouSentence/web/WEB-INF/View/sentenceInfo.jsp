@@ -24,10 +24,10 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/fontawesome-all.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/select-color.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layx.min.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/nav.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/footer.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/back-to-top.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/collect.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/sentenceInfo.css">
 
 </head>
@@ -45,13 +45,13 @@
 
                 <div>
                     <c:url value="/index.jsp" var="indexUrl"/>
-                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
+                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="/imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -451,6 +451,46 @@
 </a>
 
 
+<div class="collect-collection-div">
+    <div class="collect-collection-list-div">
+        <img src="/imgs/sys/search close.png" class="collect-collection-div-close">
+        <h2 style="text-align: center;" id="collect-collection-title" SID="${sessionScope.sentenceEntity.sentence.id}">收藏句子到句子集</h2>
+        <%--句子集列表--%>
+        <div class="collect-collection-list">
+            <c:choose>
+                <c:when test="${empty sessionScope.collectionEntity.collectionAuxiliaries}">
+                    <center>还没有句子集哦，新建一个吧!</center>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach items="${sessionScope.collectionEntity.collectionAuxiliaries}" var="cltAux">
+                        <%--一条句子集--%>
+                        <div class="collect-collection-item">
+                            <p class="collect-collection-name-p"><span id="collect-collection-name-${cltAux.sentenceCollection.id}">${cltAux.sentenceCollection.name}</span><span class="collect-collection-num-span">(包含<span id="collect-collection-num-${cltAux.sentenceCollection.id}">${cltAux.sentenceCollection.sentenceNum}</span>条句子)</span></p>
+                            <button class="btn-collect-add-collection" id="btn-collect-add-${cltAux.sentenceCollection.id}" onclick="collectOrNot(${cltAux.sentenceCollection.id});">
+                                <c:choose>
+                                    <c:when test="${cltAux.collect}">
+                                        已收藏
+                                    </c:when>
+                                    <c:otherwise>
+                                        收藏
+                                    </c:otherwise>
+                                </c:choose>
+                            </button>
+                        </div>
+                        <%--一条句子集结束--%>
+                    </c:forEach>
+                </c:otherwise>
+            </c:choose>
+
+        </div>
+        <%--句子集列表结束--%>
+        <div class="collect-new-collection-div">
+            <input type="text" class="collect-new-collection-input" maxlength="25" placeholder="请输入新建句子集名"> <button class="btn btn-info collect-new-collection-btn" onclick="addCollection()">新增</button>
+        </div>
+    </div>
+</div>
+
+
 
 
 
@@ -458,11 +498,11 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrSentenceInfo.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrLoginCheck.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/layx.min.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrCollect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/nav.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/toCollect.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/collect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/sentenceInfo.js"></script>
 
 </body>

@@ -20,6 +20,19 @@
             <param name="beanName" value="dwrLoginCheck"/>
         </create>
 
+        <create creator="spring" javascript="dwrCollect">
+            <param name="beanName" value="dwrCollect"/>
+        </create>
+
+        <create creator="spring" javascript="dwrPeople">
+            <param name="beanName" value="dwrPeople"/>
+        </create>
+
         <convert converter="bean" match="dwrPOJO.*"/>
+        <convert converter="bean" match="bean.*"/>
+        <convert converter="bean" match="pageEntity.*"/>
+        <convert converter="bean" match="auxiliary.CollectionAuxiliary"/>
+        <convert converter="bean" match="java.lang.StackTraceElement" />
+        <convert converter="exception" match="java.lang.Exception"/>
     </allow>
 </dwr>

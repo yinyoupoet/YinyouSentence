@@ -8,7 +8,29 @@ $(document).ready(function(){
 	// 初始化发布评论点击按钮
 	initPublishCommentOrReply();
 
+	// 初始化收藏按钮
+	initCollect();
+
 });
+
+// 初始化收藏
+var initCollect = function(){
+	$('.recommend-collect').on('click',function(){
+		// 先判断登录
+        var isLogin = false;
+        dwr.engine.setAsync(false);
+        dwrLoginCheck.isLoginYet(function(data){
+            isLogin = data;
+        });
+        dwr.engine.setAsync(true);
+        if(isLogin == false){
+            alert("请先登录呦");
+            return false;
+        }
+        $('#collect-collection-title').attr('SID',$(this).attr('SID'));
+        $('.collect-collection-div').show();
+	});
+};
 
 // 初始化发布评论点击按钮
 var initPublishCommentOrReply = function(){

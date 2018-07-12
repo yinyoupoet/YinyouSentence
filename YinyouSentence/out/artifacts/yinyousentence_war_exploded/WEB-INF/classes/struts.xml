@@ -119,6 +119,10 @@
             <result name="error">/WEB-INF/View/sentenceInfo.jsp</result>
         </action>
 
+        <action name="collectList" class="action.ToCollectiListAction">
+            <result name="success">/WEB-INF/View/collectList.jsp</result>
+        </action>
+
     </package>
 
 </struts>

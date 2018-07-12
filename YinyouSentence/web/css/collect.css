@@ -1,42 +1,94 @@
-.collect-form{
-	background: #eee;
-	padding:20px;
-	margin-right: 20px;
-	margin-left: 20px;
+.collect-collection-div{
+	position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(26,26,26,0.65);
+    z-index: 9999;
 }
 
-.collect-package{
-	margin:5px;
+.collect-collection-list-div{
+    padding:20px;
+    background: #fff;
+    border-radius: 15px;
+    min-width:360px;
+    width: 500px;width: 500px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
 
-.collcet-list{
-	margin-bottom: 20px;
+.collect-collection-list{
+    margin-top: 12px;
+    max-height: 450px;
+    overflow: auto;
 }
 
-.collect-new{
-	cursor: pointer;
-	background:#fff;
-	margin-top: 20px;
-	padding: 10px;
-	border-radius: 5px;
-	box-shadow: 1px 1px 5px #ccc;
+.collect-collection-div-close{
+    position: absolute;
+    cursor: pointer;
+    right: -50px;
+    width: 20px;
+    height: 20px;
 }
 
-.collect-new:hover{
-	color: #b47157;
+.collect-collection-num-span{
+    margin-left:5px;
+    color: #999;
+    font-size: 17px;
+}
+.collect-collection-name-p{
+    color: #000;
+    font-size: 20px;
 }
 
-.new-collect-input{
-	border:1px #fff solid;
-	border-radius: 5px;
-	padding: 5px 8px;
-	outline: none;
-	margin-right: 5px;
+.btn-collect-add-collection{
+    font: 15px/1.5 微软雅黑, tahoma, arial, simsun, sans-serif;
+    font-size: 1.2em;
+    padding: 5px 15px;
+    background: #f2f2f2;
+    border: 1px solid #d9d9d9;
 }
 
-.collect-btn{
-	margin-left: 20px;
-	margin-top: 20px;
-	outline: none;
-	margin-bottom: 30px;
+.btn-collect-add-collection:hover{
+    background: #fcfaf2;
+    border-color: #ccc;
+}
+
+.collect-collection-item{
+    padding: 10px;
+    border-bottom: 1px #f2f2f2 solid;
+    border-top: 1px #f2f2f2 solid;
+}
+
+.collect-new-collection-div{
+    margin-top:20px;
+    display: flex;
+    padding: 10px;
+}
+
+.collect-new-collection-btn{
+    padding: 3px 15px;
+    margin-left: 10px;
+}
+
+.collect-new-collection-input{
+    flex-grow: 1;
+    height: 30px;
+    font-size: 15px;
+    padding: 20px 10px;
+    background: rgba(255,255,255,0);
+    border: 1px solid #dca9a6;
+    box-shadow: 0px 0px 5px #91989f;
+    border-radius: 5px;
+}
+
+.collect-collection-div{
+    display: none;
 }
