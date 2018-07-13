@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
     <title>吟游佳句——登录</title>
+    <link rel="icon" href="/imgs/sys/icon_2.png" type="image/x-icon"/>
     <link rel="icon" href="<%=request.getContextPath() %>/imgs/icon_2.png" type="image/x-icon"/>
 
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap.min.css">

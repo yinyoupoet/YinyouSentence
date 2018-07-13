@@ -44,7 +44,7 @@
                 </button>
 
                 <div>
-                    <c:url value="/index.jsp" var="indexUrl"/>
+                    <c:url value="/index.action" var="indexUrl"/>
                     <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="/imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>

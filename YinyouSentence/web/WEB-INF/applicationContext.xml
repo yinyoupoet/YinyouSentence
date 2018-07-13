@@ -161,5 +161,15 @@
         <property name="peopleDao" ref="peopleDao"/>
     </bean>
 
+    <bean id="giantInfoEntity" class="pageEntity.GiantInfoEntity">
+        <property name="giantDao" ref="giantDao"/>
+        <property name="peopleDao" ref="peopleDao"/>
+    </bean>
+
+    <bean id="dwrGiant" class="service.GiantService">
+        <property name="giantDao" ref="giantDao"/>
+        <property name="publishSentenceDao" ref="publishSentenceDao"/>
+    </bean>
+
 
 </beans>

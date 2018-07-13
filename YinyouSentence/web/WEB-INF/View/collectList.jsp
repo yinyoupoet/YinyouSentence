@@ -13,7 +13,7 @@
     <!-- https://www.cnblogs.com/baiyii/p/6973437.html  ,使用@media -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-    <title>王小波大全——句子集——吟游佳句</title>
+    <title>${sessionScope.}——句子集——吟游佳句</title>
 
     <link rel="icon" href="/imgs/sys/icon_2.png" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
@@ -41,7 +41,7 @@
                 </button>
 
                 <div>
-                    <c:url value="/index.jsp" var="indexUrl"/>
+                    <c:url value="/index.action" var="indexUrl"/>
                     <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>

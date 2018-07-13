@@ -28,6 +28,10 @@
             <param name="beanName" value="dwrPeople"/>
         </create>
 
+        <create creator="spring" javascript="dwrGiant">
+            <param name="beanName" value="dwrGiant"/>
+        </create>
+
         <convert converter="bean" match="dwrPOJO.*"/>
         <convert converter="bean" match="bean.*"/>
         <convert converter="bean" match="pageEntity.*"/>
