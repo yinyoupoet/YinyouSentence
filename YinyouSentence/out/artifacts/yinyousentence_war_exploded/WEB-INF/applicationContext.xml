@@ -169,7 +169,20 @@
     <bean id="dwrGiant" class="service.GiantService">
         <property name="giantDao" ref="giantDao"/>
         <property name="publishSentenceDao" ref="publishSentenceDao"/>
+        <property name="originDao" ref="originDao"/>
+        <property name="collectionDao" ref="collectionDao"/>
     </bean>
+
+    <bean id="originDao" class="dao.OriginDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="originInfoEntity" class="pageEntity.OriginInfoEntity">
+        <property name="originDao" ref="originDao"/>
+        <property name="giantDao" ref="giantDao"/>
+        <property name="peopleDao" ref="peopleDao"/>
+    </bean>
+
 
 
 </beans>

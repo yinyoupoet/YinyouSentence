@@ -284,6 +284,17 @@ public class CollectionDao {
         tx.commit();
     }
 
+    // 获取一个句子集对应的  句子集-句子 列表
+    public List<CollectionSentence> getCollectionSentenceByCltId(long collectionId){
+        Session session = sessionFactory.openSession();
+        String hql = "From CollectionSentence where collectionId = ?";
+        List<CollectionSentence> collectionSentences = new ArrayList<CollectionSentence>();
+        Transaction tx = session.beginTransaction();
+        collectionSentences =  session.createQuery(hql).setParameter(0,collectionId).list();
+        tx.commit();
+        return collectionSentences;
+    }
+
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;

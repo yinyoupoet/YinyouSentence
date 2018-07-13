@@ -240,7 +240,7 @@
                                                         &nbsp;<span class="comment-reply-content" id="comment-reply-content-${replyAuxiliary.commentReply.id}">${replyAuxiliary.commentReply.content}</span>
                                                         <div class="comment-reply-operate">
                                                             <span class="comment-reply-time"><fmt:formatDate value="${replyAuxiliary.commentReply.replyTime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
-                                                            <a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm rr" name="${replyAuxiliary.commentReply.id} rpType="1">回复</a>
+                                                            <a href="#comment" class="index-a comment-reply-a comment-reply-response-a cm rr" name="${replyAuxiliary.commentReply.id}" rpType="1">回复</a>
                                                         </div>
                                                     </div>
                                                     <!-- 一条评论的回复结束 -->

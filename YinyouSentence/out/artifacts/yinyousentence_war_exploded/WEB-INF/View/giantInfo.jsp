@@ -140,7 +140,7 @@
 
         <!-- 喜欢作者的人 -->
         <div class="author-fans">
-            <h4 class="author-fans-title"><li><b>这些人也喜欢王小波</b></li></h4>
+            <h4 class="author-fans-title"><li><b>这些人也喜欢${sessionScope.giantInfoEntity.giantInfo.name}</b></li></h4>
             <a class="index-a author-more-fan-a" href="#">>> 更多</a>
             <!-- 喜欢作者的人的(最多12个) -->
             <div class="author-fans-list row">

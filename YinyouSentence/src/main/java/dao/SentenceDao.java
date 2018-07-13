@@ -279,6 +279,8 @@ public class SentenceDao {
         return sentences;
     }
 
+
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

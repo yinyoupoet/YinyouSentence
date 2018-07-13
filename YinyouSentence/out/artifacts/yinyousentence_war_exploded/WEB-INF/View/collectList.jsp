@@ -7,13 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="utf-8">
     <!-- https://www.cnblogs.com/baiyii/p/6973437.html  ,使用@media -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-    <title>${sessionScope.}——句子集——吟游佳句</title>
+    <title>${sessionScope.sentenceCollection.name}——句子集——吟游佳句</title>
 
     <link rel="icon" href="/imgs/sys/icon_2.png" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
@@ -22,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/select-color.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/animate.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/collect.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/footer.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/back-to-top.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/index-left.css">
@@ -101,92 +104,127 @@
     <div class="container">
         <!-- 句子集介绍 -->
         <div class="collectList-intro-div">
-            <img src="./imgs/三毛.jpg" class="collectList-intro-img">
+            <img src="${sessionScope.sentenceCollection.imgPath}" class="collectList-intro-img">
             <div class="collectList-intro">
-                <span class="collectList-intro-title">句子集： 王小波大全</span><span class="collectList-intro-num">(收录45条句子)</span>
+                <span class="collectList-intro-title">句子集： ${sessionScope.sentenceCollection.name}</span><span class="collectList-intro-num">(收录${sessionScope.sentenceCollection.sentenceNum}条句子)</span>
 
-                <span class="collect-love index-a" category="collect"><img src="./imgs/love.png" title="喜欢" id="love-img" state="false"> 喜欢<span> (1520)</span></span>
+                <span class="collect-love index-a" category="collect" CID="${sessionScope.sentenceCollection.id}">
+                    <c:choose>
+                        <c:when test="${sessionScope.loveOrNot}">
+                            <img src="/imgs/sys/love-2.png" title="喜欢" id="love-img" state="true">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="/imgs/sys/love.png" title="喜欢" id="love-img" state="false">
+                        </c:otherwise>
+                    </c:choose>
+                     喜欢 (<span id="collection-love-num">${session.sentenceCollection.loveNum}</span>)</span>
                 <div style="clear: both;"></div>
 
-                <p class="collectList-intro-publish-div"><a href="#" class="index-a">吟游诗人</a><span class="collectList-intro-publish-time">发布于：2018-05-06 12:15:02</p>
+                <c:url value="/toPeople.action" var="peopleUrl">
+                    <c:param name="id" value="${sessionScope.publisherInfo.id}"/>
+                </c:url>
+
+                <%--做到这里了--%>
+                <p class="collectList-intro-publish-div"><a href="${peopleUrl}" class="index-a">${sessionScope.publisherInfo.userName}</a><span class="collectList-intro-publish-time">发布于：<fmt:formatDate value="${sessionScope.sentenceCollection.publishDate}" pattern="yyyy-MM-dd hh:mm:ss"/> </p>
 
                 <hr class="colelctList-intro-hr">
-                <p class="collectList-intro-explain">《绝望的主妇》故事背景设定在美国一个虚构的小镇——美景镇，描绘了美景镇紫藤巷的五位家庭主妇的婚后生活，每季的剧情也都有新的主线和主妇加入。</p>
+                <p class="collectList-intro-explain">${sessionScope.sentenceCollection.introduction}</p>
             </div>
         </div>
         <!-- 句子集介绍结束 -->
 
         <!-- 句子列表 -->
         <div class="collectList-sentence-div">
-            <!-- 没有句子 -->
-            <div class="collectList-sentence-null">
-                <h2 style="display: inline-block;">Opps...句子集 <a href="#" class="index-a">《王小波大全》</a> 还没有句子哦</h2>
-                <img src="./imgs/4181f32517ab310698072f9155a401f1.jpg" class="collectList-sentence-cry">
-                <div style="clear: both;"></div>
-            </div>
-            <!-- 没有句子结束 -->
-
-            <!-- 有句子的列表 -->
-            <div class="collectList-sentence-list">
-                <h4><li>句子列表</li></h4>
-
-                <!-- 一条句子结果 -->
-                <div class="recommend-item">
-
-                    <p><a href="#" class="recommend-a">如果有来生， <br>
-                        要做一棵树， <br>
-                        站成永恒， <br>
-                        没有悲欢的姿势。<br>
-                        一半在土里安详， <br>
-                        一半在风里飞扬， <br>
-                        一半洒落阴凉， <br>
-                        一半沐浴阳光， <br>
-                        非常沉默非常骄傲， <br>
-                        从不依靠，从不寻找。</a></p>
-
-                    <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;三毛</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《说给自己听》</a></p>
-
-                    <div class="recommend-bar">
-							<span class="recommend-love-span">
-								<span class="recommend-love"><i class="far fa-heart"></i></span>
-								<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-							</span>
-
-                        <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                        <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                        <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
+            <c:choose>
+                <c:when test="${empty sessionScope.sentenceEntities}">
+                    <!-- 没有句子 -->
+                    <div class="collectList-sentence-null">
+                        <h2 style="display: inline-block;">Opps...句子集 <a href="#" class="index-a">《王小波大全》</a> 还没有句子哦</h2>
+                        <img src="/imgs/sys/4181f32517ab310698072f9155a401f1.jpg" class="collectList-sentence-cry">
+                        <div style="clear: both;"></div>
                     </div>
+                    <!-- 没有句子结束 -->
+                </c:when>
+                <c:otherwise>
+                <!-- 有句子的列表 -->
+                <div class="collectList-sentence-list">
+                    <h4><li>句子列表</li></h4>
+
+                    <c:forEach items="${sessionScope.sentenceEntities}" var="recommendSentence">
+                        <!-- 一条句子 -->
+                        <div class="recommend-item">
+                            <c:url value="sentence.action" var="sentenceUrl">
+                                <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                            </c:url>
+                            <p><a href="${sentenceUrl}" class="recommend-a">${recommendSentence.sentence.content}</a></p>
+
+                            <p class="recommend-from">
+                                <c:choose>
+                                <c:when test="${recommendSentence.original}">
+                            <p class="sentence-from" style="text-align:right;">——原创</p>
+                            </c:when>
+                            <c:when test="${recommendSentence.giantInfo == null && recommendSentence.originInfo == null}">
+
+                            </c:when>
+                            <c:otherwise>
+                                <p class="sentence-from" style="text-align:right;">——
+                                    <c:if test="${recommendSentence.giantInfo != null}">
+                                        <c:url value="/giant.action" var="giantUrl">
+                                            <c:param name="giantId" value="${recommendSentence.giantInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${giantUrl}" class="index-a">${recommendSentence.giantInfo.name}</a>&nbsp;
+                                    </c:if>
+                                    <c:if test="${recommendSentence.originInfo != null}">
+                                        <c:url value="/origin.action" var="originUrl">
+                                            <c:param name="originId" value="${recommendSentence.originInfo.id}"/>
+                                        </c:url>
+                                        &nbsp;<a href="${originUrl}" class="index-a">${recommendSentence.originInfo.name}</a>
+                                    </c:if>
+                                </p>
+
+                            </c:otherwise>
+                            </c:choose>
+                            </p>
+
+
+
+                            <div class="recommend-bar">
+								<span class="recommend-love-span" SID="${recommendSentence.sentence.id}">
+                                    <c:choose>
+                                        <c:when test="${recommendSentence.userLove}">
+                                            <%--喜欢--%>
+                                            <span class="recommend-love"><i class="fas fa-heart"></i></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="recommend-love"><i class="far fa-heart"></i></span>
+                                        </c:otherwise>
+                                    </c:choose>
+									<span class="recommend-love-num-span">(<span class="recommend-love-num">${recommendSentence.sentence.loveNum}</span>人喜欢)</span>
+								</span>
+
+                                <span class="recommend-collect" SID="${recommendSentence.sentence.id}"><i class="far fa-bookmark"></i> 收藏到句子集</span>
+
+                                <c:url value="sentence.action" var="commentUrl">
+                                    <c:param name="sentenceId" value="${recommendSentence.sentence.id}"/>
+                                </c:url>
+                                <span class="recommend-comment"><a href="${commentUrl}#comment" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">${recommendSentence.commentNum}</span>)</a></span>
+
+                                <c:url value="toPeople.action" var="peopleUrl">
+                                    <c:param name="id" value="${recommendSentence.userInfo.id}"/>
+                                </c:url>
+                                <span class="recommend-publisher-span"><a href="${peopleUrl}" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">${recommendSentence.userInfo.userName}</span></a></span>
+
+                            </div>
+                        </div>
+                        <!-- 一条句子结束 -->
+                    </c:forEach>
+
                 </div>
-                <!-- 一条句子结果结束 -->
-
-                <!-- 一条句子结果 -->
-                <div class="recommend-item">
-
-                    <p><a href="#" class="recommend-a">因为有了因为，所以有了所以。既然已成既然，何必再说何必。</a></p>
-
-                    <p class="recommend-from">——<a href="#" class="recommend-author index-a">&nbsp;周立波</a>&nbsp;&nbsp;<a href="#" class="recommend-orient index-a">《因为》</a></p>
-
-                    <div class="recommend-bar">
-							<span class="recommend-love-span">
-								<span class="recommend-love"><i class="far fa-heart"></i></span>
-								<span class="recommend-love-num-span">(<span class="recommend-love-num">1980</span>人喜欢)</span>
-							</span>
-
-                        <span class="recommend-collect"><i class="far fa-bookmark"></i> 收藏到句子集</span>
-
-                        <span class="recommend-comment"><a href="#" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">128</span>)</a></span>
-
-                        <span class="recommend-publisher-span"><a href="#" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">吟游诗人</span></a></span>
-
-                    </div>
-                </div>
-                <!-- 一条句子结果结束 -->
-
-
-
+                <!-- 有句子的列表结束 -->
+             </div>
+            <!-- 句子列表 -->
+                </c:otherwise>
+            </c:choose>
 
             </div>
             <!-- 有句子的列表结束 -->
@@ -217,9 +255,33 @@
     <span class="arrow-slide"></span>
 </a>
 
+<%--收藏到句子集--%>
+<div class="collect-collection-div">
+    <div class="collect-collection-list-div">
+        <img src="/imgs/sys/search close.png" class="collect-collection-div-close">
+        <h2 style="text-align: center;" id="collect-collection-title" SID="">收藏句子到句子集</h2>
+        <%--句子集列表--%>
+        <div class="collect-collection-list">
 
+        </div>
+        <%--句子集列表结束--%>
+        <div class="collect-new-collection-div">
+            <input type="text" class="collect-new-collection-input" maxlength="25" placeholder="请输入新建句子集名"> <button class="btn btn-info collect-new-collection-btn" onclick="addCollection()">新增</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrSentenceInfo.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrLoginCheck.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrCollect.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrGiant.js"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/collect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/nav.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/collectList.js"></script>

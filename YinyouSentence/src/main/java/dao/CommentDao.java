@@ -53,7 +53,7 @@ public class CommentDao {
     public List<CommentReply> getCommentReplyByCommentId(long commentId){
         Session session = sessionFactory.openSession();
         List<CommentReply> commentReplies = new ArrayList<CommentReply>();
-        String hql = "FROM CommentReply where commentId = ? order by id desc ";
+        String hql = "FROM CommentReply where commentId = ? order by id asc ";
         Transaction tx = session.beginTransaction();
         commentReplies = session.createQuery(hql).setParameter(0,commentId).list();
         tx.commit();
