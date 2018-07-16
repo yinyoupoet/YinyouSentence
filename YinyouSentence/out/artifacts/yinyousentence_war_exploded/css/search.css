@@ -250,7 +250,7 @@ content{
 	box-shadow: 0 0 3px #bbb;
 	border-radius: 5px;
 	padding: 20px 20px;
-	background: url('../imgs/6286d2220a1987c843163a6f8db614b7.png');
+	background: url('/imgs/sys/6286d2220a1987c843163a6f8db614b7.png');
 }
 
 @media screen and (max-width: 768px){
@@ -313,19 +313,9 @@ content{
 	margin-right: 5px;
 }
 
-
-.search-list-notFound{
-	display: none;
-}
-
-.sentence-list{
-	display: none;
-}
-
-/*.sentence-collection{
-	display: none;
-}*/
-
-.search-user-list{
-	display: none;
+.search-user-motto{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
 }

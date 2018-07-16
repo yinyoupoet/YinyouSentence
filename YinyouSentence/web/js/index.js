@@ -8,7 +8,27 @@ $(document).ready(function(){
   // 初始化 推荐句子 的菜单栏点击事件
   initRecommendBarAction();
 
+  // 初始化发布句子按钮点击事件
+    initPublishSentence();
+
 });
+
+// 初始化发布句子按钮点击事件
+var initPublishSentence = function () {
+    $('#publish-sentence-form').on('submit',function(){
+        var isLogin = false;
+        dwr.engine.setAsync(false);
+        dwrLoginCheck.isLoginYet(function(data){
+            isLogin = data;
+        });
+        dwr.engine.setAsync(true);
+        if(isLogin == false){
+            alert("请先登录呦");
+            return false;
+        }
+        return true;
+    });
+};
 
 
 // 初始化 推荐句子 的菜单栏点击事件
@@ -105,7 +125,7 @@ $.fn.extend({
         animation: 'animationend',
         OAnimation: 'oAnimationEnd',
         MozAnimation: 'mozAnimationEnd',
-        WebkitAnimation: 'webkitAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd'
       };
 
       for (var t in animations) {

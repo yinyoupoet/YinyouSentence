@@ -44,13 +44,13 @@
 
                 <div>
                     <c:url value="/index.action" var="indexUrl"/>
-                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
+                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="/imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -69,7 +69,7 @@
                         <c:otherwise>
                             <%--未登录--%>
                             <li id="nav-head-infoIMG">
-                                <a href="/toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
+                                <a href="toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -140,7 +140,12 @@
         <!-- 喜欢这本书的人 -->
         <div class="author-fans">
             <h4 class="author-fans-title"><li><b>这些人也喜欢${sessionScope.originInfoEntity.originInfo.name}</b></li></h4>
-            <a class="index-a author-more-fan-a" href="#">>> 更多</a>
+            <c:url value="userLove.action" var="originLoveMoreUrl">
+                <c:param name="type" value="1"/>
+                <c:param name="typeId" value="2"/>
+                <c:param name="contentId" value="${sessionScope.originInfoEntity.originInfo.id}"/>
+            </c:url>
+            <a class="index-a author-more-fan-a" href="${originLoveMoreUrl}">>> 更多</a>
             <!-- 喜欢出处的人的(最多12个) -->
             <div class="author-fans-list row">
                 <c:forEach items="${sessionScope.originInfoEntity.loveUsers}" var="user">

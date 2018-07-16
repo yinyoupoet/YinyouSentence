@@ -7,9 +7,10 @@
     <!-- data connection -->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/yinyousentence?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/yinyousentence?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong"></property>
         <property name="username" value="root"/>
-        <property name="password" value=""/>
+        <!--<property name="password" value=""/>-->
+        <property name="password" value="TsingHua_981127"/>
     </bean>
 
 

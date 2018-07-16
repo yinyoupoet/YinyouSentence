@@ -1,10 +1,12 @@
 package dao;
 
 import bean.Category;
+import bean.Sentence;
 import bean.SentenceCollection;
 import bean.Tag;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -59,8 +61,37 @@ public class InformationDao {
     public List<Tag> getHotTags(int num){
         Session session = sessionFactory.openSession();
         String hql = "FROM Tag order by quoteNum desc";
+        Transaction tx = session.beginTransaction();
         List<Tag> tags = session.createQuery(hql).setFirstResult(0).setMaxResults(num).list();
+        tx.commit();
         return tags;
+    }
+
+    /**
+    * @author hasee
+    * @Description 根据分类id获取分类信息
+    * @Date 14:43 2018-07-15
+    * @Param [id]
+    * @return bean.Category
+    **/
+    public Category getCategoryByCategoryId(long id){
+        Session session = sessionFactory.openSession();
+        String hql = "FROM Category where id = ?";
+        Category category = null;
+        Transaction tx = session.beginTransaction();
+        category = (Category) session.createQuery(hql).setParameter(0,id).uniqueResult();
+        tx.commit();
+        return category;
+    }
+
+    public Tag getTagByTagId(long id){
+        Session session = sessionFactory.openSession();
+        String hql = "FROM Tag where id = ?";
+        Tag tag = null;
+        Transaction tx = session.beginTransaction();
+        tag = (Tag) session.createQuery(hql).setParameter(0,id).uniqueResult();
+        tx.commit();
+        return tag;
     }
 
 

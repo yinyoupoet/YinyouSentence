@@ -318,14 +318,14 @@ content{
 	display: none;
 }
 
-.sentence-list{
+ .sentence-list{
 	display: none;
 }
-
-/*.sentence-collection{
+ 
+ .sentence-collection{
 	display: none;
-}*/
-
+} 
+/* 
 .search-user-list{
 	display: none;
-}
+} */

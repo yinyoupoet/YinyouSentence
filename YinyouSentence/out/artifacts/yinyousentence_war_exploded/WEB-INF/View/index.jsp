@@ -46,13 +46,13 @@
 
                 <div>
                     <c:url value="/index.action" var="indexUrl"/>
-                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
+                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="/imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -71,7 +71,7 @@
                         <c:otherwise>
                             <%--未登录--%>
                             <li id="nav-head-infoIMG">
-                                <a href="/toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
+                                <a href="toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -151,7 +151,7 @@
                 <!-- 热门名人 -->
                 <div class="giant-div content-left-box">
                     <p class="giant-title">~~ 热门名人 ~~</p>
-                    <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
+                   <%-- <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>--%>
                     <div class="row giant-info">
                         <c:forEach items="${sessionScope.indexEntity.hotGiants}" var="hotGiants">
                             <c:url value="giant.action" var="giantUrl">
@@ -172,7 +172,11 @@
                 <!-- 推荐句子 -->
                 <div class="recommend-div content-left-box">
                     <p class="giant-title">~~ 推荐句子 ~~</p>
-                    <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
+                    <c:url value="userLove.action" var="moreRecomment">
+                        <c:param name="type" value="0"/>
+                        <c:param name="typeId" value="0"/>
+                    </c:url>
+                    <p class="giant-more"><a href="${moreRecomment}" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
 
                     <c:forEach items="${sessionScope.indexEntity.recommendSentenceEntities}" var="recommendSentence">
                         <!-- 一条推荐句子 -->
@@ -251,7 +255,11 @@
                 <!-- 热门句子 -->
                 <div class="recommend-div content-left-box">
                     <p class="giant-title">~~ 热门句子排行榜 ~~</p>
-                    <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 全部</a></p>
+                    <c:url value="userLove.action" var="moreHot">
+                        <c:param name="type" value="0"/>
+                        <c:param name="typeId" value="1"/>
+                    </c:url>
+                    <p class="giant-more"><a href="${moreHot}" class="index-a"><i class="fab fa-gitkraken"></i> 全部</a></p>
 
 
 
@@ -332,7 +340,11 @@
                 <!-- 热门原创 -->
                 <div class="recommend-div content-left-box">
                     <p class="giant-title">~~ 热门原创 ~~</p>
-                    <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
+                    <c:url value="userLove.action" var="moreOrigin">
+                        <c:param name="type" value="0"/>
+                        <c:param name="typeId" value="2"/>
+                    </c:url>
+                    <p class="giant-more"><a href="${moreOrigin}" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
 
 
 
@@ -414,7 +426,11 @@
                 <!-- 最新发布 -->
                 <div class="recommend-div content-left-box">
                     <p class="giant-title">~~ 最新发布 ~~</p>
-                    <p class="giant-more"><a href="#" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
+                    <c:url value="userLove.action" var="newPublish">
+                        <c:param name="type" value="0"/>
+                        <c:param name="typeId" value="3"/>
+                    </c:url>
+                    <p class="giant-more"><a href="${newPublish}" class="index-a"><i class="fab fa-gitkraken"></i> 更多</a></p>
 
 
                     <c:forEach items="${sessionScope.indexEntity.newPublishSentenceEntities}" var="recommendSentence">
@@ -501,15 +517,16 @@
 
                 <!-- 搜索块 -->
                 <div class="content-right-search content-right-box">
-                    <form class="form-search">
-                        <input type="text" name="content-right-search" class="input-medium search-query content-search" placeholder="(*/ω＼*)搜索一下吧">
+                    <c:url value="search.action" var="searchUrl"/>
+                    <form class="form-search" method="post" action="${searchUrl}">
+                        <input type="text" name="searchContent" class="input-medium search-query content-search" placeholder="(*/ω＼*)搜索一下吧">
                     </form>
                 </div>
                 <!-- 搜索块结束 -->
 
                 <!-- 发布句子 -->
                 <div class="content-right-publish ">
-                    <form action="/publishSentence.action" method="post">
+                    <form action="/publishSentence.action" method="post" id="publish-sentence-form">
                         <center><button class="btn publish-btn">~~ 发布句子 ~~</button></center>
                     </form>
                 </div>
@@ -522,7 +539,9 @@
                     <div class="category-list">
                         <c:forEach items="${sessionScope.indexEntity.categories}" var="category">
                             <c:url value="userLove.action" var="categoryUrl">
-                                <c:param name="categoryId" value="${category.id}"/>
+                                <c:param name="type" value="0"/>
+                                <c:param name="typeId" value="4"/>
+                                <c:param name="contentId" value="${category.id}"/>
                             </c:url>
                             <a href="${categoryUrl}" class="index-a category-item">${category.categoryName}</a>
                         </c:forEach>
@@ -532,7 +551,9 @@
                     <div class="category-list">
                         <c:forEach items="${sessionScope.indexEntity.hotTags}" var="tag">
                             <c:url value="userLove.action" var="tagUrl">
-                                <c:param name="tagId" value="${tag.id}"/>
+                                <c:param name="type" value="0"/>
+                                <c:param name="typeId" value="5"/>
+                                <c:param name="contentId" value="${tag.id}"/>
                             </c:url>
                             <a href="${tagUrl}" class="index-a category-item">${tag.name}</a>
                         </c:forEach>

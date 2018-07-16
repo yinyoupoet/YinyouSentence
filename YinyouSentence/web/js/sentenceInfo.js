@@ -11,7 +11,32 @@ $(document).ready(function(){
 	// 初始化收藏按钮
 	initCollect();
 
+	// 初始化关注按钮点击事件
+	initFollowUser();
 });
+
+// 初始化关注按钮点击事件
+var initFollowUser = function(){
+    $('.btn-follow').on('click',function () {
+        var btn = $(this);
+        var UID = btn.attr('UID');
+        dwrPeople.followUser(UID,function(data){
+            if(!data.success){
+                alert(data.reason);
+                return false;
+            }
+            if(data.follow){
+                btn.html("已关注");
+            }else{
+                btn.html('<i class="fas fa-plus"></i> 关注');
+            }
+           /* $('#hasFanNum').html(data.followerNum);*/
+
+        });
+    });
+};
+
+
 
 // 初始化收藏
 var initCollect = function(){

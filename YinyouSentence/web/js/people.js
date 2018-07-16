@@ -52,7 +52,7 @@ var showSentence = function(sentenceEntity){
 	for(var i=0; i < sentenceEntity.length; i++){
 		var entity = sentenceEntity[i];
 		var code = '<div class=\"recommend-item\">';
-		code += '<p><a href="/sentence.action?sentenceId=' + entity.sentence.id + '" class="recommend-a">';
+		code += '<p><a href="sentence.action?sentenceId=' + entity.sentence.id + '" class="recommend-a">';
 		code += entity.sentence.content;
 		code += '</a></p>'
 		code += '<p class="recommend-from">';
@@ -65,10 +65,10 @@ var showSentence = function(sentenceEntity){
 			}else{
 				code += "——";
 				if(entity.giantInfo != null){
-					code += '<a href="/giant.action?giantId=' + entity.giantInfo.id + '" class="recommend-author index-a">&nbsp;'+ entity.giantInfo.name +'</a>&nbsp;';
+					code += '<a href="giant.action?giantId=' + entity.giantInfo.id + '" class="recommend-author index-a">&nbsp;'+ entity.giantInfo.name +'</a>&nbsp;';
 				}
 				if(entity.originInfo != null){
-					code += '&nbsp;<a href="/origin.action?originId='+ entity.originInfo.id +'" class="recommend-orient index-a">'+ entity.originInfo.name +'</a>';
+					code += '&nbsp;<a href="origin.action?originId='+ entity.originInfo.id +'" class="recommend-orient index-a">'+ entity.originInfo.name +'</a>';
 				}
 			}
 		}
@@ -84,8 +84,8 @@ var showSentence = function(sentenceEntity){
 		code += '<span class="recommend-love-num-span">(<span class="recommend-love-num">'+ entity.sentence.loveNum +'</span>人喜欢)</span>';
 		code += '</span>';
 		code += '<span class="recommend-collect" onclick="addToCollection('+ entity.sentence.id +');"><i class="far fa-bookmark"></i> 收藏到句子集</span>';
-		code += '<span class="recommend-comment"><a href="/sentence.action?sentenceId='+ entity.sentence.id +'#comment" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">'+ entity.commentNum +'</span>)</a></span>';
-		code += '<span class="recommend-publisher-span"><a href="/toPeople.action?id='+ entity.sentence.publisherId +'" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">'+ entity.userInfo.userName +'</span></a></span>';
+		code += '<span class="recommend-comment"><a href="sentence.action?sentenceId='+ entity.sentence.id +'#comment" class="index-a"><i class="far fa-comment"></i> 评论(<span class="recommend-num">'+ entity.commentNum +'</span>)</a></span>';
+		code += '<span class="recommend-publisher-span"><a href="toPeople.action?id='+ entity.sentence.publisherId +'" class="index-a"><i class="far fa-user"></i> <span class="recomend-publisher">'+ entity.userInfo.userName +'</span></a></span>';
 		code += '</div></div>';
         sentenceList.append(code);
 	}
@@ -100,10 +100,10 @@ var showCollect = function(collectEntity){
     for(var i = 0; i < collectEntity.length; i++){
     	var collection = collectEntity[i];
     	var code = '<div class="sentence-collect-item">';
-    	code += '<a href="/collectList.action?collectionId='+ collection.sentenceCollection.id +'">';
+    	code += '<a href="collectList.action?collectionId='+ collection.sentenceCollection.id +'">';
     	code += '<img src="'+ collection.sentenceCollection.imgPath +'" class="sentence-collect-pic"></a>';
     	code += '<div class="sentence-collect-right">';
-    	code += '<a href="/collectList.action?collectionId='+ collection.sentenceCollection.id +'" class="index-a sentence-collect-title"><i class="far fa-bookmark"></i>'+ collection.sentenceCollection.name +'</a><span class="sentence-collect-num">(包含'+ collection.sentenceCollection.sentenceNum +'条句子)</span>';
+    	code += '<a href="collectList.action?collectionId='+ collection.sentenceCollection.id +'" class="index-a sentence-collect-title"><i class="far fa-bookmark"></i>'+ collection.sentenceCollection.name +'</a><span class="sentence-collect-num">(包含'+ collection.sentenceCollection.sentenceNum +'条句子)</span>';
 		code += '<span class="sentence-collect-love index-a" id="sentence-collect-'+ collection.sentenceCollection.id +'" onclick="loveCollection('+ collection.sentenceCollection.id +')">';
 		if(collection.loveOrNot){
 			code += '<img src="/imgs/sys/love-2.png" title="喜欢" class="love-img" state="true" cId="'+ collection.sentenceCollection.id +'">';

@@ -1,5 +1,6 @@
 package pageEntity;
 
+import auxiliary.UserAuxiliary;
 import bean.*;
 import dao.SentenceDao;
 import org.directwebremoting.WebContextFactory;
@@ -27,7 +28,7 @@ public class SentenceEntity {
     private GiantInfo giantInfo;
     private UserInfo userInfo;
     private List<Sentence> giantSentences = new ArrayList<Sentence>();
-    private List<UserInfo> loveUsers = new ArrayList<UserInfo>();
+    private List<UserAuxiliary> loveUsers = new ArrayList<UserAuxiliary>();
     private List<Sentence> originSentences = new ArrayList<Sentence>();
     private List<Tag> tags = new ArrayList<Tag>();
 
@@ -99,13 +100,16 @@ public class SentenceEntity {
 
         for(Long id : userIds){
             if(id.equals(myId)){
-                System.out.println("屏蔽了一个:" + myId);
+               // System.out.println("屏蔽了一个:" + myId);
                 continue;
             }
-            System.out.println("里面至少有一个: " + id);
+            //System.out.println("里面至少有一个: " + id);
             UserInfo userInfo2 = new UserInfo();
             userInfo2 = sentenceDao.getUserInfoById(id);
-            loveUsers.add(userInfo2);
+            UserAuxiliary userAuxiliary = new UserAuxiliary();
+            userAuxiliary.setUserInfo(userInfo2);
+            userAuxiliary.setLoveOrNot(sentenceDao.checkIfUserFollowUser(myId,userInfo2.getId()));
+            loveUsers.add( userAuxiliary);
         }
         if(loveUsers != null && loveUsers.size() > 3){
             loveUsers = loveUsers.subList(0,3);
@@ -189,13 +193,7 @@ public class SentenceEntity {
         this.userInfo = userInfo;
     }
 
-    public List<UserInfo> getLoveUsers() {
-        return loveUsers;
-    }
 
-    public void setLoveUsers(List<UserInfo> loveUsers) {
-        this.loveUsers = loveUsers;
-    }
 
 
     public OriginInfo getOriginInfo() {
@@ -253,5 +251,13 @@ public class SentenceEntity {
 
     public void setPeopleLove(Boolean peopleLove) {
         this.peopleLove = peopleLove;
+    }
+
+    public List<UserAuxiliary> getLoveUsers() {
+        return loveUsers;
+    }
+
+    public void setLoveUsers(List<UserAuxiliary> loveUsers) {
+        this.loveUsers = loveUsers;
     }
 }

@@ -280,6 +280,128 @@ public class SentenceDao {
     }
 
 
+    // 根据句子内容模糊查询句子
+    public List<Sentence> getSentencesBySentenceContent(String s){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence where content like ?";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setParameter(0,"%" + s + "%").list();
+        tx.commit();
+        return sentences;
+    }
+
+    // 根据作者名模糊查询该作者名对应的所有作者列表
+    public List<GiantInfo> getGiantInfosByGiantName(String s){
+        Session session = sessionFactory.openSession();
+        String hql = "From GiantInfo where name like ?";
+        List<GiantInfo> giantInfos = new ArrayList<GiantInfo>();
+        Transaction tx = session.beginTransaction();
+        giantInfos =  session.createQuery(hql).setParameter(0,"%" + s + "%").list();
+        tx.commit();
+        return giantInfos;
+    }
+
+
+    // 根据句子作者id查询句子
+    public List<Sentence> getSentenceByAuthorId(long id){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence where authorId = ?";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setParameter(0, id).list();
+        tx.commit();
+        return sentences;
+    }
+
+    // 根据出处名模糊查询所有出处
+    public List<OriginInfo> getOriginInfosByOriginName(String s){
+        Session session = sessionFactory.openSession();
+        String hql = "From OriginInfo where name like ?";
+        List<OriginInfo> originInfos = new ArrayList<OriginInfo>();
+        Transaction tx = session.beginTransaction();
+        originInfos =  session.createQuery(hql).setParameter(0,"%" + s + "%").list();
+        tx.commit();
+        return originInfos;
+    }
+
+    // 根据出处id查询其下所有句子
+    public List<Sentence> getSentenceByOriginId(long id){
+        Session session = sessionFactory.openSession();
+        String hql = "From Sentence where originId = ?";
+        List<Sentence> sentences = new ArrayList<Sentence>();
+        Transaction tx = session.beginTransaction();
+        sentences =  session.createQuery(hql).setParameter(0, id).list();
+        tx.commit();
+        return sentences;
+    }
+
+    // 根据标签名模糊查询标签列表
+    public List<Tag> getTagsByTagName(String s){
+        Session session = sessionFactory.openSession();
+        String hql = "From Tag where name like ?";
+        List<Tag> tags = new ArrayList<Tag>();
+        Transaction tx = session.beginTransaction();
+        tags =  session.createQuery(hql).setParameter(0,"%" + s + "%").list();
+        tx.commit();
+        return tags;
+    }
+
+    // 根据标签Id获取其对应的所有 标签引用 记录
+    public List<TagQuote> getTagQuotesByTagId(long id){
+        Session session = sessionFactory.openSession();
+        String hql = "From TagQuote where tagId = ?";
+        List<TagQuote> tagQuotes = new ArrayList<TagQuote>();
+        Transaction tx = session.beginTransaction();
+        tagQuotes =  session.createQuery(hql).setParameter(0, id).list();
+        tx.commit();
+        return tagQuotes;
+    }
+
+
+    public Boolean checkIfUserFollowUser(long myId,long userId){
+        return checkIfUserFollowUser(myId,0,userId);
+    }
+
+
+    // 判断两个user之间是否互相关注
+    public Boolean checkIfUserFollowUser(long myId,int beginIndex, long userId){
+        Session session = sessionFactory.openSession();
+        String hql = "select count(*) From UserFollow where followerId = ? And userId = ?";
+        long num = 0;
+        Transaction tx = session.beginTransaction();
+        num = (Long) session.createQuery(hql).setParameter(0, myId).setFirstResult(beginIndex).setParameter(1,userId).uniqueResult();
+        tx.commit();
+        if(num > 0){
+            return true;
+        }
+        return false;
+    }
+
+
+    // 根据分类id获取这个分类下指定条数 句子id
+    public List<Long> getSentenceIdsByCategoryId(long categoryId,int beginIndex, int num){
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT sentenceId from SentenceCategory where categoryId = ?";
+        List<Long> sentenceIds = new ArrayList<Long>();
+        Transaction tx = session.beginTransaction();
+        sentenceIds =  session.createQuery(hql).setFirstResult(beginIndex).setParameter(0, categoryId).setMaxResults(num).list();
+        tx.commit();
+        return sentenceIds;
+    }
+
+
+    // 根据标签id获取该标签下制定条数句子Id
+    public List<Long> getSentenceIdsByTagId(long tagId,int beginIndex, int num){
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT sentenceId from TagQuote where tagId = ?";
+        List<Long> sentenceIds = new ArrayList<Long>();
+        Transaction tx = session.beginTransaction();
+        sentenceIds =  session.createQuery(hql).setFirstResult(beginIndex).setParameter(0, tagId).setMaxResults(num).list();
+        tx.commit();
+        return sentenceIds;
+    }
+
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;

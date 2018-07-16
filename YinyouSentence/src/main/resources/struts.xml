@@ -13,7 +13,7 @@
     <!--action的class属性不再是具体的类,而是spring配置文件配置的bean id-->
     <package name="yinyousentence" namespace="/" extends="struts-default">
 
-        <default-action-ref name="toLoginOrRegister"></default-action-ref>
+        <default-action-ref name="index"></default-action-ref>
 
         <!--进入登录注册页面的action-->
         <action name="toLoginOrRegister" class="action.ToLoginOrRegisterAction" method="toLoginOrRegister">
@@ -89,7 +89,7 @@
             <result name="success">/WEB-INF/View/sentenceInfo.jsp</result>
         </action>
         <action name="userLove" class="action.ToUserLoveAction" method="execute">
-            <result name="success">/WEB-INF/View/sentenceInfo.jsp</result>
+            <result name="success">/WEB-INF/View/userLove.jsp</result>
         </action>
         <action name="giantSentence" class="action.ToGiantSentenceAction" method="execute">
             <result name="success">/WEB-INF/View/giantSentence.jsp</result>
@@ -121,6 +121,10 @@
 
         <action name="collectList" class="action.ToCollectiListAction">
             <result name="success">/WEB-INF/View/collectList.jsp</result>
+        </action>
+
+        <action name="search" class="action.ToSearchAction">
+            <result name="success">/WEB-INF/View/search.jsp</result>
         </action>
 
     </package>

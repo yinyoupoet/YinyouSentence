@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -199,6 +200,71 @@ public class PeopleDao {
         return num;
     }
 
+    // 根据用户名模糊查询用户信息
+    public List<UserInfo> getUserInfoByuserName(String s){
+        Session session = sessionFactory.openSession();
+        String hql = "From UserInfo where userName like ?";
+        List<UserInfo> userInfos = new ArrayList<UserInfo>();
+        Transaction tx = session.beginTransaction();
+        userInfos =  session.createQuery(hql).setParameter(0,"%" + s + "%").list();
+        tx.commit();
+        return userInfos;
+    }
+
+    // 根据句子id获取喜欢该句子的用户的id
+    public List<Long> getUserIdsBySentenceId(long sentenceId, int beginIndex, int num){
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT userId from SentenceLove where sentenceId = ?";
+        List<Long> userIds = new ArrayList<Long>();
+        Transaction tx = session.beginTransaction();
+        userIds =  session.createQuery(hql).setFirstResult(beginIndex).setParameter(0, sentenceId).setMaxResults(num).list();
+        tx.commit();
+        return userIds;
+    }
+
+    // 根据名家id获取喜欢该名家的用户的id
+    public List<Long> getUserIdsByGiantId(long giantId, int beginIndex, int num){
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT userId from GiantLove where giantId = ?";
+        List<Long> userIds = new ArrayList<Long>();
+        Transaction tx = session.beginTransaction();
+        userIds =  session.createQuery(hql).setFirstResult(beginIndex).setParameter(0, giantId).setMaxResults(num).list();
+        tx.commit();
+        return userIds;
+    }
+
+    // 根据出处id获取喜欢该出处的用户的id
+    public List<Long> getUserIdsByOriginId(long originId, int beginIndex, int num){
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT userId from OriginLove where originId = ?";
+        List<Long> userIds = new ArrayList<Long>();
+        Transaction tx = session.beginTransaction();
+        userIds =  session.createQuery(hql).setFirstResult(beginIndex).setParameter(0, originId).setMaxResults(num).list();
+        tx.commit();
+        return userIds;
+    }
+
+    // 根据用户id获取该用户关注的用户的id
+    public List<Long> getUserIdsByFollowerId(long fanId, int beginIndex, int num){
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT userId from UserFollow where followerId = ?";
+        List<Long> userIds = new ArrayList<Long>();
+        Transaction tx = session.beginTransaction();
+        userIds =  session.createQuery(hql).setFirstResult(beginIndex).setParameter(0, fanId).setMaxResults(num).list();
+        tx.commit();
+        return userIds;
+    }
+
+    // 根据用户id获取该用户的粉丝的id
+    public List<Long> getUserIdsByFollowingId(long userId, int beginIndex, int num){
+        Session session = sessionFactory.openSession();
+        String hql = "SELECT followerId from UserFollow where userId = ?";
+        List<Long> userIds = new ArrayList<Long>();
+        Transaction tx = session.beginTransaction();
+        userIds =  session.createQuery(hql).setFirstResult(beginIndex).setParameter(0, userId).setMaxResults(num).list();
+        tx.commit();
+        return userIds;
+    }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;

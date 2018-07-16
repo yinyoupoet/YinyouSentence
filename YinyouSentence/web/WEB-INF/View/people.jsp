@@ -45,13 +45,13 @@
 
                 <div>
                     <c:url value="/index.action" var="indexUrl"/>
-                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
+                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="/imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -70,7 +70,7 @@
                         <c:otherwise>
                             <%--未登录--%>
                             <li id="nav-head-infoIMG">
-                                <a href="/toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
+                                <a href="toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -172,14 +172,24 @@
                 <div class="col-xs-4 right">
                     <!-- 仿知乎关注与被关注 -->
                     <div class="people-follow-fan">
-                        <a href="#" class="people-follow-fan-div ">
+                        <c:url value="userLove.action" var="userFollowingUrl">
+                            <c:param name="type" value="1"/>
+                            <c:param name="typeId" value="3"/>
+                            <c:param name="contentId" value="${sessionScope.peopleEntity.userId}"/>
+                        </c:url>
+                        <a href="${userFollowingUrl}" class="people-follow-fan-div ">
                             <div href="#" class="people-follow-fan-div-left">
                                 <p class="people-follow-fan-title">关注了</p>
                                 <p class="people-follow-fan-num" id="hasFollowedNum">${sessionScope.peopleEntity.followingNum}</p>
                             </div>
                         </a>
                         <div class="people-follow-fan-hr"></div>
-                        <a href="#" class="people-follow-fan-div ">
+                        <c:url value="userLove.action" var="userFollowerUrl">
+                            <c:param name="type" value="1"/>
+                            <c:param name="typeId" value="4"/>
+                            <c:param name="contentId" value="${sessionScope.peopleEntity.userId}"/>
+                        </c:url>
+                        <a href="${userFollowerUrl}" class="people-follow-fan-div ">
                             <div href="#" class="people-follow-fan-div-right">
                                 <p class="people-follow-fan-title">关注者</p>
                                 <p class="people-follow-fan-num" id="hasFanNum">${sessionScope.peopleEntity.followerNum}</p>

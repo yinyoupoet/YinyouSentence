@@ -34,7 +34,7 @@
             <!-- 登录 -->
             <div class="login animated">
                 <h2>登录</h2>
-                <form  action="/login" method="post">
+                <form  action="login.action" method="post">
                     <input type="text" name="lUserName" class="login-input gradient-border" id="login-name" placeholder="(*/ω＼*)账号">
 
                     <input type="password" name="lUserPwd" class="login-input gradient-border" id="login-pwd" placeholder="(*/ω＼*)密码">
@@ -49,7 +49,7 @@
             <!-- 注册 -->
             <div class="register animated">
                 <h2>注册</h2>
-                <form  action="/register" method="post">
+                <form  action="register.action" method="post">
                     <input type="text" name="rUserName" class="login-input gradient-border" id="register-name" placeholder="请输入用户名">
 
                     <input type="password" name="rUserPwd" class="login-input gradient-border" id="register-pwd" placeholder="(*/ω＼*)密码">

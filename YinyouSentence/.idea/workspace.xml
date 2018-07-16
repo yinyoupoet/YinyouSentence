@@ -42,92 +42,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="origin.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/origin.jsp">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="271" column="0" lean-forward="false" selection-start-line="271" selection-start-column="0" selection-end-line="285" selection-end-column="6" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="orient.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/orient.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="31" selection-end-column="2" />
+            <state relative-caret-position="14190">
+              <caret line="430" column="58" lean-forward="false" selection-start-line="430" selection-start-column="58" selection-end-line="430" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sentenceInfo.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/sentenceInfo.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="242" column="182" lean-forward="false" selection-start-line="242" selection-start-column="182" selection-end-line="242" selection-end-column="182" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collectList.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/collectList.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="267" column="48" lean-forward="true" selection-start-line="267" selection-start-column="48" selection-end-line="267" selection-end-column="48" />
-              <folding>
-                <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#c:url#4;n#jsp:root#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collectList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/collectList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/CommentDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="55" column="76" lean-forward="false" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GiantService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/service/GiantService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23">
-              <caret line="158" column="22" lean-forward="false" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6620#6621#0" expanded="true" />
-                <element signature="e#6656#6657#0" expanded="true" />
-                <element signature="e#6721#6722#0" expanded="true" />
-                <element signature="e#6771#6772#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="172" column="60" lean-forward="false" selection-start-line="172" selection-start-column="60" selection-end-line="172" selection-end-column="60" />
+            <state relative-caret-position="165">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -136,24 +65,89 @@
       <file leaf-file-name="SentenceEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/SentenceEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+            <state relative-caret-position="276">
+              <caret line="107" column="51" lean-forward="false" selection-start-line="107" selection-start-column="36" selection-end-line="107" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="giantInfo.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/giantInfo.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4884">
+              <caret line="148" column="73" lean-forward="false" selection-start-line="148" selection-start-column="73" selection-end-line="148" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="origin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/origin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4686">
+              <caret line="142" column="12" lean-forward="false" selection-start-line="142" selection-start-column="12" selection-end-line="146" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="people.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/people.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6270">
+              <caret line="190" column="32" lean-forward="false" selection-start-line="190" selection-start-column="32" selection-end-line="190" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userLove.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/userLove.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="891">
+              <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ToUserLoveAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/action/ToUserLoveAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13893">
+              <caret line="481" column="55" lean-forward="false" selection-start-line="481" selection-start-column="55" selection-end-line="481" selection-end-column="55" />
               <folding>
-                <element signature="method#initLoveCheck#0;class#SentenceEntity#0" expanded="false" />
-                <element signature="method#initTags#0;class#SentenceEntity#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#putSentencesIntoEntities#0;class#ToUserLoveAction#0" expanded="false" />
+                <element signature="method#putSentencesInfoEntities#0;class#ToUserLoveAction#0" expanded="false" />
+                <element signature="method#initRecommendSentences#0;class#ToUserLoveAction#0" expanded="false" />
+                <element signature="method#initHotSentences#0;class#ToUserLoveAction#0" expanded="false" />
+                <element signature="method#initHotOriginals#0;class#ToUserLoveAction#0" expanded="false" />
+                <element signature="method#initNewPublishs#0;class#ToUserLoveAction#0" expanded="false" />
+                <element signature="method#initCategorySentences#0;class#ToUserLoveAction#0" expanded="false" />
+                <element signature="method#initTagSentences#0;class#ToUserLoveAction#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CollectionDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/CollectionDao.java">
+      <file leaf-file-name="PeopleDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/PeopleDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8526">
-              <caret line="276" column="40" lean-forward="false" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="40" />
-              <folding>
-                <element signature="e#10500#10520#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="8217">
+              <caret line="260" column="39" lean-forward="false" selection-start-line="260" selection-start-column="39" selection-end-line="260" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PeopleEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/PeopleEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="792">
+              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -181,6 +175,11 @@
       <find>giantUrl</find>
       <find>collection</find>
       <find>fmt</find>
+      <find>yyy</find>
+      <find>recom</find>
+      <find>tag</find>
+      <find>cate</find>
+      <find>category</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -191,57 +190,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/action/ToSentenceInfoAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pageEntity/CollectionEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/auxiliary/CollectionDWRAuxiliary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dwrPOJO/CollectionCollectPOJO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/CollectService.java" />
-        <option value="$PROJECT_DIR$/web/js/collect.js" />
-        <option value="$PROJECT_DIR$/src/main/java/action/PublishSentenceAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/auxiliary/SentenceAuxiliary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/action/ToIndexAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pageEntity/IndexEntity.java" />
-        <option value="$PROJECT_DIR$/web/js/sentenceInfo.js" />
-        <option value="$PROJECT_DIR$/web/js/index.js" />
-        <option value="$PROJECT_DIR$/src/main/java/dwrPOJO/FollowPOJO.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/PeopleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/PeopleDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/pageEntity/PeopleEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pageEntity/SentenceEntity.java" />
         <option value="$PROJECT_DIR$/web/css/people.css" />
         <option value="$PROJECT_DIR$/src/main/java/pageEntity/OutLookCollectionEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/SentenceInfoService.java" />
-        <option value="$PROJECT_DIR$/web/js/people.js" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/pageEntity/GiantInfoEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/action/ToGiantAction.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/dwr.xml" />
         <option value="$PROJECT_DIR$/src/main/java/dao/GiantDao.java" />
         <option value="$PROJECT_DIR$/web/js/authorInfo.js" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/index.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/edit.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/people.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/publishSentence.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/action/ToGiantSentenceAction.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/giantSentence.jsp" />
         <option value="$PROJECT_DIR$/web/js/authorSentence.js" />
         <option value="$PROJECT_DIR$/web/WEB-INF/View/orient.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/struts.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pageEntity/OriginInfoEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/action/ToOriginAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/OriginDao.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/giantInfo.jsp" />
         <option value="$PROJECT_DIR$/web/js/orient.js" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/origin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/SentenceDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/CollectionDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/action/ToCollectiListAction.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/service/GiantService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/CommentDao.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/View/sentenceInfo.jsp" />
         <option value="$PROJECT_DIR$/web/js/collectList.js" />
+        <option value="$PROJECT_DIR$/web/js/people.js" />
+        <option value="$PROJECT_DIR$/web/js/index.js" />
         <option value="$PROJECT_DIR$/web/WEB-INF/View/collectList.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/edit.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/giantSentence.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/publishSentence.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/login.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/CollectionDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/action/ToSearchAction.java" />
+        <option value="$PROJECT_DIR$/web/js/search.js" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/search.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/auxiliary/UserAuxiliary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pageEntity/SentenceEntity.java" />
+        <option value="$PROJECT_DIR$/web/js/sentenceInfo.js" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/SentenceDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/InformationDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/struts.xml" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/sentenceInfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/action/ToUserLoveAction.java" />
+        <option value="$PROJECT_DIR$/web/js/userLove.js" />
+        <option value="$PROJECT_DIR$/web/css/userLove.css" />
+        <option value="$PROJECT_DIR$/web/css/search.css" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/giantInfo.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/origin.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/people.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/PeopleDao.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/userLove.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/View/index.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
       </list>
     </option>
   </component>
@@ -275,8 +274,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="976" />
-    <option name="height" value="1038" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -293,6 +292,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -332,6 +335,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="auxiliary" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yinyousentence" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YinyouSentence" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yinyousentence" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YinyouSentence" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -363,12 +382,32 @@
               <item name="YinyouSentence" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yinyousentence" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YinyouSentence" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yinyousentence" type="b2602c69:ProjectViewProjectNode" />
               <item name="YinyouSentence" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yinyousentence" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YinyouSentence" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yinyousentence" type="b2602c69:ProjectViewProjectNode" />
+              <item name="YinyouSentence" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yinyousentence" type="b2602c69:ProjectViewProjectNode" />
@@ -393,14 +432,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -408,7 +443,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.34887892" />
     <property name="JPA.DatabaseSchemaImportDialog" value="266817bb-896a-49aa-a812-13adf501e185" />
-    <property name="last_opened_file_path" value="C:/imgs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -650,16 +685,20 @@
       <workItem from="1531269456195" duration="5342000" />
       <workItem from="1531289584855" duration="18653000" />
       <workItem from="1531357796497" duration="36110000" />
-      <workItem from="1531444780658" duration="26836000" />
+      <workItem from="1531444780658" duration="29791000" />
+      <workItem from="1531501412184" duration="2100000" />
+      <workItem from="1531527519506" duration="26004000" />
+      <workItem from="1531613417148" duration="24272000" />
+      <workItem from="1531670222964" duration="1569000" />
+      <workItem from="1531702920477" duration="533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275737000" />
+    <option name="totallyTimeSpent" value="333170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Key Promoter X" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -670,7 +709,7 @@
       <window_info id="UML Diagrams" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49202734" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -682,12 +721,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41343963" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35876992" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2274678" sideWeight="0.5011389" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21351932" sideWeight="0.49886104" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19957082" sideWeight="0.49886104" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19527897" sideWeight="0.5011389" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Graphical Navigator" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -696,6 +735,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="91" y="91" width="1738" height="848" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
@@ -756,365 +796,10 @@
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/bean/Sentence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToPeopleAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/PeopleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#followUser#0;class#PeopleService#0" expanded="false" />
-            <element signature="e#2147#2148#0" expanded="false" />
-            <element signature="e#2179#2180#0" expanded="false" />
-            <element signature="e#2232#2233#0" expanded="false" />
-            <element signature="e#2274#2275#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/PeopleEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2708">
-          <caret line="120" column="70" lean-forward="true" selection-start-line="120" selection-start-column="70" selection-end-line="120" selection-end-column="70" />
-          <folding>
-            <element signature="e#5850#5851#0" expanded="false" />
-            <element signature="e#5879#5880#0" expanded="false" />
-            <element signature="e#5924#5925#0" expanded="false" />
-            <element signature="e#5960#5961#0" expanded="false" />
-            <element signature="e#5997#5998#0" expanded="false" />
-            <element signature="e#6030#6031#0" expanded="false" />
-            <element signature="e#6080#6081#0" expanded="false" />
-            <element signature="e#6124#6125#0" expanded="false" />
-            <element signature="e#6160#6161#0" expanded="false" />
-            <element signature="e#6194#6195#0" expanded="false" />
-            <element signature="e#6246#6247#0" expanded="false" />
-            <element signature="e#6292#6293#0" expanded="false" />
-            <element signature="e#6330#6331#0" expanded="false" />
-            <element signature="e#6366#6367#0" expanded="false" />
-            <element signature="e#6422#6423#0" expanded="false" />
-            <element signature="e#6472#6473#0" expanded="false" />
-            <element signature="e#6514#6515#0" expanded="false" />
-            <element signature="e#6554#6555#0" expanded="false" />
-            <element signature="e#6618#6619#0" expanded="false" />
-            <element signature="e#6676#6677#0" expanded="false" />
-            <element signature="e#6716#6717#0" expanded="false" />
-            <element signature="e#6754#6755#0" expanded="false" />
-            <element signature="e#6814#6815#0" expanded="false" />
-            <element signature="e#6868#6869#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dwrPOJO/CollectionCollectPOJO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/CollectionEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="21" column="59" lean-forward="false" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/auxiliary/CollectionAuxiliary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/people.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="362" column="2" lean-forward="false" selection-start-line="362" selection-start-column="0" selection-end-line="364" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/OutLookCollectionEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#501#502#0" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#724#725#0" expanded="false" />
-            <element signature="e#760#761#0" expanded="false" />
-            <element signature="e#820#821#0" expanded="false" />
-            <element signature="e#870#871#0" expanded="false" />
-            <element signature="e#907#908#0" expanded="false" />
-            <element signature="e#939#940#0" expanded="false" />
-            <element signature="e#990#991#0" expanded="false" />
-            <element signature="e#1032#1033#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dwrPOJO/LoveCollectionPOJO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/SentenceInfoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="307" column="32" lean-forward="false" selection-start-line="307" selection-start-column="32" selection-end-line="307" selection-end-column="32" />
-          <folding>
-            <element signature="method#getLoveSentenceEntities#0;class#SentenceInfoService#0" expanded="false" />
-            <element signature="e#3185#3201#0" expanded="false" />
-            <element signature="method#getPubishSentenceEntities#0;class#SentenceInfoService#0" expanded="false" />
-            <element signature="e#4307#4323#0" expanded="false" />
-            <element signature="method#getOriginalSentenceEntites#0;class#SentenceInfoService#0" expanded="false" />
-            <element signature="e#5422#5438#0" expanded="false" />
-            <element signature="method#getPublishCollectionEntities#0;class#SentenceInfoService#0" expanded="false" />
-            <element signature="e#6571#6596#0" expanded="false" />
-            <element signature="method#getLoveCollectionEntities#0;class#SentenceInfoService#0" expanded="false" />
-            <element signature="e#8117#8142#0" expanded="false" />
-            <element signature="e#11420#11421#0" expanded="false" />
-            <element signature="e#11452#11453#0" expanded="false" />
-            <element signature="e#11505#11506#0" expanded="false" />
-            <element signature="e#11547#11548#0" expanded="false" />
-            <element signature="e#11594#11595#0" expanded="false" />
-            <element signature="e#11630#11631#0" expanded="false" />
-            <element signature="e#11695#11696#0" expanded="false" />
-            <element signature="e#11745#11746#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/people.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="400" column="9" lean-forward="true" selection-start-line="400" selection-start-column="9" selection-end-line="400" selection-end-column="9" />
-          <folding>
-            <element signature="e#5040#5525#0" expanded="false" />
-            <element signature="e#5576#5995#0" expanded="false" />
-            <element signature="e#5619#5990#0" expanded="false" />
-            <element signature="e#6045#6565#0" expanded="false" />
-            <element signature="e#6614#7134#0" expanded="false" />
-            <element signature="e#7450#8200#0" expanded="false" />
-            <element signature="e#8266#9045#0" expanded="false" />
-            <element signature="e#9095#9879#0" expanded="false" />
-            <element signature="e#9930#10692#0" expanded="false" />
-            <element signature="e#10749#11524#0" expanded="false" />
-            <element signature="e#11586#11718#0" expanded="false" />
-            <element signature="e#11773#12397#0" expanded="false" />
-            <element signature="e#12449#12833#0" expanded="false" />
-            <marker date="1531399450071" expanded="true" signature="1582:1588" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="1619:1625" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="1683:1689" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="6273:6279" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="6279:6285" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="6477:6483" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="6483:6489" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="6842:6848" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="6848:6854" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="7046:7052" ph="&amp;nbsp;" />
-            <marker date="1531399450071" expanded="true" signature="7052:7058" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/dwr.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dwrPOJO/LoveSentencePOJO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#410#411#0" expanded="false" />
-            <element signature="e#440#441#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/CollectService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="117" column="72" lean-forward="true" selection-start-line="116" selection-start-column="8" selection-end-line="117" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/LoginCheckService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="19" column="72" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="19" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/PublishSentenceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="32" column="21" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="32" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="43" column="47" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/people.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="46" column="47" lean-forward="false" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="15" column="70" lean-forward="false" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/publishSentence.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="43" column="47" lean-forward="false" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToGiantAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/IndexEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1763">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;method#initRandomSentenceEntity#0;class#IndexEntity#0" expanded="false" />
-            <element signature="docComment;method#initRecommendSentenceEntities#0;class#IndexEntity#0" expanded="false" />
-            <element signature="docComment;method#initHotSentenceEntities#0;class#IndexEntity#0" expanded="false" />
-            <element signature="docComment;method#initHotOriginSentenceEntities#0;class#IndexEntity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToIndexAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/GiantInfoEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#759#771#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToGiantSentenceAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#851#867#0" expanded="false" />
-            <element signature="e#2118#2119#0" expanded="false" />
-            <element signature="e#2148#2149#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#2232#2233#0" expanded="false" />
-            <element signature="e#2283#2284#0" expanded="false" />
-            <element signature="e#2321#2322#0" expanded="false" />
-            <element signature="e#2392#2393#0" expanded="false" />
-            <element signature="e#2446#2447#0" expanded="false" />
-            <element signature="e#2503#2504#0" expanded="false" />
-            <element signature="e#2542#2543#0" expanded="false" />
-            <element signature="e#2620#2621#0" expanded="false" />
-            <element signature="e#2676#2677#0" expanded="false" />
-            <element signature="e#2749#2750#0" expanded="false" />
-            <element signature="e#2787#2788#0" expanded="false" />
-            <element signature="e#2830#2831#0" expanded="false" />
-            <element signature="e#2864#2865#0" expanded="false" />
-            <element signature="e#2923#2924#0" expanded="false" />
-            <element signature="e#2969#2970#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/orient.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="42" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/PeopleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="40" column="35" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/GiantDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="657">
           <caret line="71" column="26" lean-forward="true" selection-start-line="65" selection-start-column="7" selection-end-line="71" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,31 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
           <caret line="63" column="37" lean-forward="false" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2401#2402#0" expanded="false" />
-            <element signature="e#2432#2433#0" expanded="false" />
-            <element signature="e#2480#2481#0" expanded="false" />
-            <element signature="e#2520#2521#0" expanded="false" />
-            <element signature="e#2573#2574#0" expanded="false" />
-            <element signature="e#2612#2613#0" expanded="false" />
-            <element signature="e#2686#2687#0" expanded="false" />
-            <element signature="e#2742#2743#0" expanded="false" />
-            <element signature="e#2785#2786#0" expanded="false" />
-            <element signature="e#2819#2820#0" expanded="false" />
-            <element signature="e#2878#2879#0" expanded="false" />
-            <element signature="e#2924#2925#0" expanded="false" />
-            <element signature="e#2981#2982#0" expanded="false" />
-            <element signature="e#3020#3021#0" expanded="false" />
-            <element signature="e#3098#3099#0" expanded="false" />
-            <element signature="e#3154#3155#0" expanded="false" />
-            <element signature="e#3227#3228#0" expanded="false" />
-            <element signature="e#3265#3266#0" expanded="false" />
-            <element signature="e#3304#3305#0" expanded="false" />
-            <element signature="e#3336#3337#0" expanded="false" />
-            <element signature="e#3389#3390#0" expanded="false" />
-            <element signature="e#3431#3432#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,38 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#708#718#0" expanded="true" />
-            <element signature="e#1450#1451#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
-            <element signature="e#1577#1578#0" expanded="true" />
-            <element signature="e#1614#1615#0" expanded="true" />
-            <element signature="e#1645#1646#0" expanded="true" />
-            <element signature="e#1695#1696#0" expanded="true" />
-            <element signature="e#1735#1736#0" expanded="true" />
-            <element signature="e#1774#1775#0" expanded="true" />
-            <element signature="e#1806#1807#0" expanded="true" />
-            <element signature="e#1859#1860#0" expanded="true" />
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1942#1943#0" expanded="true" />
-            <element signature="e#1975#1976#0" expanded="true" />
-            <element signature="e#2031#2032#0" expanded="true" />
-            <element signature="e#2075#2076#0" expanded="true" />
-            <element signature="e#2119#2120#0" expanded="true" />
-            <element signature="e#2151#2152#0" expanded="true" />
-            <element signature="e#2209#2210#0" expanded="true" />
-            <element signature="e#2251#2252#0" expanded="true" />
-            <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#2320#2321#0" expanded="true" />
-            <element signature="e#2371#2372#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2452#2453#0" expanded="true" />
-            <element signature="e#2484#2485#0" expanded="true" />
-            <element signature="e#2537#2538#0" expanded="true" />
-            <element signature="e#2579#2580#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1193,23 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
           <caret line="41" column="11" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="41" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/giantSentence.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="103" column="32" lean-forward="true" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/giantInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2203">
-          <caret line="142" column="20" lean-forward="false" selection-start-line="142" selection-start-column="20" selection-end-line="145" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1217,186 +828,387 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="604">
           <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/GiantService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4818">
+          <caret line="158" column="22" lean-forward="false" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CommentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="55" column="76" lean-forward="false" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/orient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="31" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/collectList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToCollectiListAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1023">
+          <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="97" column="9" lean-forward="false" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="51" column="62" lean-forward="true" selection-start-line="51" selection-start-column="62" selection-end-line="51" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/publishSentence.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="97" column="9" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="97" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dwrPOJO/CollectionCollectPOJO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/RegisterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/PeopleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/CollectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="115" column="55" lean-forward="false" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/auxiliary/CollectionAuxiliary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/CollectionEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-254">
+          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/OutLookCollectionEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/collectList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4125">
+          <caret line="127" column="289" lean-forward="false" selection-start-line="127" selection-start-column="187" selection-end-line="127" selection-end-column="289" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3224#3236#0" expanded="true" />
-            <element signature="e#3681#3691#0" expanded="true" />
-            <element signature="e#3928#3929#0" expanded="true" />
-            <element signature="e#3965#3966#0" expanded="true" />
-            <element signature="e#4033#4034#0" expanded="true" />
-            <element signature="e#4085#4086#0" expanded="true" />
+            <element signature="n#c:url#4;n#jsp:root#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/publishSentence.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3234">
+          <caret line="98" column="42" lean-forward="true" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/authorSentence.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="921">
-          <caret line="55" column="5" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="55" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="693">
+          <caret line="29" column="7" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="65" column="39" lean-forward="false" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/search.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="409" column="100" lean-forward="false" selection-start-line="409" selection-start-column="100" selection-end-line="409" selection-end-column="100" />
+          <folding>
+            <element signature="n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:choose#0;n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#0;n#c:choose#0;n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#1;n#c:choose#0;n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#2;n#c:choose#0;n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#3;n#c:choose#0;n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#4;n#c:choose#0;n#c:when#0;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#1;n#c:choose#1;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#0;n#c:choose#0;n#c:when#0;n#c:choose#2;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#0;n#c:choose#0;n#c:when#1;n#c:choose#2;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="n#c:when#0;n#c:choose#0;n#c:when#2;n#c:choose#2;n#jsp:root#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/auxiliary/UserAuxiliary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#286#287#0" expanded="false" />
+            <element signature="e#317#318#0" expanded="false" />
+            <element signature="e#367#368#0" expanded="false" />
+            <element signature="e#407#408#0" expanded="false" />
+            <element signature="e#445#446#0" expanded="false" />
+            <element signature="e#477#478#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#570#571#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CollectionDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9252">
+          <caret line="295" column="73" lean-forward="false" selection-start-line="295" selection-start-column="36" selection-end-line="295" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/SentenceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="382" column="46" lean-forward="false" selection-start-line="382" selection-start-column="38" selection-end-line="382" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToSearchAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="46" column="31" lean-forward="false" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="31" />
+          <folding>
+            <element signature="method#initSentenceCollection#0;class#ToSearchAction#0" expanded="false" />
+            <element signature="method#initUser#0;class#ToSearchAction#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="122" column="60" lean-forward="false" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="60" />
-          <folding />
+        <state relative-caret-position="233">
+          <caret line="91" column="57" lean-forward="false" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/SentenceDao.java">
+    <entry file="file://$PROJECT_DIR$/web/js/people.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
-          <folding>
-            <element signature="method#getSentencesByAuthorId#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#isSentenceExist#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#getGiantInfoById#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#getUserInfoById#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#getLoveSentenceUserIdBySentenceId#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#getOriginInfoById#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#getTagByName#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#getSentenceLoveNum#0;class#SentenceDao#0" expanded="false" />
-            <element signature="method#getRandomSentence#0;class#SentenceDao#0" expanded="false" />
-            <element signature="e#9457#9471#0" expanded="true" />
-            <element signature="e#9917#9927#0" expanded="true" />
-            <element signature="e#10381#10391#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-3024">
+          <caret line="161" column="7" lean-forward="true" selection-start-line="145" selection-start-column="4" selection-end-line="161" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/SentenceEntity.java">
+    <entry file="file://$PROJECT_DIR$/web/js/sentenceInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-          <folding>
-            <element signature="method#initLoveCheck#0;class#SentenceEntity#0" expanded="false" />
-            <element signature="method#initTags#0;class#SentenceEntity#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="129">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="36" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToCollectiListAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/InformationDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="42" column="49" lean-forward="false" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="49" />
-          <folding>
-            <element signature="e#2989#2990#0" expanded="false" />
-            <element signature="e#3023#3024#0" expanded="false" />
-            <element signature="e#3082#3083#0" expanded="false" />
-            <element signature="e#3128#3129#0" expanded="false" />
-            <element signature="e#3185#3186#0" expanded="false" />
-            <element signature="e#3226#3227#0" expanded="false" />
-            <element signature="e#3424#3425#0" expanded="false" />
-            <element signature="e#3463#3464#0" expanded="false" />
-            <element signature="e#3541#3542#0" expanded="false" />
-            <element signature="e#3597#3598#0" expanded="false" />
-            <element signature="e#3636#3637#0" expanded="false" />
-            <element signature="e#3671#3672#0" expanded="false" />
-            <element signature="e#3727#3728#0" expanded="false" />
-            <element signature="e#3775#3776#0" expanded="false" />
-            <element signature="e#3822#3823#0" expanded="false" />
-            <element signature="e#3858#3859#0" expanded="false" />
-            <element signature="e#3923#3924#0" expanded="false" />
-            <element signature="e#3973#3974#0" expanded="false" />
-            <element signature="e#4016#4017#0" expanded="false" />
-            <element signature="e#4052#4053#0" expanded="false" />
-            <element signature="e#4112#4113#0" expanded="false" />
-            <element signature="e#4162#4163#0" expanded="false" />
-            <element signature="e#4201#4202#0" expanded="false" />
-            <element signature="e#4233#4234#0" expanded="false" />
-            <element signature="e#4286#4287#0" expanded="false" />
-            <element signature="e#4328#4329#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="157">
+          <caret line="81" column="67" lean-forward="false" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/sentenceInfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="172" column="60" lean-forward="false" selection-start-line="172" selection-start-column="60" selection-end-line="172" selection-end-column="60" />
+        <state relative-caret-position="162">
+          <caret line="389" column="53" lean-forward="false" selection-start-line="389" selection-start-column="53" selection-end-line="389" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CollectionDao.java">
+    <entry file="file://$PROJECT_DIR$/web/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8526">
-          <caret line="276" column="40" lean-forward="false" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="40" />
-          <folding>
-            <element signature="e#10500#10520#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="78">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/GiantService.java">
+    <entry file="file://$PROJECT_DIR$/web/js/userLove.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="158" column="22" lean-forward="false" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6620#6621#0" expanded="true" />
-            <element signature="e#6656#6657#0" expanded="true" />
-            <element signature="e#6721#6722#0" expanded="true" />
-            <element signature="e#6771#6772#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="396">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CommentDao.java">
+    <entry file="file://$PROJECT_DIR$/web/css/userLove.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="55" column="76" lean-forward="false" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="223">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="161" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/orient.js">
+    <entry file="file://$PROJECT_DIR$/web/css/search.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="31" selection-end-column="2" />
-          <folding />
+        <state relative-caret-position="553">
+          <caret line="320" column="1" lean-forward="false" selection-start-line="320" selection-start-column="1" selection-end-line="320" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/collectList.js">
+    <entry file="file://$PROJECT_DIR$/web/css/authorSentence.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state relative-caret-position="162">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="87" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/giantSentence.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3234">
+          <caret line="98" column="9" lean-forward="false" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/origin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="271" column="0" lean-forward="false" selection-start-line="271" selection-start-column="0" selection-end-line="285" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/sentenceInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="242" column="182" lean-forward="false" selection-start-line="242" selection-start-column="182" selection-end-line="242" selection-end-column="182" />
+        <state relative-caret-position="4686">
+          <caret line="142" column="12" lean-forward="false" selection-start-line="142" selection-start-column="12" selection-end-line="146" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/collectList.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/PeopleEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="267" column="48" lean-forward="true" selection-start-line="267" selection-start-column="48" selection-end-line="267" selection-end-column="48" />
+        <state relative-caret-position="792">
+          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/giantInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4884">
+          <caret line="148" column="73" lean-forward="false" selection-start-line="148" selection-start-column="73" selection-end-line="148" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/people.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6270">
+          <caret line="190" column="32" lean-forward="false" selection-start-line="190" selection-start-column="32" selection-end-line="190" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/action/ToUserLoveAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13893">
+          <caret line="481" column="55" lean-forward="false" selection-start-line="481" selection-start-column="55" selection-end-line="481" selection-end-column="55" />
           <folding>
-            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#c:url#4;n#jsp:root#0;n#!!top" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#putSentencesIntoEntities#0;class#ToUserLoveAction#0" expanded="false" />
+            <element signature="method#putSentencesInfoEntities#0;class#ToUserLoveAction#0" expanded="false" />
+            <element signature="method#initRecommendSentences#0;class#ToUserLoveAction#0" expanded="false" />
+            <element signature="method#initHotSentences#0;class#ToUserLoveAction#0" expanded="false" />
+            <element signature="method#initHotOriginals#0;class#ToUserLoveAction#0" expanded="false" />
+            <element signature="method#initNewPublishs#0;class#ToUserLoveAction#0" expanded="false" />
+            <element signature="method#initCategorySentences#0;class#ToUserLoveAction#0" expanded="false" />
+            <element signature="method#initTagSentences#0;class#ToUserLoveAction#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/PeopleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8217">
+          <caret line="260" column="39" lean-forward="false" selection-start-line="260" selection-start-column="39" selection-end-line="260" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/userLove.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/View/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14190">
+          <caret line="430" column="58" lean-forward="false" selection-start-line="430" selection-start-column="58" selection-end-line="430" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pageEntity/SentenceEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="107" column="51" lean-forward="false" selection-start-line="107" selection-start-column="36" selection-end-line="107" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

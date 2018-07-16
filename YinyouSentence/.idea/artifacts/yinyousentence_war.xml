@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="yinyousentence:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/yinyousentence_war</output-path>
+    <root id="archive" name="yinyousentence_war.war">
+      <element id="artifact" artifact-name="yinyousentence:war exploded" />
+      <element id="dir-copy" path="$PROJECT_DIR$" />
+    </root>
+  </artifact>
+</component>

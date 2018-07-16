@@ -1,9 +1,6 @@
 package dao;
 
-import bean.CollectionLove;
-import bean.CollectionSentence;
-import bean.GiantInfo;
-import bean.SentenceCollection;
+import bean.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -293,6 +290,17 @@ public class CollectionDao {
         collectionSentences =  session.createQuery(hql).setParameter(0,collectionId).list();
         tx.commit();
         return collectionSentences;
+    }
+
+    // 根据句子集名称模糊查询句子集
+    public List<SentenceCollection> getSentenceCollectionByCollectionName(String s){
+        Session session = sessionFactory.openSession();
+        String hql = "From SentenceCollection where name like ?";
+        List<SentenceCollection> sentenceCollections = new ArrayList<SentenceCollection>();
+        Transaction tx = session.beginTransaction();
+        sentenceCollections =  session.createQuery(hql).setParameter(0,"%" + s + "%").list();
+        tx.commit();
+        return sentenceCollections;
     }
 
 

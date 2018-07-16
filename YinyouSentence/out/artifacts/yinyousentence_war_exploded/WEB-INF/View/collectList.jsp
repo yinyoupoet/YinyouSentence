@@ -45,13 +45,13 @@
 
                 <div>
                     <c:url value="/index.action" var="indexUrl"/>
-                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
+                    <a href="${indexUrl}" class="navbar-brand"><b class="navbar-title" title="吟游佳句"><img src="/imgs/sys/icon_1.png" class="icon">&nbsp;&nbsp;吟游佳句</b></a>
                 </div>
             </div>
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -70,7 +70,7 @@
                         <c:otherwise>
                             <%--未登录--%>
                             <li id="nav-head-infoIMG">
-                                <a href="/toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
+                                <a href="toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
                             </li>
                         </c:otherwise>
                     </c:choose>

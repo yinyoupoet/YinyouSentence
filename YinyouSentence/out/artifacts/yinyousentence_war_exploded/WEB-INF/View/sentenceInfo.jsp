@@ -51,7 +51,7 @@
 
             <div class="collapse navbar-collapse" id="yinyou-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="/index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="index.action"><i class="fas fa-home"></i>&nbsp;&nbsp;首页</a></li>
                     <li><a href="#">
 							<span class="notifaction-icon">
 								<i class="fas fa-bell"></i>
@@ -70,7 +70,7 @@
                         <c:otherwise>
                             <%--未登录--%>
                             <li id="nav-head-infoIMG">
-                                <a href="/toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
+                                <a href="toLoginOrRegister.action" class="index-a sign-in"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;登录/注册</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -113,7 +113,7 @@
 
                     <p class="sentence-title">~~ 佳句赏析 ~~</p>
                     <div class="sentence-content-div">
-                        <h4 class="sentence-content">${sessionScope.sentenceEntity.sentence.content}</h4>
+                        <h4 class="sentence-content"><c:out value="${sessionScope.sentenceEntity.sentence.content}"/></h4>
                         <c:choose>
                             <c:when test="${sessionScope.sentenceEntity.original}">
                                 <p class="sentence-from">——原创</p>
@@ -221,7 +221,7 @@
                                             </div>
                                             <!-- 评论内容 -->
                                             <div class="comment-item-content" id="comment-content-${commentAuxiliary.sentenceComment.id}">
-                                                    ${commentAuxiliary.sentenceComment.content}
+                                                   <c:out value="${commentAuxiliary.sentenceComment.content}"/>
                                             </div>
 
                                             <c:if test="${! empty commentAuxiliary.replyAuxiliaries}">
@@ -387,7 +387,9 @@
                 <!-- 喜欢该句子的人 -->
                 <div class="love-this-sentence-div">
                     <c:url value="userLove.action" var="sentenceLoveUrl">
-                        <c:param name="sentenceId" value="${sessionScope.sentenceEntity.sentence.id}"/>
+                        <c:param name="type" value="1"/>
+                        <c:param name="typeId" value="0"/>
+                        <c:param name="contentId" value="${sessionScope.sentenceEntity.sentence.id}"/>
                     </c:url>
                     <p class="love-this-sentence-title"><a href="${sentenceLoveUrl}" class="title-a">>> 这些人也喜欢这个句子</a></p>
                     <c:choose>
@@ -401,14 +403,22 @@
                                 <!-- 喜欢的一个用户 -->
                                 <div class="love-client-item">
                                     <c:url value="/toPeople.action" var="peopleUrl">
-                                        <c:param name="id" value="${user.id}"/>
+                                        <c:param name="id" value="${user.userInfo.id}"/>
                                     </c:url>
-                                    <a href="${peopleUrl}"><img src="${user.headPath}"></a>
+                                    <a href="${peopleUrl}"><img src="${user.userInfo.headPath}"></a>
                                     <div class="love-client-right">
-                                        <a href="${peopleUrl}" class="index-a love-client-name ">${user.userName}</a>
-                                        <span class="love-span-intr"><fmt:formatDate value="${user.birth}" pattern="YYYY"/>年 / ${user.gender}</span><br>
-                                        <button class="btn-follow" UID="${user.id}"><i class="fas fa-plus"></i> 关注</button>
-                                        <!-- <p class="fan-client" UID="1">+ 关注</p> -->
+                                        <a href="${peopleUrl}" class="index-a love-client-name ">${user.userInfo.userName}</a>
+                                        <span class="love-span-intr"><fmt:formatDate value="${user.userInfo.birth}" pattern="YYYY"/>年 / ${user.userInfo.gender}</span><br>
+
+                                        <c:choose>
+                                            <c:when test="${user.loveOrNot}">
+                                                <button class="btn-follow" UID="${user.userInfo.id}">已关注</button>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <button class="btn-follow" UID="${user.userInfo.id}"><i class="fas fa-plus"></i> 关注</button>
+                                            </c:otherwise>
+                                        </c:choose>
+
                                     </div>
                                 </div>
                                 <!-- 喜欢的一个用户结束 -->
@@ -499,6 +509,7 @@
 <script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrSentenceInfo.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrLoginCheck.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrCollect.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath()%>/dwr/interface/dwrPeople.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/nav.js"></script>

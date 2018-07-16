@@ -66,7 +66,7 @@ body:before{
 	box-shadow: 0 0 3px #bbb;
 	border-radius: 5px;
 	padding: 20px 20px;
-	background: url('../imgs/6286d2220a1987c843163a6f8db614b7.png');
+	background: url('/imgs/sys/6286d2220a1987c843163a6f8db614b7.png');
 }
 
 .search-user-item-img{
@@ -142,9 +142,9 @@ body:before{
 }
 
 
-.userLove-list{
+/*.userLove-list{
 	display: none;
-}
+}*/
 
 /* .userLove-nobody{
 	display: none;
@@ -152,4 +152,11 @@ body:before{
 
 .userLove-fans{
 	margin-bottom: 50px;
+}
+
+.search-user-motto{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
 }
